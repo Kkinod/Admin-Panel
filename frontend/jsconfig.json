@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "baseIrl": "src"
+    },
+    "include": ["src"]
+}
