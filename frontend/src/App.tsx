@@ -1,12 +1,5 @@
-import { useState } from 'react'
-
 const App = () => {
+  return <div>asds</div>;
+};
 
-	return (
-		<div>
-			
-		</div>
-	)
-}
-
-export default App
+export default App;
