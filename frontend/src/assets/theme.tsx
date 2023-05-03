@@ -22,7 +22,7 @@ export const tokensDark = {
 };
 
 // function that reverses the color palette
-function reverseTokens(tokensDark: {
+export function reverseTokens(tokensDark: {
   [key: string]: { [key: string]: string };
 }) {
   const reversedTokens: { [key: string]: { [key: string]: string } } = {};
