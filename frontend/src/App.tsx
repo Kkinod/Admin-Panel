@@ -15,14 +15,15 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <ThemeProvider theme={theme}></ThemeProvider>
-        <CssBaseline />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
-        </Routes>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );
