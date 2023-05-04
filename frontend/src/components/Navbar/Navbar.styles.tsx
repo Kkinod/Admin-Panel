@@ -23,10 +23,10 @@ export const LeftContainer = styled(Box)({
 
 export const LeftSideWrapper = styled(Box)(({ theme }) => ({
   ...flexBetween,
-  borderRadius: '9px',
+  borderRadius: '20px',
   padding: '0.1rem 1.5rem',
   gap: '3rem',
-  backgroundColor: theme.palette.background.alt,
+  backgroundColor: theme.palette.secondary[200],
 }));
 
 export const RightContainer = styled(Box)({
@@ -34,14 +34,17 @@ export const RightContainer = styled(Box)({
   gap: '1.5rem',
 });
 
-export const DarkModeIcon = styled(DarkModeOutlined)({
+export const DarkModeIcon = styled(DarkModeOutlined)(({ theme }) => ({
   fontSize: '25px',
-});
+  color: theme.palette.primary[100],
+}));
 
-export const LightModeIcon = styled(LightModeOutlined)({
+export const LightModeIcon = styled(LightModeOutlined)(({ theme }) => ({
   fontSize: '25px',
-});
+  color: theme.palette.primary[100],
+}));
 
-export const SettingsIcon = styled(SettingsOutlined)({
+export const SettingsIcon = styled(SettingsOutlined)(({ theme }) => ({
   fontSize: '25px',
-});
+  color: theme.palette.primary[100],
+}));

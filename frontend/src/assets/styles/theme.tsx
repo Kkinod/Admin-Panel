@@ -12,14 +12,12 @@ export const tokensDark = {
     100: '#b7fe2b',
   },
   primary: {
-    // 100: '#f3f4fD',
-    // 200: '#14121e',
-    100: '#14121e',
-    200: '#453f61',
+    100: '#f3f4fD',
+    200: '#14121e',
   },
   secondary: {
     100: '#ffffff',
-    200: '#14121e',
+    200: 'black',
   },
 };
 
@@ -66,7 +64,7 @@ export const themeSettings = (mode: 'dark' | 'light') => {
               main: tokensDark.green[100],
             },
             background: {
-              default: tokensDark.primary[100],
+              default: tokensDark.primary[200],
               alt: tokensDark.primary[200],
             },
           }
@@ -85,7 +83,7 @@ export const themeSettings = (mode: 'dark' | 'light') => {
               main: tokensDark.green[100],
             },
             background: {
-              default: tokensDark.primary[200],
+              default: tokensDark.primary[100],
               alt: tokensDark.primary[100],
             },
           }),
