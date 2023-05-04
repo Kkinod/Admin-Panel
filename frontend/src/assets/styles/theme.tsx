@@ -1,12 +1,3 @@
-// export const theme = {
-//   colors: {
-//     white: '#ffffff',
-//     black: '#14121e',
-//     whiteShade: '#f3f4fD',
-//     greenpPrimary: '#b7fe2b',
-//   },
-// };
-
 export const tokensDark = {
   green: {
     100: '#b7fe2b',
@@ -21,7 +12,6 @@ export const tokensDark = {
   },
 };
 
-// function that reverses the color palette
 export function reverseTokens(tokensDark: {
   [key: string]: { [key: string]: string };
 }) {
@@ -43,7 +33,6 @@ export function reverseTokens(tokensDark: {
 }
 export const tokensLight = reverseTokens(tokensDark);
 
-// mui theme settings
 export const themeSettings = (mode: 'dark' | 'light') => {
   return {
     palette: {
@@ -53,38 +42,38 @@ export const themeSettings = (mode: 'dark' | 'light') => {
             // palette values for light mode
             primary: {
               ...tokensDark.primary,
-              main: tokensDark.primary['100'],
+              main: tokensDark.primary[100],
             },
             secondary: {
               ...tokensDark.secondary,
-              main: tokensDark.secondary['100'],
+              main: tokensDark.secondary[100],
             },
             neutral: {
               ...tokensDark.green,
-              main: tokensDark.green['100'],
+              main: tokensDark.green[100],
             },
             background: {
-              default: tokensDark.primary['200'],
-              alt: tokensDark.primary['200'],
+              default: tokensDark.primary[200],
+              alt: tokensDark.primary[200],
             },
           }
         : {
             // palette values for dark mode
             primary: {
               ...tokensLight.primary,
-              main: tokensDark.primary['200'],
+              main: tokensDark.primary[200],
             },
             secondary: {
               ...tokensLight.secondary,
-              main: tokensDark.primary['200'],
+              main: tokensDark.primary[200],
             },
             neutral: {
               ...tokensLight.grey,
-              main: tokensDark.green['100'],
+              main: tokensDark.green[100],
             },
             background: {
-              default: tokensDark.primary['100'],
-              alt: tokensDark.primary['100'],
+              default: tokensDark.primary[100],
+              alt: tokensDark.primary[100],
             },
           }),
     },
