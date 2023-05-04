@@ -45,7 +45,7 @@ describe('themeSettings function', () => {
     );
     expect(darkModeSettings.palette.neutral.main).toBe(tokensDark.green[100]);
     expect(darkModeSettings.palette.background.default).toBe(
-      tokensDark.primary[100]
+      tokensDark.primary[200]
     );
     expect(darkModeSettings.palette.background.alt).toBe(
       tokensDark.primary[200]
@@ -63,7 +63,7 @@ describe('themeSettings function', () => {
     );
     expect(lightModeSettings.palette.neutral.main).toBe(tokensDark.green[100]);
     expect(lightModeSettings.palette.background.default).toBe(
-      tokensDark.primary[200]
+      tokensDark.primary[100]
     );
     expect(lightModeSettings.palette.background.alt).toBe(
       tokensDark.primary[100]
