@@ -5,7 +5,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-  darkLightMode: 'dark',
+  darkLightMode: 'light',
 };
 
 export const globalSlice = createSlice({
