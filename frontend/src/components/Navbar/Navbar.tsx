@@ -27,25 +27,28 @@ const Navbar = () => {
     <TopAppBar>
       <TopToolbar>
         <LeftContainer>
-          <IconButton onClick={() => console.log('open/close sidebar')}>
+          <IconButton
+            onClick={() => console.log('open/close sidebar')}
+            aria-label="open/close sidebar"
+          >
             <MenuIcon />
           </IconButton>
           <LeftSideWrapper>
             <InputBase placeholder="Search..." />
-            <IconButton>
+            <IconButton aria-label="search">
               <Search />
             </IconButton>
           </LeftSideWrapper>
         </LeftContainer>
         <RightContainer>
-          <IconButton onClick={() => dispatch(setMode())}>
+          <IconButton onClick={() => dispatch(setMode())} aria-label="theme">
             {theme.palette.mode === 'dark' ? (
               <DarkModeIcon />
             ) : (
               <LightModeIcon />
             )}
           </IconButton>
-          <IconButton>
+          <IconButton aria-label="settings">
             <SettingsIcon />
           </IconButton>
         </RightContainer>
