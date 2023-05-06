@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -29,8 +29,47 @@ import {
   TrendingUpOutlined,
 } from '@mui/icons-material';
 
-const Sidebar = () => {
-  return <div>Sidebar</div>;
+interface ISidebar {
+  drawerWidth: string;
+  isNonMobile: boolean;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  //   user: { data: (typeof dataUser)[0] } | {};
+}
+
+const Sidebar = ({
+  drawerWidth,
+  isNonMobile,
+  isSidebarOpen,
+  setIsSidebarOpen,
+}: ISidebar) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const theme = useTheme();
+
+  const active = useMemo(() => pathname.substring(1), [pathname]);
+
+  return (
+    <Box component="nav">
+      {isSidebarOpen && (
+        <Drawer
+          open={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          variant="persistent"
+          anchor="left"
+          sx={{
+            width: drawerWidth,
+            '& .MuiDrawer-paper': {
+              color: theme.palette.background.alt,
+              boxSizing: 'border-box',
+              borderWidth: isNonMobile ? 0 : '2px',
+              width: drawerWidth,
+            },
+          }}
+        />
+      )}
+    </Box>
+  );
 };
 
 export default Sidebar;
