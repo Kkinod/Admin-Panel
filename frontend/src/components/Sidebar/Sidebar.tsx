@@ -1,36 +1,38 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
-  Divider,
   IconButton,
   List,
   ListItem,
-  ListItemButton,
-  ListItemIcon,
   ListItemText,
   Typography,
-  useTheme,
 } from '@mui/material';
-import MuiDrawer from '@mui/material/Drawer';
 import {
   AdminPanelSettingsOutlined,
   CalendarMonthOutlined,
   ChevronLeft,
-  ChevronRightOutlined,
+  Groups2Outlined,
   HomeOutlined,
-  PieChartOutline,
+  PieChartOutlined,
   PointOfSaleOutlined,
   PublicOutlined,
   ReceiptLongOutlined,
   ShoppingCartOutlined,
-  SettingsOutlined,
   TodayOutlined,
   TrendingUpOutlined,
-  Groups2Outlined,
-  PieChartOutlined,
 } from '@mui/icons-material';
-import { FlexBetween } from './Sidebar.styles';
+import {
+  Container,
+  FlexBetween,
+  LogoBox,
+  StyledChevronRightOutlined,
+  StyledDrawer,
+  StyledListItemButton,
+  StyledListItemIcon,
+  StyledTypography,
+  TypographyBox,
+} from './Sidebar.styles';
 
 const navItems = [
   {
@@ -107,9 +109,7 @@ const Sidebar = ({
   const { pathname } = useLocation();
   const [active, setActive] = useState('');
   const navigate = useNavigate();
-  const theme = useTheme();
 
-  //   const active = useMemo(() => pathname.substring(1), [pathname]);
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
@@ -117,79 +117,58 @@ const Sidebar = ({
   return (
     <Box component="nav">
       {isSidebarOpen && (
-        <MuiDrawer
+        <StyledDrawer
           open={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
           variant="persistent"
           anchor="left"
-          sx={{
-            width: drawerWidth,
-            '& .MuiDrawer-paper': {
-              color: theme.palette.background.alt,
-              boxSizing: 'border-box',
-              borderWidth: isNonMobile ? 0 : '2px',
-              width: drawerWidth,
-            },
-          }}
+          isNonMobile={isNonMobile}
+          drawerWidth={drawerWidth}
         >
-          <Box width="100%">
-            <Box m="1.5rem 2rem 2rem 3rem">
-              <FlexBetween color={theme.palette.secondary.main}>
-                <Box display="flex" alignItems="center" gap="0.5rem">
+          <Container>
+            <LogoBox>
+              <FlexBetween>
+                <TypographyBox>
                   <Typography variant="h4" fontWeight="bold">
                     Mr. WOODENFLOOR
                   </Typography>
-                </Box>
+                </TypographyBox>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                     <ChevronLeft />
                   </IconButton>
                 )}
               </FlexBetween>
-            </Box>
+            </LogoBox>
             <List>
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
-                  return (
-                    <Typography key={text} sx={{ m: '2.25rem 0 1rem 3rem' }}>
-                      {text}
-                    </Typography>
-                  );
+                  return <StyledTypography key={text}>{text}</StyledTypography>;
                 }
                 const lcText = text.toLowerCase();
 
                 return (
                   <ListItem key={text} disablePadding>
-                    <ListItemButton
+                    <StyledListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
                         setActive(lcText);
                       }}
-                      sx={{
-                        backgroundColor:
-                          active === lcText ? 'red' : 'transparent',
-                        color: active === lcText ? 'green' : 'blue',
-                      }}
+                      lcText={lcText}
+                      active={active}
                     >
-                      <ListItemIcon
-                        sx={{
-                          ml: '2rem',
-                          color: active === lcText ? 'green' : 'yellow',
-                        }}
-                      >
+                      <StyledListItemIcon lcText={lcText} active={active}>
                         {icon}
-                      </ListItemIcon>
+                      </StyledListItemIcon>
                       <ListItemText primary={text} />
-                      {active === lcText && (
-                        <ChevronRightOutlined sx={{ ml: 'auto' }} />
-                      )}
-                    </ListItemButton>
+                      {active === lcText && <StyledChevronRightOutlined />}
+                    </StyledListItemButton>
                   </ListItem>
                 );
               })}
             </List>
-          </Box>
-        </MuiDrawer>
+          </Container>
+        </StyledDrawer>
       )}
     </Box>
   );
