@@ -115,7 +115,7 @@ const Sidebar = ({
   }, [pathname]);
 
   return (
-    <Box component="nav">
+    <Box component="nav" sx={{ backgroundColor: 'red' }}>
       {isSidebarOpen && (
         <StyledDrawer
           open={isSidebarOpen}
@@ -129,9 +129,7 @@ const Sidebar = ({
             <LogoBox>
               <FlexBetween>
                 <TypographyBox>
-                  <Typography variant="h4" fontWeight="bold">
-                    Mr. WOODENFLOOR
-                  </Typography>
+                  <Typography variant="h4">Mr. WoodenFoor</Typography>
                 </TypographyBox>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
