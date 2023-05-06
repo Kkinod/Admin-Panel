@@ -19,7 +19,12 @@ import {
   TopToolbar,
 } from './Navbar.styles';
 
-const Navbar = () => {
+interface INavbar {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: INavbar) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -28,7 +33,7 @@ const Navbar = () => {
       <TopToolbar>
         <LeftContainer>
           <IconButton
-            onClick={() => console.log('open/close sidebar')}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             aria-label="open/close sidebar"
           >
             <MenuIcon />
