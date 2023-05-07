@@ -7,6 +7,7 @@ import { RootState } from './features/store';
 import Dashboard from './components/Dashboard/Dashboard';
 import { themeSettings } from './assets/styles/theme';
 import Layout from './components/Layout/Layout';
+import { GlobalStyle } from './assets/styles/globalStyle.styles';
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -16,6 +17,7 @@ function App() {
     <div>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+          <GlobalStyle theme={theme} />
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>

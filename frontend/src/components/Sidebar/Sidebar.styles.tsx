@@ -1,14 +1,9 @@
 import { styled } from '@mui/system';
-import {
-  Box,
-  DrawerProps,
-  ListItemButton,
-  ListItemIcon,
-  Typography,
-} from '@mui/material';
+import { Box, DrawerProps, ListItemIcon, Typography } from '@mui/material';
 import { ChevronRightOutlined } from '@mui/icons-material';
 import MuiDrawer from '@mui/material/Drawer';
 import { flexBetween } from '../../assets/styles/mixins.styles';
+import { PathMatch } from 'react-router-dom';
 
 interface IStyledDrawerProps extends DrawerProps {
   isNonMobile: boolean;
@@ -16,8 +11,7 @@ interface IStyledDrawerProps extends DrawerProps {
 }
 
 interface IActiveAndLcText {
-  active: string;
-  lcText: string;
+  active: PathMatch<string> | null;
 }
 
 export const Container = styled(Box)({
@@ -58,27 +52,11 @@ export const StyledTypography = styled(Typography)({
   margin: '2.25rem 0 1rem 3rem',
 });
 
-export const StyledListItemButton = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'lcText',
-})<IActiveAndLcText>(({ theme, active, lcText }) => ({
-  background:
-    active === lcText
-      ? `linear-gradient(90deg, ${theme.palette.neutral.main} -150%, transparent 100%)`
-      : 'transparent',
-  color: active === lcText ? theme.palette.secondary[200] : 'grey',
-  '&:hover': {
-    background:
-      active === lcText
-        ? 'transparent'
-        : `linear-gradient(90deg, ${theme.palette.neutral.main} -150%, transparent 100%)`,
-  },
-}));
-
 export const StyledListItemIcon = styled(ListItemIcon, {
   shouldForwardProp: (prop) => prop !== 'lcText',
-})<IActiveAndLcText>(({ theme, active, lcText }) => ({
+})<IActiveAndLcText>(({ theme, active }) => ({
   marginLeft: '2rem',
-  color: active === lcText ? theme.palette.secondary[200] : 'grey',
+  color: active ? theme.palette.secondary[200] : theme.palette.grey.main,
 }));
 
 export const StyledChevronRightOutlined = styled(ChevronRightOutlined)({
