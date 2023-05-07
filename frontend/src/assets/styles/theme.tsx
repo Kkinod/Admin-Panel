@@ -77,7 +77,7 @@ export const themeSettings = (mode: 'dark' | 'light') => {
               main: tokensDark.secondary[100],
             },
             green: {
-              ...tokensLight.grey,
+              ...tokensLight.green,
               main: tokensDark.green[100],
             },
             grey: {
