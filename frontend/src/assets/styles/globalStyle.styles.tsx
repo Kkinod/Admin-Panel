@@ -6,8 +6,6 @@ interface IGlobalStyleProps {
 }
 
 export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
   *,
   *::after,
   *::before {
