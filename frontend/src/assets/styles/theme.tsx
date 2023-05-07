@@ -1,6 +1,11 @@
+export type MyTheme = ReturnType<typeof themeSettings>;
+
 export const tokensDark = {
   green: {
     100: '#b7fe2b',
+  },
+  grey: {
+    100: '#808080',
   },
   primary: {
     100: '#f3f4fD',
@@ -8,7 +13,7 @@ export const tokensDark = {
   },
   secondary: {
     100: '#ffffff',
-    200: 'black',
+    200: '#000000',
   },
 };
 
@@ -46,11 +51,15 @@ export const themeSettings = (mode: 'dark' | 'light') => {
             },
             secondary: {
               ...tokensDark.secondary,
-              main: tokensDark.secondary[100],
+              main: tokensDark.secondary[200],
             },
-            neutral: {
+            green: {
               ...tokensDark.green,
               main: tokensDark.green[100],
+            },
+            grey: {
+              ...tokensLight.grey,
+              main: tokensDark.grey[100],
             },
             background: {
               default: tokensDark.primary[200],
@@ -65,11 +74,15 @@ export const themeSettings = (mode: 'dark' | 'light') => {
             },
             secondary: {
               ...tokensLight.secondary,
-              main: tokensDark.primary[200],
+              main: tokensDark.secondary[100],
             },
-            neutral: {
+            green: {
               ...tokensLight.grey,
               main: tokensDark.green[100],
+            },
+            grey: {
+              ...tokensLight.grey,
+              main: tokensDark.grey[100],
             },
             background: {
               default: tokensDark.primary[100],

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useMatch } from 'react-router-dom';
 import {
   Box,
   IconButton,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   Typography,
 } from '@mui/material';
@@ -28,7 +29,6 @@ import {
   LogoBox,
   StyledChevronRightOutlined,
   StyledDrawer,
-  StyledListItemButton,
   StyledListItemIcon,
   StyledTypography,
   TypographyBox,
@@ -106,14 +106,6 @@ const Sidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
 }: ISidebar) => {
-  const { pathname } = useLocation();
-  const [active, setActive] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setActive(pathname.substring(1));
-  }, [pathname]);
-
   return (
     <Box component="nav" sx={{ backgroundColor: 'red' }}>
       {isSidebarOpen && (
@@ -143,24 +135,24 @@ const Sidebar = ({
                 if (!icon) {
                   return <StyledTypography key={text}>{text}</StyledTypography>;
                 }
-                const lcText = text.toLowerCase();
+                const lowerCaseText = text.toLowerCase();
+                const isActive = useMatch(`/${lowerCaseText}`);
+                const activeClassName = isActive ? 'active' : 'inactive';
 
                 return (
-                  <ListItem key={text} disablePadding>
-                    <StyledListItemButton
-                      onClick={() => {
-                        navigate(`/${lcText}`);
-                        setActive(lcText);
-                      }}
-                      lcText={lcText}
-                      active={active}
+                  <ListItem disablePadding key={text}>
+                    <NavLink
+                      to={`/${lowerCaseText}`}
+                      className={activeClassName}
                     >
-                      <StyledListItemIcon lcText={lcText} active={active}>
-                        {icon}
-                      </StyledListItemIcon>
-                      <ListItemText primary={text} />
-                      {active === lcText && <StyledChevronRightOutlined />}
-                    </StyledListItemButton>
+                      <ListItemButton>
+                        <StyledListItemIcon active={isActive}>
+                          {icon}
+                        </StyledListItemIcon>
+                        <ListItemText primary={text} />
+                        {isActive && <StyledChevronRightOutlined />}
+                      </ListItemButton>
+                    </NavLink>
                   </ListItem>
                 );
               })}
