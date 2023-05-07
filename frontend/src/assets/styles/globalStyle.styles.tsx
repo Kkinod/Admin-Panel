@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   .inactive {
+    display: inline-block;
     width: 100%;
     color: ${({ theme }) => theme.palette.grey.main};
     background-color: transparent;
@@ -45,10 +46,11 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   .active {
+    display: inline-block;
     width: 100%;
     color: ${({ theme }) => theme.palette.secondary.main};
     background: linear-gradient(90deg, ${(props) =>
-      props.theme.palette.green.main} -150%, transparent 100%);
+      props.theme.palette.green.main} -150%, transparent 100%) ;
     text-decoration: none;
 
     &::before {
