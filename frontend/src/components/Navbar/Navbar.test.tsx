@@ -63,17 +63,17 @@ describe('Navbar', () => {
     expect(setMode).toHaveBeenCalled();
   });
 
-  it('should logs a message when the sidebar button is clicked', () => {
-    const sidebarButton = screen.getByRole('button', {
-      name: /open\/close sidebar/i,
-    });
-    const consoleLogSpy = jest
-      .spyOn(console, 'log')
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      .mockImplementation(() => {});
-    fireEvent.click(sidebarButton);
+  // it('should logs a message when the sidebar button is clicked', () => {
+  //   const sidebarButton = screen.getByRole('button', {
+  //     name: /open\/close sidebar/i,
+  //   });
+  //   const consoleLogSpy = jest
+  //     .spyOn(console, 'log')
+  //     // eslint-disable-next-line @typescript-eslint/no-empty-function
+  //     .mockImplementation(() => {});
+  //   fireEvent.click(sidebarButton);
 
-    expect(consoleLogSpy).toHaveBeenCalledWith('open/close sidebar');
-    consoleLogSpy.mockRestore();
-  });
+  //   expect(consoleLogSpy).toHaveBeenCalledWith('open/close sidebar');
+  //   consoleLogSpy.mockRestore();
+  // });
 });

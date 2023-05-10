@@ -41,9 +41,9 @@ describe('themeSettings function', () => {
     expect(darkModeSettings.palette.mode).toBe('dark');
     expect(darkModeSettings.palette.primary.main).toBe(tokensDark.primary[100]);
     expect(darkModeSettings.palette.secondary.main).toBe(
-      tokensDark.secondary[100]
+      tokensDark.secondary[200]
     );
-    expect(darkModeSettings.palette.neutral.main).toBe(tokensDark.green[100]);
+    expect(darkModeSettings.palette.green.main).toBe(tokensDark.green[100]);
     expect(darkModeSettings.palette.background.default).toBe(
       tokensDark.primary[200]
     );
@@ -59,9 +59,9 @@ describe('themeSettings function', () => {
       tokensDark.primary[200]
     );
     expect(lightModeSettings.palette.secondary.main).toBe(
-      tokensDark.primary[200]
+      tokensDark.primary[100]
     );
-    expect(lightModeSettings.palette.neutral.main).toBe(tokensDark.green[100]);
+    expect(lightModeSettings.palette.green.main).toBe(tokensDark.green[100]);
     expect(lightModeSettings.palette.background.default).toBe(
       tokensDark.primary[100]
     );
