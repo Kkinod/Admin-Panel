@@ -13,15 +13,20 @@ const originalTheme = themeSettings('light');
 const mappedTheme = createTheme({
   ...originalTheme,
   palette: {
-    ...originalTheme.palette,
     primary: {
-      main: (originalTheme.palette.primary as { [key: string]: string })['100'],
+      main:
+        '100' in originalTheme.palette.primary
+          ? originalTheme.palette.primary['100']
+          : originalTheme.palette.primary.main,
     },
     secondary: {
-      main: (originalTheme.palette.secondary as { [key: string]: string })[
-        '200'
-      ],
+      main:
+        '200' in originalTheme.palette.secondary
+          ? originalTheme.palette.secondary['200']
+          : originalTheme.palette.secondary.main,
     },
+    background: originalTheme.palette.background,
+    mode: originalTheme.palette.mode,
   },
 });
 
@@ -30,11 +35,13 @@ jest.mock('../../features/globalSlice', () => ({
 }));
 
 describe('Navbar', () => {
+  const mockFunction = jest.fn();
+
   beforeEach(() => {
     render(
       <Provider store={store}>
         <ThemeProvider theme={mappedTheme}>
-          <Navbar />
+          <Navbar isSidebarOpen={false} setIsSidebarOpen={mockFunction} />
         </ThemeProvider>
       </Provider>
     );
@@ -63,17 +70,12 @@ describe('Navbar', () => {
     expect(setMode).toHaveBeenCalled();
   });
 
-  // it('should logs a message when the sidebar button is clicked', () => {
-  //   const sidebarButton = screen.getByRole('button', {
-  //     name: /open\/close sidebar/i,
-  //   });
-  //   const consoleLogSpy = jest
-  //     .spyOn(console, 'log')
-  //     // eslint-disable-next-line @typescript-eslint/no-empty-function
-  //     .mockImplementation(() => {});
-  //   fireEvent.click(sidebarButton);
+  it('should logs a message when the sidebar button is clicked', () => {
+    const sidebarButton = screen.getByRole('button', {
+      name: /open\/close sidebar/i,
+    });
+    fireEvent.click(sidebarButton);
 
-  //   expect(consoleLogSpy).toHaveBeenCalledWith('open/close sidebar');
-  //   consoleLogSpy.mockRestore();
-  // });
+    expect(mockFunction).toHaveBeenCalled();
+  });
 });
