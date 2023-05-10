@@ -59,7 +59,7 @@ describe('themeSettings function', () => {
       tokensDark.primary[200]
     );
     expect(lightModeSettings.palette.secondary.main).toBe(
-      tokensDark.primary[100]
+      tokensDark.secondary[100]
     );
     expect(lightModeSettings.palette.green.main).toBe(tokensDark.green[100]);
     expect(lightModeSettings.palette.background.default).toBe(
