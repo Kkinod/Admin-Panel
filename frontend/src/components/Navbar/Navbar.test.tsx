@@ -70,7 +70,7 @@ describe('Navbar', () => {
     expect(setMode).toHaveBeenCalled();
   });
 
-  it('should logs a message when the sidebar button is clicked', () => {
+  it('should call the mockFunction when the sidebar button is clicked', () => {
     const sidebarButton = screen.getByRole('button', {
       name: /open\/close sidebar/i,
     });
