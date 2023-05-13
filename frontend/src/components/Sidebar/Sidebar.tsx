@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
+import { ChevronLeft } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import { IconButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import logoTransparent from '../../assets/images/logo_transparent.png';
@@ -21,12 +23,26 @@ export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
 }
 
-export const Sidebar = ({ isSidebarOpen }: IIsSidebarOpen) => {
+interface ISidebar extends IIsSidebarOpen {
+  isNonMobile: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Sidebar = ({
+  isSidebarOpen,
+  isNonMobile,
+  setIsSidebarOpen,
+}: ISidebar) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer variant="permanent" open={isSidebarOpen}>
         <DrawerHeader>
           <StyledImg src={logoTransparent} alt="Logo" />
+          {!isNonMobile && (
+            <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+              <ChevronLeft sx={{ color: 'white' }} />
+            </IconButton>
+          )}
         </DrawerHeader>
         <Divider />
         <List>

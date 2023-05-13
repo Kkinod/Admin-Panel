@@ -11,7 +11,11 @@ const Layout = () => {
 
   return (
     <Container isNonMobile={isNonMobile}>
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        isNonMobile={isNonMobile}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <Box>
         <Navbar
           isSidebarOpen={isSidebarOpen}
