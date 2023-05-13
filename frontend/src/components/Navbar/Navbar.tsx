@@ -8,6 +8,7 @@ import {
 import { AppBar, IconButton, InputBase, useTheme } from '@mui/material';
 import profileImage from '../../assets/images/profile.jpg';
 import { setMode } from '../../features/globalSlice';
+import { IUser } from '../Sidebar/Sidebar';
 import {
   DarkModeIcon,
   LeftContainer,
@@ -19,12 +20,12 @@ import {
   TopToolbar,
 } from './Navbar.styles';
 
-interface INavbar {
+interface INavbar extends IUser {
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: INavbar) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen, user }: INavbar) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 

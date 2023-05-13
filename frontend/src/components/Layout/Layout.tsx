@@ -4,20 +4,27 @@ import { Box, useMediaQuery } from '@mui/material';
 import Navbar from '../Navbar/Navbar';
 import { Container } from './Layout.styles';
 import { Sidebar } from '../Sidebar/Sidebar';
+import { useGetUserByIdQuery } from '../../features/api';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../features/store';
 
 const Layout = () => {
   const isNonMobile = useMediaQuery('(min-width: 601px)');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const userId = useSelector((state: RootState) => state.global.userId);
+  const { data } = useGetUserByIdQuery(userId);
 
   return (
     <Container isNonMobile={isNonMobile}>
       <Sidebar
+        user={data || {}}
         isSidebarOpen={isSidebarOpen}
         isNonMobile={isNonMobile}
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Box>
         <Navbar
+          user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
