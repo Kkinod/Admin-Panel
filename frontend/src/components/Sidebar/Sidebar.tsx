@@ -23,7 +23,21 @@ export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
 }
 
-interface ISidebar extends IIsSidebarOpen {
+export interface IUser {
+  user: {
+    _id: string;
+    name: string;
+    email: string;
+    password: string;
+    city: string;
+    country: string;
+    occupation: string;
+    phoneNumber: string;
+    role: string;
+  }[];
+}
+
+interface ISidebar extends IIsSidebarOpen, IUser {
   isNonMobile: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -32,6 +46,7 @@ export const Sidebar = ({
   isSidebarOpen,
   isNonMobile,
   setIsSidebarOpen,
+  user,
 }: ISidebar) => {
   return (
     <Box sx={{ display: 'flex' }}>
@@ -79,6 +94,8 @@ export const Sidebar = ({
             );
           })}
         </List>
+
+        <Box></Box>
       </Drawer>
     </Box>
   );
