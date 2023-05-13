@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface IInitialState {
   darkLightMode: 'dark' | 'light';
+  userId: string;
 }
 
 const initialState: IInitialState = {
   darkLightMode: 'light',
+  userId: '644d2c50e7b49752f4a34c6b',
 };
 
 export const globalSlice = createSlice({
