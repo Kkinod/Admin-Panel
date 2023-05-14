@@ -28,6 +28,8 @@ const Layout = () => {
   const userId = useSelector((state: RootState) => state.global.userId);
   const { data } = useGetUserByIdQuery(userId);
 
+  console.log(data);
+
   return (
     <Container isNonMobile={isNonMobile}>
       <Sidebar
@@ -35,11 +37,12 @@ const Layout = () => {
         isNonMobile={isNonMobile}
         setIsSidebarOpen={setIsSidebarOpen}
       />
-      <Box>
+      <Box flexGrow={1}>
         <Navbar
           user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          isNonMobile={isNonMobile}
         />
         <Outlet />
       </Box>
