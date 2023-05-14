@@ -8,7 +8,7 @@ import {
 import { AppBar, IconButton, InputBase, useTheme } from '@mui/material';
 import profileImage from '../../assets/images/profile.jpg';
 import { setMode } from '../../features/globalSlice';
-import { IUser } from '../Sidebar/Sidebar';
+import { IUser } from '../Layout/Layout';
 import {
   DarkModeIcon,
   LeftContainer,
