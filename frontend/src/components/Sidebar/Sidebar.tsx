@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
-import { ChevronLeft } from '@mui/icons-material';
+import { ChevronLeft, SettingsOutlined } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { IconButton } from '@mui/material';
+import { IconButton, Theme, Typography, useTheme } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import logoTransparent from '../../assets/images/logo_transparent.png';
@@ -17,27 +17,24 @@ import {
   StyledListItemIcon,
   StyledListItemText,
   StyledTypography,
+  SettingsBox,
+  UserInformationAvatar,
+  SettingsTextWrapper,
+  SettingsContainer,
+  SettingsText,
+  UserOccupationText,
+  SettingsIcon,
+  SidebarContainer,
+  StyledChevronLeftIcon,
 } from './Sidebar.styles';
+
+import profileImage from '../../assets/images/profile.jpg';
 
 export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
 }
 
-export interface IUser {
-  user: {
-    _id: string;
-    name: string;
-    email: string;
-    password: string;
-    city: string;
-    country: string;
-    occupation: string;
-    phoneNumber: string;
-    role: string;
-  }[];
-}
-
-interface ISidebar extends IIsSidebarOpen, IUser {
+interface ISidebar extends IIsSidebarOpen {
   isNonMobile: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -46,16 +43,15 @@ export const Sidebar = ({
   isSidebarOpen,
   isNonMobile,
   setIsSidebarOpen,
-  user,
 }: ISidebar) => {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <SidebarContainer>
       <Drawer variant="permanent" open={isSidebarOpen}>
         <DrawerHeader>
           <StyledImg src={logoTransparent} alt="Logo" />
           {!isNonMobile && (
             <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-              <ChevronLeft sx={{ color: 'white' }} />
+              <StyledChevronLeftIcon />
             </IconButton>
           )}
         </DrawerHeader>
@@ -94,9 +90,16 @@ export const Sidebar = ({
             );
           })}
         </List>
-
-        <Box></Box>
+        <SettingsContainer>
+          <Divider />
+          <SettingsBox>
+            <SettingsIcon />
+            <SettingsTextWrapper>
+              <SettingsText>Settings</SettingsText>
+            </SettingsTextWrapper>
+          </SettingsBox>
+        </SettingsContainer>
       </Drawer>
-    </Box>
+    </SidebarContainer>
   );
 };

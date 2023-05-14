@@ -1,14 +1,19 @@
 import { PathMatch } from 'react-router-dom';
 import MuiDrawer from '@mui/material/Drawer';
 import {
+  Box,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Typography,
 } from '@mui/material';
-import { ChevronRightOutlined } from '@mui/icons-material';
-import { styled, Theme, CSSObject } from '@mui/material/styles';
+import {
+  ChevronLeft,
+  ChevronRightOutlined,
+  SettingsOutlined,
+} from '@mui/icons-material';
 import { IIsSidebarOpen } from './Sidebar';
+import { styled, Theme, CSSObject } from '@mui/material/styles';
 
 const drawerWidth = 240;
 
@@ -36,6 +41,10 @@ export const closedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
+});
+
+export const SidebarContainer = styled(Box)({
+  display: 'flex',
 });
 
 export const Drawer = styled(MuiDrawer, {
@@ -110,4 +119,47 @@ export const StyledListItemIcon = styled(ListItemIcon, {
   minWidth: 0,
   marginRight: isSidebarOpen ? '3rem' : 'auto',
   color: active ? theme.palette.secondary.main : theme.palette.grey[100],
+}));
+
+export const SettingsContainer = styled(Box)({
+  marginTop: 'auto',
+});
+
+export const SettingsIcon = styled(SettingsOutlined)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontSize: '2rem',
+}));
+
+export const SettingsBox = styled(Box)({
+  display: 'flex',
+  margin: '1.5rem',
+  textTransform: 'none',
+  gap: '1rem',
+});
+
+export const SettingsTextWrapper = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'left',
+});
+
+export const SettingsText = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontSize: '0.9rem !important',
+  fontWeight: 'bold !important',
+}));
+
+export const UserOccupationText = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontSize: '0.8rem !important',
+}));
+
+export const UserInformationAvatar = styled('img')({
+  width: '2.5rem',
+  height: '2.5rem',
+  borderRadius: '50%',
+});
+
+export const StyledChevronLeftIcon = styled(ChevronLeft)(({ theme }) => ({
+  color: theme.palette.secondary.main,
 }));

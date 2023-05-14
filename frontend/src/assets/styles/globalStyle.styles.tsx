@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { MyTheme } from './theme';
 
-interface IGlobalStyleProps {
+export interface IGlobalStyleProps {
   theme: MyTheme;
 }
 
