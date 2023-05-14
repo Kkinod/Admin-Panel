@@ -28,8 +28,6 @@ const Layout = () => {
   const userId = useSelector((state: RootState) => state.global.userId);
   const { data } = useGetUserByIdQuery(userId);
 
-  console.log(data);
-
   return (
     <Container isNonMobile={isNonMobile}>
       <Sidebar
