@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
-import { ChevronLeft, SettingsOutlined } from '@mui/icons-material';
-import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { IconButton, Theme, Typography, useTheme } from '@mui/material';
+import { IconButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import logoTransparent from '../../assets/images/logo_transparent.png';
@@ -18,17 +16,13 @@ import {
   StyledListItemText,
   StyledTypography,
   SettingsBox,
-  UserInformationAvatar,
   SettingsTextWrapper,
   SettingsContainer,
   SettingsText,
-  UserOccupationText,
   SettingsIcon,
   SidebarContainer,
   StyledChevronLeftIcon,
 } from './Sidebar.styles';
-
-import profileImage from '../../assets/images/profile.jpg';
 
 export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
