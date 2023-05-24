@@ -6,7 +6,7 @@ import {
   SettingsOutlined,
 } from '@mui/icons-material';
 import { styled } from '@mui/system';
-import { flexBetween } from '../../assets/styles/mixins.styles';
+import { flexBetween } from '../../../assets/styles/mixins.styles';
 
 export const TopAppBar = styled(AppBar)({
   position: 'static',

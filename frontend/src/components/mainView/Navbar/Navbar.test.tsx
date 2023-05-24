@@ -3,10 +3,10 @@ import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ThemeProvider, createTheme } from '@mui/material';
-import { setMode } from '../../features/globalSlice';
-import { store } from '../../features/store';
+import { setMode } from '../../../features/globalSlice';
+import { store } from '../../../features/store';
 import Navbar from './Navbar';
-import { themeSettings } from '../../assets/styles/theme';
+import { themeSettings } from '../../../assets/styles/theme';
 
 const originalTheme = themeSettings('light');
 

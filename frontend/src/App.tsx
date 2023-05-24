@@ -4,9 +4,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { RootState } from './features/store';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/mainView/Dashboard/Dashboard';
 import { themeSettings } from './assets/styles/theme';
-import Layout from './components/Layout/Layout';
+import Layout from './components/mainView/Layout/Layout';
 import { GlobalStyle } from './assets/styles/globalStyle.styles';
 
 function App() {
