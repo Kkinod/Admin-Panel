@@ -4,7 +4,7 @@ import Divider from '@mui/material/Divider';
 import { IconButton } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import logoTransparent from '../../assets/images/logo_transparent.png';
+import logoTransparent from '../../../assets/images/logo_transparent.png';
 import { navItems } from './navItems';
 import {
   Drawer,

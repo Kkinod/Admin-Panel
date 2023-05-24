@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Menu as MenuIcon, Search } from '@mui/icons-material';
 import { IconButton, InputBase, Menu, MenuItem, useTheme } from '@mui/material';
-import profileImage from '../../assets/images/profile.jpg';
+import profileImage from '../../../assets/images/profile.jpg';
 import { setMode } from '../../../features/globalSlice';
 import useToggleMenuWithAnchor from '../../../hooks/useToggleMenuWithAnchor';
 import { IUser } from '../Layout/Layout';
