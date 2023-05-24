@@ -4,9 +4,9 @@ import { Box, useMediaQuery } from '@mui/material';
 import Navbar from '../Navbar/Navbar';
 import { Container } from './Layout.styles';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { useGetUserByIdQuery } from '../../features/api';
+import { useGetUserByIdQuery } from '../../../features/api';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../features/store';
+import { RootState } from '../../../features/store';
 
 export interface IUser {
   user: {
