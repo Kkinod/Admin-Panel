@@ -72,15 +72,14 @@ export const Drawer = styled(MuiDrawer, {
 
 export const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'center',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
 
 export const StyledImg = styled('img')({
-  width: '100%',
-  height: '100%',
+  width: '70%',
   color: 'blue',
 });
 
@@ -88,7 +87,7 @@ export const StyledTypography = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'isSidebarOpen',
 })<IIsSidebarOpen>(({ theme, isSidebarOpen }) => ({
   margin: '2.25rem 0 1rem 3rem',
-  opacity: isSidebarOpen ? 1 : 0,
+  display: isSidebarOpen ? 'block' : 'none',
   color: theme.palette.secondary.main,
 }));
 
@@ -132,6 +131,7 @@ export const SettingsIcon = styled(SettingsOutlined)(({ theme }) => ({
 
 export const SettingsBox = styled(Box)({
   display: 'flex',
+  justifyContent: 'center',
   margin: '1.5rem',
   textTransform: 'none',
   gap: '1rem',
