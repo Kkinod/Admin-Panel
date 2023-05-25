@@ -14,9 +14,9 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
     box-sizing: inherit;
   }
 
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 10px;
-  }
+  } */
 
   ::-webkit-scrollbar-thumb {
     border-radius: 100px;

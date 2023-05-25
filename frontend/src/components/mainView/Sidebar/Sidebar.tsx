@@ -88,9 +88,11 @@ export const Sidebar = ({
           <Divider />
           <SettingsBox>
             <SettingsIcon />
-            <SettingsTextWrapper>
-              <SettingsText>Settings</SettingsText>
-            </SettingsTextWrapper>
+            {isSidebarOpen && (
+              <SettingsTextWrapper>
+                <SettingsText>Settings</SettingsText>
+              </SettingsTextWrapper>
+            )}
           </SettingsBox>
         </SettingsContainer>
       </Drawer>
