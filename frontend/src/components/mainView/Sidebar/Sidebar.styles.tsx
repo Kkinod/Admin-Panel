@@ -129,13 +129,15 @@ export const SettingsIcon = styled(SettingsOutlined)(({ theme }) => ({
   fontSize: '2rem',
 }));
 
-export const SettingsBox = styled(Box)({
+export const SettingsBox = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'isSidebarOpen',
+})<IIsSidebarOpen>(({ isSidebarOpen }) => ({
   display: 'flex',
-  justifyContent: 'center',
-  margin: '1.5rem',
+  justifyContent: isSidebarOpen ? 'flex-start' : 'center',
+  margin: '1.25rem',
   textTransform: 'none',
   gap: '1rem',
-});
+}));
 
 export const SettingsTextWrapper = styled(Box)({
   display: 'flex',
