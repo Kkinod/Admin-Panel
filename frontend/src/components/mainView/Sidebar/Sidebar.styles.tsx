@@ -134,7 +134,7 @@ export const SettingsBox = styled(Box, {
 })<IIsSidebarOpen>(({ isSidebarOpen }) => ({
   display: 'flex',
   justifyContent: isSidebarOpen ? 'flex-start' : 'center',
-  margin: '1.25rem',
+  margin: '1.5rem',
   textTransform: 'none',
   gap: '1rem',
 }));

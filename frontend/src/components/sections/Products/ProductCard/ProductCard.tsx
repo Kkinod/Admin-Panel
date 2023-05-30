@@ -10,6 +10,12 @@ import {
   useTheme,
 } from '@mui/material';
 import { IProduct } from '../Products';
+import {
+  CardStyled,
+  CollapseStyled,
+  TypographyCategoryStyled,
+  TypographyPriceStyled,
+} from './ProductCard.styles';
 
 const ProductCard = ({
   _id,
@@ -25,29 +31,16 @@ const ProductCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card
-      sx={{
-        backgroundImage: 'none',
-        backgroundColor: theme.palette.secondary.main,
-        borderRadius: '0.55rem',
-      }}
-    >
+    <CardStyled>
       <CardContent>
-        <Typography
-          sx={{ fontSize: 14 }}
-          color={theme.palette.secondary.dark}
-          gutterBottom
-        >
+        <TypographyCategoryStyled gutterBottom>
           {category}
-        </Typography>
-        <Typography variant="h5" component="div">
-          {name}
-        </Typography>
-        <Typography sx={{ mb: '1.5rem' }} color={theme.palette.secondary.main}>
+        </TypographyCategoryStyled>
+        <Typography variant="h5">{name}</Typography>
+        <TypographyPriceStyled>
           ${Number(price).toFixed(2)}
-        </Typography>
+        </TypographyPriceStyled>
         <Rating value={rating} readOnly />
-
         <Typography variant="body2">{description}</Typography>
       </CardContent>
       <CardActions>
@@ -59,14 +52,7 @@ const ProductCard = ({
           See More
         </Button>
       </CardActions>
-      <Collapse
-        in={isExpanded}
-        timeout="auto"
-        unmountOnExit
-        sx={{
-          color: theme.palette.grey[100],
-        }}
-      >
+      <CollapseStyled in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography>id: {_id}</Typography>
           <Typography>Supply Left: {supply}</Typography>
@@ -77,8 +63,8 @@ const ProductCard = ({
             Yearly Units Sold This Year: {stat[0].yearlyTotalSoldUnits}
           </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+      </CollapseStyled>
+    </CardStyled>
   );
 };
 
