@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import {
-  Card,
   CardActions,
   CardContent,
-  Collapse,
   Button,
   Typography,
   Rating,
-  useTheme,
 } from '@mui/material';
 import { IProduct } from '../Products';
 import {
@@ -27,7 +24,6 @@ const ProductCard = ({
   supply,
   stat,
 }: IProduct) => {
-  const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
