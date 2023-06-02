@@ -1,9 +1,13 @@
 import React from 'react';
-import { Box, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 import { useGetProductsQuery } from '../../../features/api';
 import ProductCard from './ProductCard/ProductCard';
-import { TypographyStyled } from './Products.styles';
+import {
+  BoxStyled,
+  ProductContainer,
+  TypographyStyled,
+} from './Products.styles';
 
 interface IStatItem {
   month: string;
@@ -41,26 +45,15 @@ interface IUseGetProductsQueryResult {
 const Products = () => {
   const { data, isLoading } =
     useGetProductsQuery<IUseGetProductsQueryResult>(null);
-  console.log('data', data);
 
   const isNonMobile = useMediaQuery('(min-width: 1000px)');
 
   return (
-    <Box m="1.5rem 2.5rem">
+    <ProductContainer>
       <Header title="PRODUCTS" subtitle="See your list of products." />
       {!isLoading ? (
         data && data.length > 0 ? (
-          <Box
-            mt="20px"
-            display="grid"
-            gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-            justifyContent="space-between"
-            rowGap="20px"
-            columnGap="1.33%"
-            sx={{
-              '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' },
-            }}
-          >
+          <BoxStyled isNonMobile={isNonMobile}>
             {data?.map(
               ({
                 _id,
@@ -85,14 +78,14 @@ const Products = () => {
                 />
               )
             )}
-          </Box>
+          </BoxStyled>
         ) : (
           <TypographyStyled variant="h4">No product found</TypographyStyled>
         )
       ) : (
         <>Loading...</>
       )}
-    </Box>
+    </ProductContainer>
   );
 };
 
