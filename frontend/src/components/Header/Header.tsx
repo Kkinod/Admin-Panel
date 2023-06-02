@@ -1,5 +1,9 @@
 import React from 'react';
-import { Typography, Box, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
+import {
+  TypographyTitleStyled,
+  TypographySubtitleStyled,
+} from './Header.styles';
 
 interface IHeader {
   title: string;
@@ -7,21 +11,12 @@ interface IHeader {
 }
 
 const Header = ({ title, subtitle }: IHeader) => {
-  const theme = useTheme();
-
   return (
     <Box>
-      <Typography
-        variant="h2"
-        color={theme.palette.primary.main}
-        fontWeight="bold"
-        sx={{ mb: '5px' }}
-      >
-        {title}
-      </Typography>
-      <Typography variant="h5" color={theme.palette.primary.main}>
+      <TypographyTitleStyled variant="h2">{title}</TypographyTitleStyled>
+      <TypographySubtitleStyled variant="h5">
         {subtitle}
-      </Typography>
+      </TypographySubtitleStyled>
     </Box>
   );
 };

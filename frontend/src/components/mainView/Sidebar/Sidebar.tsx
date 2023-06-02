@@ -28,8 +28,11 @@ export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
 }
 
-interface ISidebar extends IIsSidebarOpen {
+export interface IIsNonMobile {
   isNonMobile: boolean;
+}
+
+interface ISidebar extends IIsSidebarOpen, IIsNonMobile {
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
