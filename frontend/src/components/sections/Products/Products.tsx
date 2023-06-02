@@ -3,6 +3,7 @@ import { Box, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 import { useGetProductsQuery } from '../../../features/api';
 import ProductCard from './ProductCard/ProductCard';
+import { TypographyStyled } from './Products.styles';
 
 interface IStatItem {
   month: string;
@@ -47,43 +48,47 @@ const Products = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="PRODUCTS" subtitle="See your list of products." />
-      {data || !isLoading ? (
-        <Box
-          mt="20px"
-          display="grid"
-          gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-          justifyContent="space-between"
-          rowGap="20px"
-          columnGap="1.33%"
-          sx={{
-            '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' },
-          }}
-        >
-          {data?.map(
-            ({
-              _id,
-              name,
-              description,
-              price,
-              rating,
-              category,
-              supply,
-              stat,
-            }) => (
-              <ProductCard
-                key={_id}
-                _id={_id}
-                name={name}
-                description={description}
-                price={price}
-                rating={rating}
-                category={category}
-                supply={supply}
-                stat={stat}
-              />
-            )
-          )}
-        </Box>
+      {!isLoading ? (
+        data && data.length > 0 ? (
+          <Box
+            mt="20px"
+            display="grid"
+            gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+            justifyContent="space-between"
+            rowGap="20px"
+            columnGap="1.33%"
+            sx={{
+              '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' },
+            }}
+          >
+            {data?.map(
+              ({
+                _id,
+                name,
+                description,
+                price,
+                rating,
+                category,
+                supply,
+                stat,
+              }) => (
+                <ProductCard
+                  key={_id}
+                  _id={_id}
+                  name={name}
+                  description={description}
+                  price={price}
+                  rating={rating}
+                  category={category}
+                  supply={supply}
+                  stat={stat}
+                />
+              )
+            )}
+          </Box>
+        ) : (
+          <TypographyStyled variant="h4">No product found</TypographyStyled>
+        )
       ) : (
         <>Loading...</>
       )}

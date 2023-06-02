@@ -14,9 +14,14 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
     box-sizing: inherit;
   }
 
-  /* ::-webkit-scrollbar {
-    width: 10px;
-  } */
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: ${({ theme }) => theme.palette.primary.main};
+  }
+
+  ::-webkit-scrollbar-thumb {
+  background-color: ${({ theme }) => theme.palette.secondary.main};
+  }
 
   ::-webkit-scrollbar-thumb {
     border-radius: 100px;
