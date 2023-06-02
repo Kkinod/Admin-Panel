@@ -3,3 +3,9 @@ export const flexBetween = {
   justifyContent: 'space-between',
   alignItems: 'center',
 };
+
+export const flexCenter = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
