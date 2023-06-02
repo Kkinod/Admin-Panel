@@ -42,18 +42,22 @@ interface IUseGetProductsQueryResult {
   isLoading: boolean;
 }
 
+export interface IIsNonMobileBig {
+  isNonMobileBig: boolean;
+}
+
 const Products = () => {
   const { data, isLoading } =
     useGetProductsQuery<IUseGetProductsQueryResult>(null);
 
-  const isNonMobile = useMediaQuery('(min-width: 1000px)');
+  const isNonMobileBig = useMediaQuery('(min-width: 1000px)');
 
   return (
     <ProductContainer>
       <Header title="PRODUCTS" subtitle="See your list of products." />
       {!isLoading ? (
         data && data.length > 0 ? (
-          <BoxStyled isNonMobile={isNonMobile}>
+          <BoxStyled isNonMobileBig={isNonMobileBig}>
             {data?.map(
               ({
                 _id,
