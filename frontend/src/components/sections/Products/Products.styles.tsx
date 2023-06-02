@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import { IIsNonMobile } from '../../mainView/Sidebar/Sidebar';
 import { flexCenter } from '../../../assets/styles/mixins.styles';
 import { styled } from '@mui/material/styles';
+import { IIsNonMobileBig } from './Products';
 
 export const ProductContainer = styled(Box)({
   margin: '1.5rem 2.5rem',
@@ -13,8 +13,8 @@ export const TypographyStyled = styled(Typography)({
 });
 
 export const BoxStyled = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'isSidebarOpen',
-})<IIsNonMobile>(({ isNonMobile }) => ({
+  shouldForwardProp: (prop) => prop !== 'isNonMobileBig',
+})<IIsNonMobileBig>(({ isNonMobileBig }) => ({
   display: 'grid',
   justifyContent: 'space-between',
   gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
@@ -23,6 +23,6 @@ export const BoxStyled = styled(Box, {
   rowGap: '20px',
 
   '& > div': {
-    gridColumn: isNonMobile ? 'unset' : 'span 4',
+    gridColumn: isNonMobileBig ? 'unset' : 'span 4',
   },
 }));

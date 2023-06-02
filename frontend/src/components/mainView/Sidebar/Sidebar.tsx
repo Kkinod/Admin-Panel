@@ -22,6 +22,7 @@ import {
   SettingsIcon,
   SidebarContainer,
   StyledChevronLeftIcon,
+  BoxStyled,
 } from './Sidebar.styles';
 
 export interface IIsSidebarOpen {
@@ -44,9 +45,12 @@ export const Sidebar = ({
   return (
     <SidebarContainer>
       <Drawer variant="permanent" open={isSidebarOpen}>
-        <DrawerHeader>
-          <StyledImg src={logoTransparent} alt="Logo" />
-          {!isNonMobile && (
+        <DrawerHeader isNonMobile={isNonMobile}>
+          <BoxStyled>
+            <StyledImg src={logoTransparent} alt="Logo" />
+          </BoxStyled>
+
+          {!isNonMobile && isSidebarOpen && (
             <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
               <StyledChevronLeftIcon />
             </IconButton>

@@ -24,12 +24,12 @@ export interface IUser {
 
 const Layout = () => {
   const isNonMobile = useMediaQuery('(min-width: 601px)');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(isNonMobile);
   const userId = useSelector((state: RootState) => state.global.userId);
   const { data } = useGetUserByIdQuery(userId);
 
   return (
-    <Container isNonMobile={isNonMobile}>
+    <Container isSidebarOpen={isSidebarOpen} isNonMobile={isNonMobile}>
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         isNonMobile={isNonMobile}
