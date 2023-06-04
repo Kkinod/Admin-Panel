@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { setMode } from '../../../features/globalSlice';
-import { store } from '../../../features/store';
 import Navbar from './Navbar';
 import { themeSettings } from '../../../assets/styles/theme';
 
@@ -30,18 +30,44 @@ const mappedTheme = createTheme({
   },
 });
 
-jest.mock('../../features/globalSlice', () => ({
+jest.mock('../../../features/globalSlice', () => ({
   setMode: jest.fn(() => ({ type: 'SET_MODE' })),
 }));
 
 describe('Navbar', () => {
   const mockFunction = jest.fn();
+  const user = {
+    _id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    password: 'password',
+    city: 'City',
+    country: 'Country',
+    occupation: 'Occupation',
+    phoneNumber: '123456789',
+    role: 'user',
+  };
 
   beforeEach(() => {
+    const initialState = {
+      global: {
+        darkLightMode: 'light',
+        userId: '644d2c50e7b49752f4a34c6b',
+      },
+    };
+
+    const mockStore = configureMockStore();
+    const store = mockStore(initialState);
+
     render(
       <Provider store={store}>
         <ThemeProvider theme={mappedTheme}>
-          <Navbar isSidebarOpen={false} setIsSidebarOpen={mockFunction} />
+          <Navbar
+            isSidebarOpen={false}
+            setIsSidebarOpen={mockFunction}
+            isNonMobile={false}
+            user={user}
+          />
         </ThemeProvider>
       </Provider>
     );

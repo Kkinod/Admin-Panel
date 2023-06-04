@@ -12,7 +12,7 @@ import {
   ChevronRightOutlined,
   SettingsOutlined,
 } from '@mui/icons-material';
-import { IIsNonMobile, IIsSidebarOpen } from './Sidebar';
+import { IIsSidebarOpen } from './Sidebar';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 import { flexCenter } from '../../../assets/styles/mixins.styles';
 
@@ -71,10 +71,7 @@ export const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export const DrawerHeader = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isNonMobile',
-})<IIsNonMobile>(({ isNonMobile, theme }) => ({
-  marginTop: isNonMobile ? '0' : '1.5rem',
+export const DrawerHeader = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
   ...flexCenter,
