@@ -6,7 +6,7 @@ export const api = createApi({
     baseUrl: config.baseUrl,
   }),
   reducerPath: 'adminApi',
-  tagTypes: ['User', 'Products'],
+  tagTypes: ['User', 'Products', 'Transactions'],
   endpoints: (build) => ({
     getUserById: build.query({
       query: (id) => `general/user/${id}`,
@@ -16,7 +16,19 @@ export const api = createApi({
       query: () => 'client/products',
       providesTags: ['Products'],
     }),
+    getTransactions: build.query({
+      query: ({ page, pageSize, sort, search }) => ({
+        url: 'client/transactions',
+        method: 'GET',
+        params: { page, pageSize, sort, search },
+      }),
+      providesTags: ['Transactions'],
+    }),
   }),
 });
 
-export const { useGetUserByIdQuery, useGetProductsQuery } = api;
+export const {
+  useGetUserByIdQuery,
+  useGetProductsQuery,
+  useGetTransactionsQuery,
+} = api;
