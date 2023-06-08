@@ -13,4 +13,5 @@ export const Container = styled(Box, {
   display: isSidebarOpen && !isNonMobile ? 'block' : 'flex',
   width: '100%',
   height: '100%',
+  overflowY: 'hidden',
 }));

@@ -9,6 +9,7 @@ import { themeSettings } from './assets/styles/theme';
 import Layout from './components/mainView/Layout/Layout';
 import { GlobalStyle } from './assets/styles/globalStyle.styles';
 import Products from './components/sections/Products/Products';
+import Transactions from './components/sections/Transactions/Transactions';
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/transactions" element={<Transactions />} />
             </Route>
           </Routes>
         </ThemeProvider>
