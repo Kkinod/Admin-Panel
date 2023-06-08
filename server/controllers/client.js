@@ -26,7 +26,7 @@ export const getProducts = async (req, res) => {
 }
 
 // Added support for server side pagination
-export const getTransaction = async (req, res) => {
+export const getTransactions = async (req, res) => {
 	try {
 		const { page = 1, pageSize = 20, sort = null, search = '' } = req.query
 
@@ -47,7 +47,7 @@ export const getTransaction = async (req, res) => {
 			.skip(page * pageSize)
 			.limit(pageSize)
 
-		const total = await Transaction.countDocuments({
+		const total = await Transaction.estimatedDocumentCount({
 			name: { $regex: search, $options: 'i' },
 		})
 

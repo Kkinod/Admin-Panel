@@ -45,7 +45,7 @@ export const Sidebar = ({
   return (
     <SidebarContainer>
       <Drawer variant="permanent" open={isSidebarOpen}>
-        <DrawerHeader>
+        <DrawerHeader isNonMobile={isNonMobile}>
           <BoxStyled>
             <StyledImg src={logoTransparent} alt="Logo" />
           </BoxStyled>
