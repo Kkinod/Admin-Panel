@@ -61,10 +61,10 @@ export const getTransactions = async (req, res) => {
 	}
 }
 
-export const getCustomers = async (req, res) => {
+export const getUsers = async (req, res) => {
 	try {
-		const customers = await User.find({ role: 'user' }).select('-password')
-		res.status(200).json(customers)
+		const users = await User.find({ role: 'user' }).select('-password')
+		res.status(200).json(users)
 	} catch (error) {
 		console.error(error)
 		next(error)
