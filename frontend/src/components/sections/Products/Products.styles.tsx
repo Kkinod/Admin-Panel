@@ -3,10 +3,6 @@ import { flexCenter } from '../../../assets/styles/mixins.styles';
 import { styled } from '@mui/material/styles';
 import { IIsNonMobileBig } from './Products';
 
-export const ProductContainer = styled(Box)({
-  margin: '1.5rem 2.5rem',
-});
-
 export const TypographyStyled = styled(Typography)({
   marginTop: '2rem',
   ...flexCenter,

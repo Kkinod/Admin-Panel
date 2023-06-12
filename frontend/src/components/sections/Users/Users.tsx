@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, useTheme } from '@mui/material';
 import {
   DataGrid,
   GridColumnVisibilityModel,
+  GridPaginationModel,
   GridRowSelectionModel,
   GridToolbarColumnsButton,
   GridToolbarContainer,
@@ -13,9 +13,12 @@ import {
 import Button from '@mui/material/Button';
 import { useGetUsersQuery } from '../../../features/api';
 import Header from '../../Header/Header';
-import { generateColumns } from '../../../utils/columns/columns';
-import './Users.css';
-import { StyledBoxContainer } from './Users.styles';
+import { generateColumns } from '../../../utils/columns/generateColumns';
+import {
+  StyledBoxContainer,
+  StyledBoxWrapper,
+} from '../../../assets/styles/globalComponents.styles';
+import { Stack } from '@mui/material';
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -23,10 +26,16 @@ interface IUsers {
 }
 
 const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
-  const theme = useTheme();
+  const [pagination, setPagination] = React.useState<GridPaginationModel>({
+    page: 0,
+    pageSize: 25,
+  });
+
   const { data, isLoading } = useGetUsersQuery(null);
   const [selectionModelState, setSelectionModelState] =
     React.useState<GridRowSelectionModel>([]);
+
+  const columns = generateColumns({ includeRoleColumn: false });
 
   const [columnVisibility, setColumnVisibility] =
     React.useState<GridColumnVisibilityModel>({
@@ -40,58 +49,37 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
     console.log(selectionModelState);
   };
 
-  const columns = generateColumns({ includeRoleColumn: false });
-
   return (
     <StyledBoxContainer>
       <Header title="Users" subtitle="Subtitle" />
-      <Box
-        mt="1rem"
-        height="74vh"
-        sx={{
-          '& .MuiDataGrid-root': {
-            border: 'none',
-          },
-          '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: theme.palette.secondary.main,
-            color: theme.palette.primary.main,
-            borderBottom: 'none',
-          },
-          '& .MuiDataGrid-virtualScroller': {
-            backgroundColor: theme.palette.secondary.light,
-          },
-          '& .MuiDataGrid-footerContainer': {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary.main,
-            borderTop: 'none',
-          },
-          '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
-            color: `${theme.palette.secondary.main} !important`,
-          },
-        }}
-      >
+      <StyledBoxWrapper>
         <DataGrid
-          loading={isLoading || !data}
-          getRowId={(row) => row._id}
-          rows={data || []}
-          // columns={columns.concat(actionColumn)}
+          checkboxSelection
           columns={columns}
+          // columns={columns.concat(actionColumn)}
           columnVisibilityModel={columnVisibility}
+          disableRowSelectionOnClick
+          getRowId={(row) => row._id}
+          loading={isLoading}
           onColumnVisibilityModelChange={(newState) => {
             setColumnVisibility(newState);
           }}
-          checkboxSelection
-          sx={{
-            '& .MuiCheckbox-colorPrimary.Mui-checked': {
-              color: theme.palette.secondary.main,
-            },
+          onPaginationModelChange={(newPagination) => {
+            setPagination(newPagination);
           }}
           onRowSelectionModelChange={(newSelectionModel) => {
             setSelectionModelState(newSelectionModel);
           }}
+          paginationModel={pagination}
+          rows={data || []}
           rowSelectionModel={selectionModelState}
-          disableRowSelectionOnClick
           components={{
+            NoRowsOverlay: () => (
+              <Stack height="100%" alignItems="center" justifyContent="center">
+                No user found
+              </Stack>
+            ),
+
             Toolbar: () => (
               <GridToolbarContainer>
                 <GridToolbarColumnsButton />
@@ -111,7 +99,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
             ),
           }}
         />
-      </Box>
+      </StyledBoxWrapper>
     </StyledBoxContainer>
   );
 };

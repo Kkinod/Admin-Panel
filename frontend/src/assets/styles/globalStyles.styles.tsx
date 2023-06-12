@@ -16,16 +16,16 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
 
   ::-webkit-scrollbar {
     width: 0.5rem;
-    background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) => theme.palette.secondary.light};
   }
 
   ::-webkit-scrollbar-thumb {
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.primary.main};
   }
 
-  ::-webkit-scrollbar-thumb {
+  /* ::-webkit-scrollbar-thumb {
     border-radius: 100px;
-  }
+  } */
 
   html {
     box-sizing: border-box;
