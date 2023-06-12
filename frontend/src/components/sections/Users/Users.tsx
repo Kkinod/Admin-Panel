@@ -17,6 +17,7 @@ import {
   StyledBoxContainer,
   StyledBoxWrapper,
 } from '../../../assets/styles/globalComponents.styles';
+import { Stack } from '@mui/material';
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -47,7 +48,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
       <Header title="Users" subtitle="Subtitle" />
       <StyledBoxWrapper>
         <DataGrid
-          loading={isLoading || !data}
+          loading={isLoading}
           getRowId={(row) => row._id}
           rows={data || []}
           // columns={columns.concat(actionColumn)}
@@ -63,6 +64,12 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
           rowSelectionModel={selectionModelState}
           disableRowSelectionOnClick
           components={{
+            NoRowsOverlay: () => (
+              <Stack height="100%" alignItems="center" justifyContent="center">
+                No user found
+              </Stack>
+            ),
+
             Toolbar: () => (
               <GridToolbarContainer>
                 <GridToolbarColumnsButton />

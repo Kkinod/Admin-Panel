@@ -7,6 +7,7 @@ import {
   StyledBoxContainer,
   StyledBoxWrapper,
 } from '../../../assets/styles/globalComponents.styles';
+import { Stack } from '@mui/material';
 
 const Transactions = () => {
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
@@ -71,7 +72,7 @@ const Transactions = () => {
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <StyledBoxWrapper>
         <DataGrid
-          loading={isLoading || !data}
+          loading={isLoading}
           getRowId={(row) => row._id}
           rows={(data && data.transactions) || []}
           columns={columns}
@@ -81,7 +82,15 @@ const Transactions = () => {
           paginationMode="server"
           sortingMode="server"
           onSortModelChange={(newSortModel) => setSort(newSortModel[0])}
-          components={{ Toolbar: DataGridCustomToolbar }}
+          components={{
+            NoRowsOverlay: () => (
+              <Stack height="100%" alignItems="center" justifyContent="center">
+                No transaction found
+              </Stack>
+            ),
+
+            Toolbar: DataGridCustomToolbar,
+          }}
           componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
           }}
