@@ -7,7 +7,7 @@ import { RootState } from './features/store';
 import Dashboard from './components/mainView/Dashboard/Dashboard';
 import { themeSettings } from './assets/styles/theme';
 import Layout from './components/mainView/Layout/Layout';
-import { GlobalStyle } from './assets/styles/globalStyle.styles';
+import { GlobalStyle } from './assets/styles/globalStyles.styles';
 import Products from './components/sections/Products/Products';
 import Transactions from './components/sections/Transactions/Transactions';
 import Users from './components/sections/Users/Users';

@@ -13,8 +13,10 @@ import Button from '@mui/material/Button';
 import { useGetUsersQuery } from '../../../features/api';
 import Header from '../../Header/Header';
 import { generateColumns } from '../../../utils/columns/columns';
-import { StyledBox } from './Users.styles';
-import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
+import {
+  StyledBoxContainer,
+  StyledBoxWrapper,
+} from '../../../assets/styles/globalComponents.styles';
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -43,7 +45,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
   return (
     <StyledBoxContainer>
       <Header title="Users" subtitle="Subtitle" />
-      <StyledBox>
+      <StyledBoxWrapper>
         <DataGrid
           loading={isLoading || !data}
           getRowId={(row) => row._id}
@@ -80,7 +82,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
             ),
           }}
         />
-      </StyledBox>
+      </StyledBoxWrapper>
     </StyledBoxContainer>
   );
 };

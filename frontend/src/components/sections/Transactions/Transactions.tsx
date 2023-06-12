@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Box, useTheme } from '@mui/material';
 import { DataGrid, GridPaginationModel } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../../features/api';
 import Header from '../../Header/Header';
 import DataGridCustomToolbar from '../DataGridCustomToolbar/DataGridCustomToolbar';
-import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
+import {
+  StyledBoxContainer,
+  StyledBoxWrapper,
+} from '../../../assets/styles/globalComponents.styles';
 
 const Transactions = () => {
-  const theme = useTheme();
-
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
     page: 0,
     pageSize: 20,
@@ -69,33 +69,7 @@ const Transactions = () => {
   return (
     <StyledBoxContainer>
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
-      <Box
-        height="75vh"
-        sx={{
-          '& .MuiDataGrid-root': {
-            border: 'none',
-          },
-          '& .MuiDataGrid-cell': {
-            borderBottom: 'none',
-          },
-          '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: theme.palette.secondary.main,
-            color: theme.palette.primary.main,
-            borderBottom: 'none',
-          },
-          '& .MuiDataGrid-virtualScroller': {
-            backgroundColor: theme.palette.secondary.main,
-          },
-          '& .MuiDataGrid-footerContainer': {
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary.main,
-            borderTop: 'none',
-          },
-          '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
-            color: `${theme.palette.secondary.main} !important`,
-          },
-        }}
-      >
+      <StyledBoxWrapper>
         <DataGrid
           loading={isLoading || !data}
           getRowId={(row) => row._id}
@@ -114,7 +88,7 @@ const Transactions = () => {
           paginationModel={paginationModel}
           onPaginationModelChange={(model) => setPaginationModel(model)}
         />
-      </Box>
+      </StyledBoxWrapper>
     </StyledBoxContainer>
   );
 };
