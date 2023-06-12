@@ -12,7 +12,7 @@ import { Stack } from '@mui/material';
 const Transactions = () => {
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
     page: 0,
-    pageSize: 20,
+    pageSize: 25,
   });
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState('');
@@ -72,16 +72,18 @@ const Transactions = () => {
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <StyledBoxWrapper>
         <DataGrid
-          loading={isLoading}
-          getRowId={(row) => row._id}
-          rows={(data && data.transactions) || []}
           columns={columns}
-          rowCount={rowCountState}
-          pageSizeOptions={[20, 50, 100]}
+          getRowId={(row) => row._id}
+          loading={isLoading}
+          onSortModelChange={(newSortModel) => setSort(newSortModel[0])}
+          onPaginationModelChange={(model) => setPaginationModel(model)}
+          pageSizeOptions={[25, 50, 100]}
           pagination
           paginationMode="server"
+          paginationModel={paginationModel}
+          rowCount={rowCountState}
+          rows={(data && data.transactions) || []}
           sortingMode="server"
-          onSortModelChange={(newSortModel) => setSort(newSortModel[0])}
           components={{
             NoRowsOverlay: () => (
               <Stack height="100%" alignItems="center" justifyContent="center">
@@ -94,8 +96,6 @@ const Transactions = () => {
           componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
           }}
-          paginationModel={paginationModel}
-          onPaginationModelChange={(model) => setPaginationModel(model)}
         />
       </StyledBoxWrapper>
     </StyledBoxContainer>

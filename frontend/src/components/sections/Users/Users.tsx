@@ -2,6 +2,7 @@ import React from 'react';
 import {
   DataGrid,
   GridColumnVisibilityModel,
+  GridPaginationModel,
   GridRowSelectionModel,
   GridToolbarColumnsButton,
   GridToolbarContainer,
@@ -25,6 +26,11 @@ interface IUsers {
 }
 
 const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
+  const [pagination, setPagination] = React.useState<GridPaginationModel>({
+    page: 0,
+    pageSize: 25,
+  });
+
   const { data, isLoading } = useGetUsersQuery(null);
   const [selectionModelState, setSelectionModelState] =
     React.useState<GridRowSelectionModel>([]);
@@ -48,21 +54,25 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
       <Header title="Users" subtitle="Subtitle" />
       <StyledBoxWrapper>
         <DataGrid
-          loading={isLoading}
-          getRowId={(row) => row._id}
-          rows={data || []}
-          // columns={columns.concat(actionColumn)}
+          checkboxSelection
           columns={columns}
+          // columns={columns.concat(actionColumn)}
           columnVisibilityModel={columnVisibility}
+          disableRowSelectionOnClick
+          getRowId={(row) => row._id}
+          loading={isLoading}
           onColumnVisibilityModelChange={(newState) => {
             setColumnVisibility(newState);
           }}
-          checkboxSelection
+          onPaginationModelChange={(newPagination) => {
+            setPagination(newPagination);
+          }}
           onRowSelectionModelChange={(newSelectionModel) => {
             setSelectionModelState(newSelectionModel);
           }}
+          paginationModel={pagination}
+          rows={data || []}
           rowSelectionModel={selectionModelState}
-          disableRowSelectionOnClick
           components={{
             NoRowsOverlay: () => (
               <Stack height="100%" alignItems="center" justifyContent="center">
