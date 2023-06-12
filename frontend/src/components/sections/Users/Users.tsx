@@ -12,7 +12,7 @@ import {
 import Button from '@mui/material/Button';
 import { useGetUsersQuery } from '../../../features/api';
 import Header from '../../Header/Header';
-import { generateColumns } from '../../../utils/columns/columns';
+import { generateColumns } from '../../../utils/columns/generateColumns';
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
@@ -28,6 +28,8 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
   const [selectionModelState, setSelectionModelState] =
     React.useState<GridRowSelectionModel>([]);
 
+  const columns = generateColumns({ includeRoleColumn: false });
+
   const [columnVisibility, setColumnVisibility] =
     React.useState<GridColumnVisibilityModel>({
       _id: !isMaxWidth600px,
@@ -39,8 +41,6 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
   const handleDeleteSelectedRows = () => {
     console.log(selectionModelState);
   };
-
-  const columns = generateColumns({ includeRoleColumn: false });
 
   return (
     <StyledBoxContainer>

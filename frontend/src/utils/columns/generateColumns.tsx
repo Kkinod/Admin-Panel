@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { GridCellParams, GridColDef } from '@mui/x-data-grid';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import { StyledBox } from './columns.styles';
+import { StyledBox } from './generateColumns.styles';
 
 export const generateColumns = ({
   includeRoleColumn,

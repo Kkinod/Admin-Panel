@@ -6,15 +6,17 @@ export const StyledBoxContainer = styled(Box)({
 });
 
 export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
-  mt: '1rem',
-  height: '74vh',
+  height: '75vh',
   '& .MuiDataGrid-root': {
     border: 'none',
   },
   '& .MuiDataGrid-columnHeaders': {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     borderBottom: 'none',
+  },
+  '& .MuiDataGrid-menuIconButton': {
+    color: theme.palette.secondary.main,
   },
   '& .MuiDataGrid-virtualScroller': {
     backgroundColor: theme.palette.secondary.light,
