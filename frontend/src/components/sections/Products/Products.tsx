@@ -3,11 +3,8 @@ import { useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 import { useGetProductsQuery } from '../../../features/api';
 import ProductCard from './ProductCard/ProductCard';
-import {
-  BoxStyled,
-  ProductContainer,
-  TypographyStyled,
-} from './Products.styles';
+import { BoxStyled, TypographyStyled } from './Products.styles';
+import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
 
 interface IStatItem {
   month: string;
@@ -53,7 +50,7 @@ const Products = () => {
   const isNonMobileBig = useMediaQuery('(min-width: 1000px)');
 
   return (
-    <ProductContainer>
+    <StyledBoxContainer>
       <Header title="PRODUCTS" subtitle="See your list of products." />
       {!isLoading ? (
         data && data.length > 0 ? (
@@ -89,7 +86,7 @@ const Products = () => {
       ) : (
         <>Loading...</>
       )}
-    </ProductContainer>
+    </StyledBoxContainer>
   );
 };
 

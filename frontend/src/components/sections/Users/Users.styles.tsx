@@ -1,9 +1,5 @@
-import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
-export const StyledBoxContainer = styled(Box)({
-  margin: '1rem',
-});
+import { Box } from '@mui/material';
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   mt: '1rem',

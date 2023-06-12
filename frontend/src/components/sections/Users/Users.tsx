@@ -13,7 +13,8 @@ import Button from '@mui/material/Button';
 import { useGetUsersQuery } from '../../../features/api';
 import Header from '../../Header/Header';
 import { generateColumns } from '../../../utils/columns/columns';
-import { StyledBox, StyledBoxContainer } from './Users.styles';
+import { StyledBox } from './Users.styles';
+import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
 
 interface IUsers {
   isMaxWidth600px: boolean;

@@ -4,6 +4,7 @@ import { DataGrid, GridPaginationModel } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../../features/api';
 import Header from '../../Header/Header';
 import DataGridCustomToolbar from '../DataGridCustomToolbar/DataGridCustomToolbar';
+import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
 
 const Transactions = () => {
   const theme = useTheme();
@@ -27,7 +28,7 @@ const Transactions = () => {
     (data && data.total) || 0
   );
   React.useEffect(() => {
-    setRowCountState((prevRowCountState: any) =>
+    setRowCountState((prevRowCountState: number) =>
       (data && data.total) !== undefined
         ? data && data.total
         : prevRowCountState
@@ -66,7 +67,7 @@ const Transactions = () => {
   ];
 
   return (
-    <Box m="1.2rem 2.5rem 0 2.5rem">
+    <StyledBoxContainer>
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <Box
         height="75vh"
@@ -114,7 +115,7 @@ const Transactions = () => {
           onPaginationModelChange={(model) => setPaginationModel(model)}
         />
       </Box>
-    </Box>
+    </StyledBoxContainer>
   );
 };
 
