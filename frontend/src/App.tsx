@@ -11,6 +11,8 @@ import { GlobalStyle } from './assets/styles/globalStyles.styles';
 import Products from './components/sections/Products/Products';
 import Transactions from './components/sections/Transactions/Transactions';
 import Users from './components/sections/Users/Users';
+import SingleUser from './components/sections/Users/SingleUser/SingleUser';
+import { generateColumns } from './utils/columns/usersColumns/usersColumns';
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -37,6 +39,14 @@ function App() {
                   <Users
                     isMaxWidth600px={isMaxWidth600px}
                     isXsDown1025={isXsDown1025}
+                  />
+                }
+              />
+              <Route
+                path="/user/:id"
+                element={
+                  <SingleUser
+                    columns={generateColumns({ includeRoleColumn: true })}
                   />
                 }
               />

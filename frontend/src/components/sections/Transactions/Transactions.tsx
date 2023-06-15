@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { Stack } from '@mui/material';
 import { DataGrid, GridPaginationModel } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../../features/api';
 import Header from '../../Header/Header';
 import DataGridCustomToolbar from '../DataGridCustomToolbar/DataGridCustomToolbar';
+import { columns } from '../../../utils/columns/transactionsColumns/transactionsColumns';
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
 } from '../../../assets/styles/globalComponents.styles';
-import { Stack } from '@mui/material';
 
 const Transactions = () => {
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
@@ -35,37 +36,6 @@ const Transactions = () => {
         : prevRowCountState
     );
   }, [data && data.total, setRowCountState]);
-
-  const columns = [
-    {
-      field: '_id',
-      headerName: 'ID',
-      flex: 1,
-    },
-    {
-      field: 'userId',
-      headerName: 'User ID',
-      flex: 1,
-    },
-    {
-      field: 'createdAt',
-      headerName: 'CreatedAt',
-      flex: 1,
-    },
-    {
-      field: 'products',
-      headerName: '# of Products',
-      flex: 0.5,
-      sortable: false,
-      renderCell: (params: any) => params.value.length,
-    },
-    {
-      field: 'cost',
-      headerName: 'Cost',
-      flex: 1,
-      renderCell: (params: any) => `$${Number(params.value).toFixed(2)}`,
-    },
-  ];
 
   return (
     <StyledBoxContainer>
