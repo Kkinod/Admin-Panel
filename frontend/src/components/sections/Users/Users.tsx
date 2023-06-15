@@ -13,7 +13,7 @@ import {
 import Button from '@mui/material/Button';
 import { useGetUsersQuery } from '../../../features/api';
 import Header from '../../Header/Header';
-import { generateColumns } from '../../../utils/columns/generateColumns';
+import { generateColumns } from '../../../utils/columns/usersColumns/usersColumns';
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
