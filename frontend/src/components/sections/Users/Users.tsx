@@ -18,8 +18,8 @@ import {
   StyledBoxContainer,
   StyledBoxWrapper,
 } from '../../../assets/styles/globalComponents.styles';
-import { Stack } from '@mui/material';
 import { actionColumn } from '../../../utils/columns/actionColumn/actionColumn';
+import { StyledStack } from './Users.styles';
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -56,7 +56,6 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
       <StyledBoxWrapper>
         <DataGrid
           checkboxSelection
-          // columns={columns}
           columns={columns.concat(actionColumn)}
           columnVisibilityModel={columnVisibility}
           disableRowSelectionOnClick
@@ -75,11 +74,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
           rows={data || []}
           rowSelectionModel={selectionModelState}
           components={{
-            NoRowsOverlay: () => (
-              <Stack height="100%" alignItems="center" justifyContent="center">
-                No user found
-              </Stack>
-            ),
+            NoRowsOverlay: () => <StyledStack>No user found</StyledStack>,
 
             Toolbar: () => (
               <GridToolbarContainer>
