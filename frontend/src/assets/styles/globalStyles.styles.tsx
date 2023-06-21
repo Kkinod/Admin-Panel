@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { MyTheme } from './theme';
+import { createGlobalStyle } from "styled-components";
+import { MyTheme } from "./theme";
 
 export interface IGlobalStyleProps {
   theme: MyTheme;
@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   ::-webkit-scrollbar-thumb {
-  background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) => theme.palette.primary.main};
   }
 
   /* ::-webkit-scrollbar-thumb {
@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
     width: 100%;
     color: ${({ theme }) => theme.palette.secondary.main};
     background: linear-gradient(90deg, ${(props) =>
-      props.theme.palette.green.main} -150%, transparent 100%) ;
+      props.theme.palette.green.main} -150%, transparent 100%);
     text-decoration: none;
 
     &::before {
