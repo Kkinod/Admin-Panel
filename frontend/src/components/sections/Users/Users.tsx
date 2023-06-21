@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   DataGrid,
   GridColumnVisibilityModel,
@@ -9,17 +9,18 @@ import {
   GridToolbarDensitySelector,
   GridToolbarExport,
   GridToolbarFilterButton,
-} from '@mui/x-data-grid';
-import Button from '@mui/material/Button';
-import { useGetUsersQuery } from '../../../features/api';
-import Header from '../../Header/Header';
-import { generateColumns } from '../../../utils/columns/usersColumns/usersColumns';
+} from "@mui/x-data-grid";
+import Button from "@mui/material/Button";
+import { useGetUsersQuery } from "../../../features/api";
+import Header from "../../Header/Header";
+import { generateColumns } from "../../../utils/columns/usersColumns/usersColumns";
+import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
+import { labels } from "../../../utils/labels";
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
-} from '../../../assets/styles/globalComponents.styles';
-import { actionColumn } from '../../../utils/columns/actionColumn/actionColumn';
-import { StyledStack } from './Users.styles';
+  StyledStack,
+} from "../../../assets/styles/globalComponents.styles";
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -52,7 +53,10 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
 
   return (
     <StyledBoxContainer>
-      <Header title="Users" subtitle="Subtitle" />
+      <Header
+        title={labels.users.headerTitle}
+        subtitle={labels.users.headerSubtitle}
+      />
       <StyledBoxWrapper>
         <DataGrid
           checkboxSelection
@@ -74,8 +78,9 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
           rows={data || []}
           rowSelectionModel={selectionModelState}
           components={{
-            NoRowsOverlay: () => <StyledStack>No user found</StyledStack>,
-
+            NoRowsOverlay: () => (
+              <StyledStack>{labels.users.noUsersInfo}</StyledStack>
+            ),
             Toolbar: () => (
               <GridToolbarContainer>
                 <GridToolbarColumnsButton />
@@ -88,7 +93,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
                     color="secondary"
                     onClick={handleDeleteSelectedRows}
                   >
-                    Remove
+                    {labels.default.buttonRemove}
                   </Button>
                 )}
               </GridToolbarContainer>
