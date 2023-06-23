@@ -29,7 +29,7 @@ export const getProducts = async (req, res) => {
 // Added support for server side pagination
 export const getTransactions = async (req, res) => {
 	try {
-		const { page = 1, pageSize = 20, sort = null, search = '' } = req.query
+		const { page = 1, pageSize = 25, sort = null, search = '' } = req.query
 
 		const generateSort = () => {
 			const sortParsed = JSON.parse(sort)
