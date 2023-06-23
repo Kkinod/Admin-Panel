@@ -20,6 +20,7 @@ export interface ITransaction {
   userId: string;
   cost: number;
   products: string[];
+  createdAt: string;
 }
 
 interface IData {
@@ -78,6 +79,7 @@ const Transactions = ({ isMaxWidth600px, isXsDown1025 }: ITransactions) => {
       />
       <StyledBoxWrapper>
         <DataGrid
+          columnBuffer={5}
           columns={transactionsColumns}
           columnVisibilityModel={columnVisibility}
           getRowId={(row) => row._id}
