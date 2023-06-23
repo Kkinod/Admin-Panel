@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { NavLink, useMatch } from 'react-router-dom';
-import Divider from '@mui/material/Divider';
-import { IconButton } from '@mui/material';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import logoTransparent from '../../../assets/images/logo_transparent.png';
-import { navItems } from './navItems';
+import * as React from "react";
+import { NavLink, useMatch } from "react-router-dom";
+import Divider from "@mui/material/Divider";
+import { IconButton } from "@mui/material";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import logoTransparent from "../../../assets/images/logo_transparent.png";
+import { navItems } from "./navItems";
 import {
   Drawer,
   DrawerHeader,
@@ -23,7 +23,7 @@ import {
   SidebarContainer,
   StyledChevronLeftIcon,
   BoxStyled,
-} from './Sidebar.styles';
+} from "./Sidebar.styles";
 
 export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
@@ -45,7 +45,7 @@ export const Sidebar = ({
   return (
     <SidebarContainer>
       <Drawer variant="permanent" open={isSidebarOpen}>
-        <DrawerHeader isNonMobile={isNonMobile}>
+        <DrawerHeader>
           <BoxStyled>
             <StyledImg src={logoTransparent} alt="Logo" />
           </BoxStyled>
@@ -68,7 +68,7 @@ export const Sidebar = ({
             }
             const lowerCaseText = text.toLowerCase();
             const isActive = useMatch(`/${lowerCaseText}`);
-            const activeClassName = isActive ? 'active' : 'inactive';
+            const activeClassName = isActive ? "active" : "inactive";
 
             return (
               <ListItem key={text} disablePadding>

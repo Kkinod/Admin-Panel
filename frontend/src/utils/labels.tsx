@@ -4,6 +4,7 @@ export const labels = {
     buttonRemove: "Remove",
     buttonView: "View",
     searchId: "Search ID",
+    loading: "Loading...",
   },
 
   actionColumn: {
@@ -12,13 +13,13 @@ export const labels = {
   },
 
   transactions: {
-    headerTitle: "Transactions",
+    headerTitle: "TRANSACTIONS",
     headerSubtitle: "Entire list of transactions",
     noTransactionsInfo: "No transaction found",
   },
 
   users: {
-    headerTitle: "Users",
+    headerTitle: "USERS",
     headerSubtitle: "Entire list of customers",
     noUsersInfo: "No users found",
   },
