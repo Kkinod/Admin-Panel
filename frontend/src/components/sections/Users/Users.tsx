@@ -13,7 +13,7 @@ import {
 import Button from "@mui/material/Button";
 import { useGetUsersQuery } from "../../../features/api";
 import Header from "../../Header/Header";
-import { generateColumns } from "../../../utils/columns/usersColumns/usersColumns";
+import { generateUsersColumns } from "../../../utils/columns/usersColumns/usersColumns";
 import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
 import { labels } from "../../../utils/labels";
 import {
@@ -37,7 +37,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
   const [selectionModelState, setSelectionModelState] =
     React.useState<GridRowSelectionModel>([]);
 
-  const columns = generateColumns({ includeRoleColumn: false });
+  const columns = generateUsersColumns({ includeRoleColumn: false });
 
   const [columnVisibility, setColumnVisibility] =
     React.useState<GridColumnVisibilityModel>({
