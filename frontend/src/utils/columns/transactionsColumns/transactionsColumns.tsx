@@ -13,7 +13,7 @@ export const transactionsColumns = [
   },
   {
     field: "createdAt",
-    headerName: "CreatedAt",
+    headerName: "Created at",
     flex: 1,
   },
   {

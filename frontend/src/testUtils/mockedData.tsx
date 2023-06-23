@@ -46,4 +46,5 @@ export const mockedTransactionsData: ITransaction = {
   userId: "123",
   cost: 2944.24,
   products: ["1", "2", "3", "4", "5"],
+  createdAt: "2023-06-07",
 };
