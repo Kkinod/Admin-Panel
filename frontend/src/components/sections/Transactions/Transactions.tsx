@@ -15,6 +15,23 @@ import {
   StyledStack,
 } from "../../../assets/styles/globalComponents.styles";
 
+export interface ITransaction {
+  _id: string;
+  userId: string;
+  cost: number;
+  products: string[];
+}
+
+interface IData {
+  total: number;
+  transactions: ITransaction[];
+}
+
+interface IUseGetTransactionsQueryResult {
+  data: IData;
+  isLoading: boolean;
+}
+
 interface ITransactions {
   isMaxWidth600px: boolean;
   isXsDown1025: boolean;
@@ -29,12 +46,13 @@ const Transactions = ({ isMaxWidth600px, isXsDown1025 }: ITransactions) => {
   const [search, setSearch] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
-  const { data, isLoading } = useGetTransactionsQuery({
-    page: paginationModel.page,
-    pageSize: paginationModel.pageSize,
-    sort: JSON.stringify(sort),
-    search,
-  });
+  const { data, isLoading } =
+    useGetTransactionsQuery<IUseGetTransactionsQueryResult>({
+      page: paginationModel.page,
+      pageSize: paginationModel.pageSize,
+      sort: JSON.stringify(sort),
+      search,
+    });
 
   const [rowCountState, setRowCountState] = useState((data && data.total) || 0);
 

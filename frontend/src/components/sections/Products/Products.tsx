@@ -4,6 +4,7 @@ import { useGetProductsQuery } from "../../../features/api";
 import ProductCard from "./ProductCard/ProductCard";
 import { BoxStyled, TypographyStyled } from "./Products.styles";
 import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
+import { labels } from "../../../utils/labels";
 
 interface IStatItem {
   month: string;
@@ -81,7 +82,7 @@ const Products = ({ isXsDown1025 }: IProducts) => {
           <TypographyStyled variant="h4">No product found</TypographyStyled>
         )
       ) : (
-        <>Loading...</>
+        <>{labels.default.loading}</>
       )}
     </StyledBoxContainer>
   );
