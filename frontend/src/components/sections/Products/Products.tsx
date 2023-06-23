@@ -1,10 +1,9 @@
-import React from 'react';
-import { useMediaQuery } from '@mui/material';
-import Header from '../../Header/Header';
-import { useGetProductsQuery } from '../../../features/api';
-import ProductCard from './ProductCard/ProductCard';
-import { BoxStyled, TypographyStyled } from './Products.styles';
-import { StyledBoxContainer } from '../../../assets/styles/globalComponents.styles';
+import React from "react";
+import Header from "../../Header/Header";
+import { useGetProductsQuery } from "../../../features/api";
+import ProductCard from "./ProductCard/ProductCard";
+import { BoxStyled, TypographyStyled } from "./Products.styles";
+import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
 
 interface IStatItem {
   month: string;
@@ -39,22 +38,20 @@ interface IUseGetProductsQueryResult {
   isLoading: boolean;
 }
 
-export interface IIsNonMobileBig {
-  isNonMobileBig: boolean;
+export interface IProducts {
+  isXsDown1025: boolean;
 }
 
-const Products = () => {
+const Products = ({ isXsDown1025 }: IProducts) => {
   const { data, isLoading } =
     useGetProductsQuery<IUseGetProductsQueryResult>(null);
-
-  const isNonMobileBig = useMediaQuery('(min-width: 1000px)');
 
   return (
     <StyledBoxContainer>
       <Header title="PRODUCTS" subtitle="See your list of products." />
       {!isLoading ? (
         data && data.length > 0 ? (
-          <BoxStyled isNonMobileBig={isNonMobileBig}>
+          <BoxStyled isXsDown1025={isXsDown1025}>
             {data?.map(
               ({
                 _id,

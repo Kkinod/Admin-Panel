@@ -1,11 +1,6 @@
 import { styled } from "@mui/system";
 import { Box, Typography } from "@mui/material";
 
-// export const StyledBoxContainer = styled(Box)({
-//
-//
-// });
-
 export const StyledBoxContainer = styled(Box)(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
