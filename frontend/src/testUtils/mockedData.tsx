@@ -1,5 +1,6 @@
 import { IProduct } from "../components/sections/Products/Products";
-import { ITransaction } from "../components/sections/Transactions/Transactions";
+import { ITransactionData } from "../components/sections/Transactions/Transactions";
+import { IUsersData } from "../components/sections/Users/Users";
 
 export const mockedProductData: IProduct = {
   _id: "123",
@@ -41,10 +42,25 @@ export const mockedUserData = {
   role: "user",
 };
 
-export const mockedTransactionsData: ITransaction = {
+export const mockedTransactionsData: ITransactionData = {
   _id: "987",
   userId: "123",
   cost: 2944.24,
   products: ["1", "2", "3", "4", "5"],
   createdAt: "2023-06-07",
+};
+
+export const mockedUsersData: IUsersData = {
+  _id: "1",
+  name: "user1",
+  email: "user1@user.com",
+  city: "NY",
+  state: null,
+  country: "US",
+  occupation: "Self-employed",
+  phoneNumber: "(959) 498-3947",
+  transactions: ["123456"],
+  role: "user",
+  createdAt: "2023-05-13",
+  updatedAt: "2023-05-14",
 };

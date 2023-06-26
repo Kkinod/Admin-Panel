@@ -15,7 +15,7 @@ import {
   StyledStack,
 } from "../../../assets/styles/globalComponents.styles";
 
-export interface ITransaction {
+export interface ITransactionData {
   _id: string;
   userId: string;
   cost: number;
@@ -25,7 +25,7 @@ export interface ITransaction {
 
 interface IData {
   total: number;
-  transactions: ITransaction[];
+  transactions: ITransactionData[];
 }
 
 interface IUseGetTransactionsQueryResult {
