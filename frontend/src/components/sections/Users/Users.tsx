@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DataGrid,
   GridColumnVisibilityModel,
@@ -14,13 +14,33 @@ import Button from "@mui/material/Button";
 import { useGetUsersQuery } from "../../../features/api";
 import Header from "../../Header/Header";
 import { generateUsersColumns } from "../../../utils/columns/usersColumns/usersColumns";
-import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
 import { labels } from "../../../utils/labels";
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
   StyledStack,
 } from "../../../assets/styles/globalComponents.styles";
+import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
+
+export interface IUsersData {
+  city: string;
+  country: string;
+  createdAt: string;
+  email: string;
+  name: string;
+  occupation: string;
+  phoneNumber: string;
+  role: string;
+  state: null | string;
+  transactions: string[];
+  updatedAt: string;
+  _id: string;
+}
+
+interface IUseGetTransactionsQueryResult {
+  data: IUsersData[];
+  isLoading: boolean;
+}
 
 interface IUsers {
   isMaxWidth600px: boolean;
@@ -28,19 +48,20 @@ interface IUsers {
 }
 
 const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
-  const [pagination, setPagination] = React.useState<GridPaginationModel>({
+  const [pagination, setPagination] = useState<GridPaginationModel>({
     page: 0,
     pageSize: 25,
   });
-
-  const { data, isLoading } = useGetUsersQuery(null);
   const [selectionModelState, setSelectionModelState] =
-    React.useState<GridRowSelectionModel>([]);
+    useState<GridRowSelectionModel>([]);
+
+  const { data, isLoading } =
+    useGetUsersQuery<IUseGetTransactionsQueryResult>(null);
 
   const columns = generateUsersColumns({ includeRoleColumn: false });
 
   const [columnVisibility, setColumnVisibility] =
-    React.useState<GridColumnVisibilityModel>({
+    useState<GridColumnVisibilityModel>({
       _id: !isMaxWidth600px,
       email: !isMaxWidth600px,
       phoneNumber: !isXsDown1025,
@@ -60,6 +81,7 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
       <StyledBoxWrapper>
         <DataGrid
           checkboxSelection
+          columnBuffer={7}
           columns={columns.concat(actionColumn)}
           columnVisibilityModel={columnVisibility}
           disableRowSelectionOnClick

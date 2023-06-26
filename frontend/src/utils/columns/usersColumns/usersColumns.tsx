@@ -1,6 +1,7 @@
 import { GridCellParams, GridColDef } from "@mui/x-data-grid";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import { StyledBox, StyledTypography } from "./usersColumns.styles";
+import React from "react";
 
 export const generateUsersColumns = ({
   includeRoleColumn,
@@ -9,15 +10,15 @@ export const generateUsersColumns = ({
 }): GridColDef[] => {
   const baseColumns: GridColDef[] = [
     {
-      field: "_id",
-      headerName: "ID",
-      minWidth: 190,
-      flex: 1,
-    },
-    {
       field: "name",
       headerName: "Name",
       minWidth: 80,
+      flex: 1,
+    },
+    {
+      field: "_id",
+      headerName: "ID",
+      minWidth: 190,
       flex: 1,
     },
     {

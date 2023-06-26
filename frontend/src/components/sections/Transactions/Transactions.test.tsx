@@ -75,7 +75,7 @@ describe("Transactions component at full resolution", () => {
   });
 });
 
-describe("Transactions component with width less than 600px", () => {
+describe("Transactions component with a width of resolution below 600px", () => {
   beforeEach(() => {
     const queryClient = new QueryClient();
 
