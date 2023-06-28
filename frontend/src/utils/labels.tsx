@@ -23,4 +23,9 @@ export const labels = {
     headerSubtitle: "Entire list of customers",
     noUsersInfo: "No users found",
   },
+
+  geography: {
+    headerTitle: "GEOGRAPHY",
+    headerSubtitle: "Check users location",
+  },
 };
