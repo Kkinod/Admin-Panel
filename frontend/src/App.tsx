@@ -4,15 +4,16 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { RootState } from "./features/store";
-import Dashboard from "./components/mainView/Dashboard/Dashboard";
-import { themeSettings } from "./assets/styles/theme";
 import Layout from "./components/mainView/Layout/Layout";
-import { GlobalStyle } from "./assets/styles/globalStyles.styles";
+import Dashboard from "./components/mainView/Dashboard/Dashboard";
 import Products from "./components/sections/Products/Products";
 import Transactions from "./components/sections/Transactions/Transactions";
 import Users from "./components/sections/Users/Users";
 import SingleUser from "./components/sections/Users/SingleUser/SingleUser";
+import Geography from "./components/sections/Geography/Geography";
 import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns";
+import { themeSettings } from "./assets/styles/theme";
+import { GlobalStyle } from "./assets/styles/globalStyles.styles";
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -62,6 +63,10 @@ function App() {
                     })}
                   />
                 }
+              />
+              <Route
+                path="/geography"
+                element={<Geography isMaxWidth600px={isMaxWidth600px} />}
               />
             </Route>
           </Routes>
