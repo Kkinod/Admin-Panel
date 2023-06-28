@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import logoTransparent from "../../../assets/images/logo_transparent.png";
-import { navItems } from "./navItems";
+import { sidebarItems } from "../../../utils/sidebarItems";
 import {
   Drawer,
   DrawerHeader,
@@ -58,7 +58,7 @@ export const Sidebar = ({
         </DrawerHeader>
         <Divider />
         <List>
-          {navItems.map(({ text, icon }) => {
+          {sidebarItems.map(({ text, icon }) => {
             if (!icon) {
               return (
                 <StyledTypography key={text} isSidebarOpen={isSidebarOpen}>

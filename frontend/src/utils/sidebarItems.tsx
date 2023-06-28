@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   AdminPanelSettingsOutlined,
   CalendarMonthOutlined,
@@ -11,63 +11,68 @@ import {
   ShoppingCartOutlined,
   TodayOutlined,
   TrendingUpOutlined,
-} from '@mui/icons-material';
+} from "@mui/icons-material";
+import { navItems } from "./navItems";
 
-export const navItems = [
+export const sidebarItems = [
   {
-    text: 'Dashboard',
+    text: navItems.Dashboard,
+    icon: null,
+  },
+  {
+    text: navItems.Ecommerce,
     icon: <HomeOutlined />,
   },
   {
-    text: 'Client Facing',
+    text: navItems.ClientFacing,
     icon: null,
   },
   {
-    text: 'Products',
+    text: navItems.Products,
     icon: <ShoppingCartOutlined />,
   },
   {
-    text: 'Users',
+    text: navItems.Customers,
     icon: <Groups2Outlined />,
   },
   {
-    text: 'Transactions',
+    text: navItems.Orders,
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: 'Geography',
+    text: navItems.Geography,
     icon: <PublicOutlined />,
   },
   {
-    text: 'Sales',
+    text: navItems.SalesCharts,
     icon: null,
   },
   {
-    text: 'Overview',
+    text: navItems.Overview,
     icon: <PointOfSaleOutlined />,
   },
   {
-    text: 'Daily',
+    text: navItems.Daily,
     icon: <TodayOutlined />,
   },
   {
-    text: 'Monthly',
+    text: navItems.Monthly,
     icon: <CalendarMonthOutlined />,
   },
   {
-    text: 'Breakdown',
+    text: navItems.Breakdown,
     icon: <PieChartOutlined />,
   },
   {
-    text: 'Management',
+    text: navItems.Management,
     icon: null,
   },
   {
-    text: 'Admin',
+    text: navItems.Admin,
     icon: <AdminPanelSettingsOutlined />,
   },
   {
-    text: 'Performance',
+    text: navItems.Performance,
     icon: <TrendingUpOutlined />,
   },
 ];

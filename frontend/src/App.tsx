@@ -14,6 +14,7 @@ import Geography from "./components/sections/Geography/Geography";
 import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns";
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
+import { navItems } from "./utils/navItems";
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -30,14 +31,17 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/dashboard" element={<Dashboard />} />
               <Route
-                path="/products"
+                path="/"
+                element={<Navigate to={`/${navItems.Ecommerce}`} replace />}
+              />
+              <Route path={`/${navItems.Ecommerce}`} element={<Dashboard />} />
+              <Route
+                path={`/${navItems.Products}`}
                 element={<Products isXsDown1025={isXsDown1025} />}
               />
               <Route
-                path="/transactions"
+                path={`/${navItems.Orders}`}
                 element={
                   <Transactions
                     isMaxWidth600px={isMaxWidth600px}
@@ -46,7 +50,7 @@ function App() {
                 }
               />
               <Route
-                path="/users"
+                path={`/${navItems.Customers}`}
                 element={
                   <Users
                     isMaxWidth600px={isMaxWidth600px}
@@ -55,7 +59,7 @@ function App() {
                 }
               />
               <Route
-                path="/user/:id"
+                path={`/${navItems.User}/:id`}
                 element={
                   <SingleUser
                     columns={generateUsersColumns({
@@ -65,7 +69,7 @@ function App() {
                 }
               />
               <Route
-                path="/geography"
+                path={`/${navItems.Geography}`}
                 element={<Geography isMaxWidth600px={isMaxWidth600px} />}
               />
             </Route>

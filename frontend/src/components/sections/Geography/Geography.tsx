@@ -25,8 +25,6 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
   const theme = useTheme();
   const { data, isLoading } = useGetGeographyQuery<IUseGetGeographyQuery>(null);
 
-  console.log(data);
-
   return (
     <StyledBoxContainer>
       <Header
