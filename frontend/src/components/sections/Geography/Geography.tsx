@@ -11,9 +11,21 @@ interface IGeography {
   isMaxWidth600px: boolean;
 }
 
+interface IGeographyData {
+  id: string;
+  value: number;
+}
+
+export interface IUseGetGeographyQuery {
+  data: IGeographyData[];
+  isLoading: boolean;
+}
+
 const Geography = ({ isMaxWidth600px }: IGeography) => {
   const theme = useTheme();
-  const { data } = useGetGeographyQuery(null);
+  const { data, isLoading } = useGetGeographyQuery<IUseGetGeographyQuery>(null);
+
+  console.log(data);
 
   return (
     <StyledBoxContainer>
@@ -22,9 +34,9 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
         subtitle={labels.geography.headerSubtitle}
       />
       <StyledBoxWrapper>
-        {data ? (
+        {!isLoading ? (
           <ResponsiveChoropleth
-            data={data}
+            data={data || []}
             theme={{
               axis: {
                 domain: {
@@ -68,7 +80,7 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
             projectionTranslation={[0.45, 0.6]}
             projectionRotation={[0, 0, 0]}
             borderWidth={1.3}
-            borderColor={theme.palette.secondary.main}
+            borderColor={theme.palette.primary.main}
             legends={[
               {
                 anchor: isMaxWidth600px ? "top-right" : "bottom-left",
@@ -80,7 +92,7 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
                 itemWidth: 94,
                 itemHeight: 18,
                 itemDirection: "left-to-right",
-                itemTextColor: theme.palette.secondary.main,
+                itemTextColor: theme.palette.primary.main,
                 itemOpacity: 0.85,
                 symbolSize: 18,
                 effects: [

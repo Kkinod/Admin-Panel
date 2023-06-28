@@ -12,5 +12,4 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
   borderRadius: "0.25rem",
   maxWidth: "800px",
   border: `1px solid ${theme.palette.primary.main}`,
-  background: theme.palette.primary.main,
 }));
