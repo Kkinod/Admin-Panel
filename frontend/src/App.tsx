@@ -4,13 +4,14 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { RootState } from "./features/store";
-import Layout from "./components/mainView/Layout/Layout";
 import Dashboard from "./components/mainView/Dashboard/Dashboard";
+import Geography from "./components/sections/Geography/Geography";
+import Layout from "./components/mainView/Layout/Layout";
+import Overview from "./components/sections/Overview/Overview";
 import Products from "./components/sections/Products/Products";
+import SingleUser from "./components/sections/Users/SingleUser/SingleUser";
 import Transactions from "./components/sections/Transactions/Transactions";
 import Users from "./components/sections/Users/Users";
-import SingleUser from "./components/sections/Users/SingleUser/SingleUser";
-import Geography from "./components/sections/Geography/Geography";
 import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns";
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
@@ -72,6 +73,7 @@ function App() {
                 path={`/${navItems.Geography}`}
                 element={<Geography isMaxWidth600px={isMaxWidth600px} />}
               />
+              <Route path={`/${navItems.Overview}`} element={<Overview />} />
             </Route>
           </Routes>
         </ThemeProvider>
