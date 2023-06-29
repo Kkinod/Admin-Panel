@@ -5,7 +5,8 @@ import { geoData } from "../../../utils/geoData";
 import Header from "../../Header/Header";
 import { useGetGeographyQuery } from "../../../features/api";
 import { labels } from "../../../utils/labels";
-import { StyledBoxContainer, StyledBoxWrapper } from "./Geography.styles";
+import { StyledBoxWrapper } from "./Geography.styles";
+import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
 
 interface IGeography {
   isMaxWidth600px: boolean;

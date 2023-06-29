@@ -28,4 +28,11 @@ export const labels = {
     headerTitle: "GEOGRAPHY",
     headerSubtitle: "Check users location",
   },
+
+  overview: {
+    headerTitle: "OVERVIEW",
+    headerSubtitle: "Overview of general revenue and profit",
+    valueSales: "Sales",
+    valueUnits: "Units",
+  },
 };
