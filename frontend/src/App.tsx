@@ -17,12 +17,20 @@ import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
 import { navItems } from "./utils/navItems";
 
+export interface IIsMaxWidth600px {
+  isMaxWidth600px: boolean;
+}
+
+export interface IIsMaxWidth1025 {
+  isMaxWidth1025: boolean;
+}
+
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   const isMaxWidth600px = useMediaQuery("(max-width: 600px)");
-  const isXsDown1025 = useMediaQuery("(max-width: 1025px)");
+  const isMaxWidth1025 = useMediaQuery("(max-width: 1025px)");
 
   return (
     <div>
@@ -31,7 +39,7 @@ function App() {
           <GlobalStyle theme={theme} />
           <CssBaseline />
           <Routes>
-            <Route element={<Layout />}>
+            <Route element={<Layout isMaxWidth600px={isMaxWidth600px} />}>
               <Route
                 path="/"
                 element={<Navigate to={`/${navItems.Ecommerce}`} replace />}
@@ -39,14 +47,14 @@ function App() {
               <Route path={`/${navItems.Ecommerce}`} element={<Dashboard />} />
               <Route
                 path={`/${navItems.Products}`}
-                element={<Products isXsDown1025={isXsDown1025} />}
+                element={<Products isMaxWidth1025={isMaxWidth1025} />}
               />
               <Route
                 path={`/${navItems.Orders}`}
                 element={
                   <Transactions
                     isMaxWidth600px={isMaxWidth600px}
-                    isXsDown1025={isXsDown1025}
+                    isMaxWidth1025={isMaxWidth1025}
                   />
                 }
               />
@@ -55,7 +63,7 @@ function App() {
                 element={
                   <Users
                     isMaxWidth600px={isMaxWidth600px}
-                    isXsDown1025={isXsDown1025}
+                    isMaxWidth1025={isMaxWidth1025}
                   />
                 }
               />
@@ -73,7 +81,10 @@ function App() {
                 path={`/${navItems.Geography}`}
                 element={<Geography isMaxWidth600px={isMaxWidth600px} />}
               />
-              <Route path={`/${navItems.Overview}`} element={<Overview />} />
+              <Route
+                path={`/${navItems.Overview}`}
+                element={<Overview isMaxWidth600px={isMaxWidth600px} />}
+              />
             </Route>
           </Routes>
         </ThemeProvider>

@@ -1,11 +1,11 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Menu as MenuIcon, Search } from '@mui/icons-material';
-import { IconButton, InputBase, Menu, MenuItem, useTheme } from '@mui/material';
-import profileImage from '../../../assets/images/profile.jpg';
-import { setMode } from '../../../features/globalSlice';
-import useToggleMenuWithAnchor from '../../../hooks/useToggleMenuWithAnchor';
-import { IUser } from '../Layout/Layout';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Menu as MenuIcon, Search } from "@mui/icons-material";
+import { IconButton, InputBase, Menu, MenuItem, useTheme } from "@mui/material";
+import profileImage from "../../../assets/images/profile.jpg";
+import { setMode } from "../../../features/globalSlice";
+import useToggleMenuWithAnchor from "../../../hooks/useToggleMenuWithAnchor";
+import { IUser } from "../Layout/Layout";
 import {
   StyledArrowIcon,
   DarkModeIcon,
@@ -22,7 +22,7 @@ import {
   StyledTypographyOccupation,
   TopAppBar,
   TopToolbar,
-} from './Navbar.styles';
+} from "./Navbar.styles";
 
 interface INavbar extends IUser {
   isSidebarOpen: boolean;
@@ -43,7 +43,7 @@ const Navbar = ({
     useToggleMenuWithAnchor();
 
   return (
-    <TopAppBar>
+    <TopAppBar className="asdasdaaaaaaaaaaaaaaaaaaaaaaaaaasdaddddd">
       <TopToolbar>
         <LeftContainer>
           <IconButton
@@ -61,7 +61,7 @@ const Navbar = ({
         </LeftContainer>
         <RightContainer>
           <IconButton onClick={() => dispatch(setMode())} aria-label="theme">
-            {theme.palette.mode === 'dark' ? (
+            {theme.palette.mode === "dark" ? (
               <DarkModeIcon />
             ) : (
               <LightModeIcon />
@@ -86,7 +86,7 @@ const Navbar = ({
                 anchorEl={anchorEl}
                 open={isOpen}
                 onClose={handleClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
               >
                 <MenuItem onClick={handleClose}>Log Out</MenuItem>
               </Menu>
