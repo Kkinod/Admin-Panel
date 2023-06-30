@@ -3,13 +3,22 @@ export const labels = {
     buttonEdit: "Edit",
     buttonRemove: "Remove",
     buttonView: "View",
-    searchId: "Search ID",
+    id: "id",
     loading: "Loading...",
+    searchId: "Search ID",
   },
 
   actionColumn: {
     field: "action",
     header: "Action",
+  },
+
+  products: {
+    noProducts: "No product found",
+    annualSales: "Annual sales this year",
+    annualUnitsSold: "Annual units sold this year",
+    supplyLeft: "Supply Left",
+    buttonProductsCard: "See more",
   },
 
   transactions: {

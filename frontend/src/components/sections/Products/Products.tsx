@@ -79,7 +79,9 @@ const Products = ({ isXsDown1025 }: IProducts) => {
             )}
           </BoxStyled>
         ) : (
-          <TypographyStyled variant="h4">No product found</TypographyStyled>
+          <TypographyStyled variant="h4">
+            {labels.products.noProducts}
+          </TypographyStyled>
         )
       ) : (
         <>{labels.default.loading}</>

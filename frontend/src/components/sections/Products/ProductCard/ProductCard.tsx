@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
+  Button,
   CardActions,
   CardContent,
-  Button,
-  Typography,
   Rating,
-} from '@mui/material';
-import { IProduct } from '../Products';
+  Typography,
+} from "@mui/material";
+import { IProduct } from "../Products";
 import {
+  CardContentStyled,
   CardStyled,
   CollapseStyled,
   TypographyCategoryStyled,
   TypographyPriceStyled,
-} from './ProductCard.styles';
+} from "./ProductCard.styles";
+import { labels } from "../../../../utils/labels";
 
 const ProductCard = ({
   _id,
@@ -28,7 +30,7 @@ const ProductCard = ({
 
   return (
     <CardStyled>
-      <CardContent>
+      <CardContentStyled>
         <TypographyCategoryStyled gutterBottom>
           {category}
         </TypographyCategoryStyled>
@@ -38,25 +40,25 @@ const ProductCard = ({
         </TypographyPriceStyled>
         <Rating value={rating} readOnly />
         <Typography variant="body2">{description}</Typography>
-      </CardContent>
+      </CardContentStyled>
       <CardActions>
         <Button
           variant="contained"
           size="small"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          See More
+          {labels.products.buttonProductsCard}
         </Button>
       </CardActions>
       <CollapseStyled in={isExpanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography>id: {_id}</Typography>
-          <Typography>Supply Left: {supply}</Typography>
+          <Typography>{`${labels.default.id}: ${_id}`}</Typography>
+          <Typography>{`${labels.products.supplyLeft}: ${supply}`}</Typography>
           <Typography>
-            Yearly Sales This Year: {stat[0].yearlySalesTotal}
+            {`${labels.products.annualSales}: ${stat[0].yearlySalesTotal}`}
           </Typography>
           <Typography>
-            Yearly Units Sold This Year: {stat[0].yearlyTotalSoldUnits}
+            {`${labels.products.annualUnitsSold}: ${stat[0].yearlyTotalSoldUnits}`}
           </Typography>
         </CardContent>
       </CollapseStyled>
