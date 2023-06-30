@@ -8,6 +8,7 @@ import { useGetTransactionsQuery } from "../../../features/api";
 import Header from "../../Header/Header";
 import DataGridCustomToolbar from "../DataGridCustomToolbar/DataGridCustomToolbar";
 import { transactionsColumns } from "../../../utils/columns/transactionsColumns/transactionsColumns";
+import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../App";
 import { labels } from "../../../utils/labels";
 import {
   StyledBoxContainer,
@@ -33,12 +34,9 @@ interface IUseGetTransactionsQueryResult {
   isLoading: boolean;
 }
 
-interface ITransactions {
-  isMaxWidth600px: boolean;
-  isXsDown1025: boolean;
-}
+interface ITransactions extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
-const Transactions = ({ isMaxWidth600px, isXsDown1025 }: ITransactions) => {
+const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
     page: 0,
     pageSize: 25,
@@ -60,7 +58,7 @@ const Transactions = ({ isMaxWidth600px, isXsDown1025 }: ITransactions) => {
   const [columnVisibility, setColumnVisibility] =
     React.useState<GridColumnVisibilityModel>({
       userId: !isMaxWidth600px,
-      createdAt: !isXsDown1025,
+      createdAt: !isMaxWidth1025,
     });
 
   useEffect(() => {

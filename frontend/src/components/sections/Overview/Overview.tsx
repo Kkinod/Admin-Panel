@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { MenuItem, InputLabel, Select } from "@mui/material";
+import { InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "../../Header/Header";
 import OverviewChart from "./OverviewChart/OverviewChart";
+import { IIsMaxWidth600px } from "../../../App";
 import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
-import {
-  StyledBoxWrapper,
-  StyledFormControl,
-} from "./OverviewChart/Overview.styles";
+import { StyledBoxWrapper, StyledFormControl } from "./Overview.styles";
 import { labels } from "../../../utils/labels";
 
-const Overview = () => {
+const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
   const [view, setView] = useState("units");
 
   return (
@@ -20,7 +18,7 @@ const Overview = () => {
       />
       <StyledBoxWrapper>
         <StyledFormControl>
-          <InputLabel>View</InputLabel>
+          <InputLabel>{labels.default.buttonView}</InputLabel>
           <Select
             value={view}
             label="View"
@@ -34,7 +32,7 @@ const Overview = () => {
             </MenuItem>
           </Select>
         </StyledFormControl>
-        <OverviewChart view={view} />
+        <OverviewChart isMaxWidth600px={isMaxWidth600px} view={view} />
       </StyledBoxWrapper>
     </StyledBoxContainer>
   );

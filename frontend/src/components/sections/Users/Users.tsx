@@ -14,13 +14,14 @@ import Button from "@mui/material/Button";
 import { useGetUsersQuery } from "../../../features/api";
 import Header from "../../Header/Header";
 import { generateUsersColumns } from "../../../utils/columns/usersColumns/usersColumns";
+import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
+import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../App";
 import { labels } from "../../../utils/labels";
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
   StyledStack,
 } from "../../../assets/styles/globalComponents.styles";
-import { actionColumn } from "../../../utils/columns/actionColumn/actionColumn";
 
 export interface IUsersData {
   city: string;
@@ -42,12 +43,9 @@ interface IUseGetTransactionsQueryResult {
   isLoading: boolean;
 }
 
-interface IUsers {
-  isMaxWidth600px: boolean;
-  isXsDown1025: boolean;
-}
+interface IUsers extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
-const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
+const Users = ({ isMaxWidth600px, isMaxWidth1025 }: IUsers) => {
   const [pagination, setPagination] = useState<GridPaginationModel>({
     page: 0,
     pageSize: 25,
@@ -64,8 +62,8 @@ const Users = ({ isMaxWidth600px, isXsDown1025 }: IUsers) => {
     useState<GridColumnVisibilityModel>({
       _id: !isMaxWidth600px,
       email: !isMaxWidth600px,
-      phoneNumber: !isXsDown1025,
-      country: !isXsDown1025,
+      phoneNumber: !isMaxWidth1025,
+      country: !isMaxWidth1025,
     });
 
   const handleDeleteSelectedRows = () => {

@@ -2,9 +2,10 @@ import React from "react";
 import Header from "../../Header/Header";
 import { useGetProductsQuery } from "../../../features/api";
 import ProductCard from "./ProductCard/ProductCard";
+import { IIsMaxWidth1025 } from "../../../App";
+import { labels } from "../../../utils/labels";
 import { BoxStyled, TypographyStyled } from "./Products.styles";
 import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
-import { labels } from "../../../utils/labels";
 
 interface IStatItem {
   month: string;
@@ -39,11 +40,7 @@ interface IUseGetProductsQueryResult {
   isLoading: boolean;
 }
 
-export interface IProducts {
-  isXsDown1025: boolean;
-}
-
-const Products = ({ isXsDown1025 }: IProducts) => {
+const Products = ({ isMaxWidth1025 }: IIsMaxWidth1025) => {
   const { data, isLoading } =
     useGetProductsQuery<IUseGetProductsQueryResult>(null);
 
@@ -52,7 +49,7 @@ const Products = ({ isXsDown1025 }: IProducts) => {
       <Header title="PRODUCTS" subtitle="See your list of products." />
       {!isLoading ? (
         data && data.length > 0 ? (
-          <BoxStyled isXsDown1025={isXsDown1025}>
+          <BoxStyled isMaxWidth1025={isMaxWidth1025}>
             {data?.map(
               ({
                 _id,

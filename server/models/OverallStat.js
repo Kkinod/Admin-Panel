@@ -10,14 +10,16 @@ const OverallStatSchema = new mongoose.Schema(
       {
         month: String,
         totalSales: Number,
-        TotalUnits: Number,
+        totalUnits: Number,
       },
     ],
-    dailyData: {
-      date: String,
-      totalSales: Number,
-      TotalUnits: Number,
-    },
+    dailyData: [
+      {
+        date: String,
+        totalSales: Number,
+        totalUnits: Number,
+      },
+    ],
     salesByCategory: {
       type: Map,
       of: Number,

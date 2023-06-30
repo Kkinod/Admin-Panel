@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
+import { IIsMaxWidth1025 } from "../../../App";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
 import { styled } from "@mui/material/styles";
-import { IProducts } from "./Products";
 
 export const TypographyStyled = styled(Typography)({
   marginTop: "2rem",
@@ -9,8 +9,8 @@ export const TypographyStyled = styled(Typography)({
 });
 
 export const BoxStyled = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "isXsDown1025",
-})<IProducts>(({ isXsDown1025 }) => ({
+  shouldForwardProp: (prop) => prop !== "isMaxWidth1025",
+})<IIsMaxWidth1025>(({ isMaxWidth1025 }) => ({
   display: "grid",
   justifyContent: "space-between",
   gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -19,6 +19,6 @@ export const BoxStyled = styled(Box, {
   rowGap: "20px",
 
   "& > div": {
-    gridColumn: !isXsDown1025 ? "unset" : "span 4",
+    gridColumn: !isMaxWidth1025 ? "unset" : "span 4",
   },
 }));
