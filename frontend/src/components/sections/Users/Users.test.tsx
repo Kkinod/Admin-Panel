@@ -35,7 +35,7 @@ describe("Users component", () => {
         renderWithProviders(
           <MemoryRouter>
             <QueryClientProvider client={queryClient}>
-              <Users isMaxWidth600px={false} isXsDown1025={false} />
+              <Users isMaxWidth600px={false} isMaxWidth1025={false} />
             </QueryClientProvider>
           </MemoryRouter>
         );
@@ -99,7 +99,7 @@ describe("Users component", () => {
         renderWithProviders(
           <MemoryRouter>
             <QueryClientProvider client={queryClient}>
-              <Users isMaxWidth600px={true} isXsDown1025={true} />
+              <Users isMaxWidth600px={true} isMaxWidth1025={true} />
             </QueryClientProvider>
           </MemoryRouter>
         );
@@ -153,7 +153,7 @@ describe("Users component", () => {
         renderWithProviders(
           <MemoryRouter>
             <QueryClientProvider client={queryClient}>
-              <Users isMaxWidth600px={false} isXsDown1025={false} />
+              <Users isMaxWidth600px={false} isMaxWidth1025={false} />
             </QueryClientProvider>
           </MemoryRouter>
         );
@@ -177,7 +177,7 @@ describe("Users component", () => {
         renderWithProviders(
           <MemoryRouter>
             <QueryClientProvider client={queryClient}>
-              <Users isMaxWidth600px={false} isXsDown1025={false} />
+              <Users isMaxWidth600px={false} isMaxWidth1025={false} />
             </QueryClientProvider>
           </MemoryRouter>
         );

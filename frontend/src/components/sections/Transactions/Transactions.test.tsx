@@ -29,7 +29,7 @@ describe("Transactions component", () => {
 
         renderWithProviders(
           <QueryClientProvider client={queryClient}>
-            <Transactions isMaxWidth600px={false} isXsDown1025={false} />
+            <Transactions isMaxWidth600px={false} isMaxWidth1025={false} />
           </QueryClientProvider>
         );
       });
@@ -92,7 +92,7 @@ describe("Transactions component", () => {
 
         renderWithProviders(
           <QueryClientProvider client={queryClient}>
-            <Transactions isMaxWidth600px={true} isXsDown1025={true} />
+            <Transactions isMaxWidth600px={true} isMaxWidth1025={true} />
           </QueryClientProvider>
         );
       });
@@ -142,7 +142,7 @@ describe("Transactions component", () => {
 
         renderWithProviders(
           <QueryClientProvider client={queryClient}>
-            <Transactions isMaxWidth600px={false} isXsDown1025={false} />
+            <Transactions isMaxWidth600px={false} isMaxWidth1025={false} />
           </QueryClientProvider>
         );
       });
@@ -166,7 +166,7 @@ describe("Transactions component", () => {
 
         renderWithProviders(
           <QueryClientProvider client={queryClient}>
-            <Transactions isMaxWidth600px={false} isXsDown1025={false} />
+            <Transactions isMaxWidth600px={false} isMaxWidth1025={false} />
           </QueryClientProvider>
         );
       });

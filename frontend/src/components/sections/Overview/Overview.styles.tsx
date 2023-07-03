@@ -3,7 +3,6 @@ import { Box, FormControl } from "@mui/material";
 
 export const StyledBoxWrapper = styled(Box)({
   width: "95%",
-
   height: "75vh",
   paddingBottom: "2rem",
 });

@@ -7,7 +7,7 @@ import { labels } from "../../../../utils/labels";
 
 interface IOverviewChart extends IIsMaxWidth600px {
   isDashboard?: boolean;
-  view: any;
+  view: string;
 }
 
 interface ILineData {
@@ -64,6 +64,8 @@ const OverviewChart = ({
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery<IUseGetSalesQuery>(null);
 
+  console.log(data);
+
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
     if (!data) return [[], []];
 
@@ -78,6 +80,8 @@ const OverviewChart = ({
       color: theme.palette.primary.main,
       data: [],
     };
+
+    console.log(monthlyData);
 
     Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {

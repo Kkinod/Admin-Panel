@@ -18,8 +18,11 @@ const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
       />
       <StyledBoxWrapper>
         <StyledFormControl>
-          <InputLabel>{labels.default.buttonView}</InputLabel>
+          <InputLabel id="view-select-label">
+            {labels.default.buttonView}
+          </InputLabel>
           <Select
+            labelId="view-select-label"
             value={view}
             label="View"
             onChange={(e) => setView(e.target.value)}
