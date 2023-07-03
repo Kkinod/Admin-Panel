@@ -64,3 +64,58 @@ export const mockedUsersData: IUsersData = {
   createdAt: "2023-05-13",
   updatedAt: "2023-05-14",
 };
+
+export const mockOverviewData = {
+  createdAt: "2023-01-10T18:53:05.874Z",
+  totalCustomers: 111,
+  yearlySalesTotal: 22222,
+  yearlyTotalSoldUnits: 3333,
+  year: 2023,
+  _id: "1",
+  monthlyData: [
+    {
+      month: "January",
+      totalSales: 11,
+      totalUnits: 22,
+      _id: "2",
+    },
+    {
+      month: "February",
+      totalSales: 33,
+      totalUnits: 33,
+      _id: "3",
+    },
+    {
+      month: "March",
+      totalSales: 44,
+      totalUnits: 44,
+      _id: "4",
+    },
+  ],
+  dailyData: [
+    {
+      month: "2022-01-01",
+      totalSales: 1,
+      totalUnits: 2,
+      _id: "5",
+    },
+    {
+      month: "2022-01-02",
+      totalSales: 3,
+      totalUnits: 3,
+      _id: "6",
+    },
+    {
+      month: "2022-01-03",
+      totalSales: 4,
+      totalUnits: 4,
+      _id: "7",
+    },
+  ],
+  salesByCategory: {
+    accessories: 1111,
+    hardwood: 1111,
+    panels: 1111,
+    woodenfloor: 1111,
+  },
+};
