@@ -19,7 +19,7 @@ describe("Products", () => {
 
     renderWithProviders(
       <QueryClientProvider client={queryClient}>
-        <Products isXsDown1025 />
+        <Products isMaxWidth1025 />
       </QueryClientProvider>
     );
   });

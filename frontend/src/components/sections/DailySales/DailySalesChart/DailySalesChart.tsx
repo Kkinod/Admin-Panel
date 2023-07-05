@@ -105,7 +105,7 @@ const DailySalesChart = ({
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
-        min: "auto",
+        min: 2,
         max: "auto",
         stacked: false,
         reverse: false,
@@ -130,6 +130,7 @@ const DailySalesChart = ({
         legendOffset: isMaxWidth600px ? -20 : -50,
         legendPosition: "middle",
       }}
+      enableArea={true}
       enableGridX={false}
       enableGridY={false}
       pointSize={isMaxWidth600px ? 4 : 10}

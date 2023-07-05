@@ -50,5 +50,7 @@ export const labels = {
     headerSubtitle: "Chart of daily sales",
     valueSales: "Sales",
     valueUnits: "Units",
+    initialStartDate: "01/01/2022",
+    initialEndDate: "01/25/2022",
   },
 };

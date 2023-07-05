@@ -12,7 +12,6 @@ import {
   StyledBoxDateWrapper,
   StyledButtonDate,
 } from "./DailySales.styles";
-import "react-datepicker/dist/react-datepicker.css";
 
 interface ExampleCustomInputProps {
   value?: string;
@@ -20,8 +19,12 @@ interface ExampleCustomInputProps {
 }
 
 const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
-  const [initialDate, setInitialDate] = useState(new Date("2022-01-01"));
-  const [endDate, setEndDate] = useState(new Date("2022-02-01"));
+  const [startDate, setStartDate] = useState(
+    new Date(labels.dailySales.initialStartDate)
+  );
+  const [endDate, setEndDate] = useState(
+    new Date(labels.dailySales.initialEndDate)
+  );
 
   const ExampleCustomInput = forwardRef<
     HTMLButtonElement,
@@ -46,10 +49,10 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
         <StyledBoxDateWrapper>
           <StyledBox>
             <DatePicker
-              selected={initialDate}
-              onChange={(date) => date && setInitialDate(date)}
+              selected={startDate}
+              onChange={(date) => date && setStartDate(date)}
               selectsStart
-              startDate={initialDate}
+              startDate={startDate}
               endDate={endDate}
               customInput={<ExampleCustomInput />}
             />
@@ -59,16 +62,16 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
               selected={endDate}
               onChange={(date) => date && setEndDate(date)}
               selectsEnd
-              startDate={initialDate}
+              startDate={startDate}
               endDate={endDate}
-              minDate={initialDate}
+              minDate={startDate}
               customInput={<ExampleCustomInput />}
             />
           </Box>
         </StyledBoxDateWrapper>
 
         <DailySalesChart
-          initialDate={initialDate}
+          initialDate={startDate}
           endDate={endDate}
           isMaxWidth600px={isMaxWidth600px}
         />
