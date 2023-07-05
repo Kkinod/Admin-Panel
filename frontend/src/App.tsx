@@ -16,6 +16,7 @@ import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns"
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
 import { navItems } from "./utils/navItems";
+import DailySales from "./components/sections/DailySales/DailySales";
 
 export interface IIsMaxWidth600px {
   isMaxWidth600px: boolean;
@@ -27,6 +28,7 @@ export interface IIsMaxWidth1025 {
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
+  // @ts-ignore
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   const isMaxWidth600px = useMediaQuery("(max-width: 600px)");
@@ -84,6 +86,10 @@ function App() {
               <Route
                 path={`/${navItems.Overview}`}
                 element={<Overview isMaxWidth600px={isMaxWidth600px} />}
+              />
+              <Route
+                path={`/${navItems.Daily}`}
+                element={<DailySales isMaxWidth600px={isMaxWidth600px} />}
               />
             </Route>
           </Routes>

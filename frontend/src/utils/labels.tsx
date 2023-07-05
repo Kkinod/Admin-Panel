@@ -44,4 +44,11 @@ export const labels = {
     valueSales: "Sales",
     valueUnits: "Units",
   },
+
+  dailySales: {
+    headerTitle: "DAILY SALES",
+    headerSubtitle: "Chart of daily sales",
+    valueSales: "Sales",
+    valueUnits: "Units",
+  },
 };

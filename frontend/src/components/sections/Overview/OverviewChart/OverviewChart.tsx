@@ -15,7 +15,7 @@ interface ILineData {
   y: number;
 }
 
-interface ITotalLine {
+export interface ITotalLine {
   id: string;
   color: string;
   data: ILineData[];
@@ -51,7 +51,7 @@ interface IOverallData {
   salesByCategory: ISalesByCategory;
 }
 
-interface IUseGetSalesQuery {
+export interface IUseGetSalesQuery {
   data: IOverallData;
   isLoading: boolean;
 }
@@ -63,8 +63,6 @@ const OverviewChart = ({
 }: IOverviewChart) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery<IUseGetSalesQuery>(null);
-
-  console.log(data);
 
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
     if (!data) return [[], []];
@@ -80,8 +78,6 @@ const OverviewChart = ({
       color: theme.palette.primary.main,
       data: [],
     };
-
-    console.log(monthlyData);
 
     Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {
