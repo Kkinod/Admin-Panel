@@ -45,12 +45,20 @@ export const labels = {
     valueUnits: "Units",
   },
 
+  charts: {
+    totalSales: "Total sales",
+    totalUnits: "Total units",
+  },
+
   dailySales: {
     headerTitle: "DAILY SALES",
     headerSubtitle: "Chart of daily sales",
-    valueSales: "Sales",
-    valueUnits: "Units",
     initialStartDate: "01/01/2022",
     initialEndDate: "01/25/2022",
+  },
+
+  monthlySales: {
+    headerTitle: "MONTHLY SALES",
+    headerSubtitle: "Chart of monthly sales",
   },
 };

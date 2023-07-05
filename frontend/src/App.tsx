@@ -16,7 +16,8 @@ import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns"
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
 import { navItems } from "./utils/navItems";
-import DailySales from "./components/sections/DailySales/DailySales";
+import DailySales from "./components/sections/salesCharts/DailySales/DailySales";
+import MonthlySales from "./components/sections/salesCharts/MonthlySales/MonthlySales";
 
 export interface IIsMaxWidth600px {
   isMaxWidth600px: boolean;
@@ -90,6 +91,10 @@ function App() {
               <Route
                 path={`/${navItems.Daily}`}
                 element={<DailySales isMaxWidth600px={isMaxWidth600px} />}
+              />
+              <Route
+                path={`/${navItems.Monthly}`}
+                element={<MonthlySales isMaxWidth600px={isMaxWidth600px} />}
               />
             </Route>
           </Routes>

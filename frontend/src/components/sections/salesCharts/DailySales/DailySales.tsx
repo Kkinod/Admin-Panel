@@ -1,11 +1,11 @@
 import React, { forwardRef, useState } from "react";
 import { Box } from "@mui/material";
-import Header from "../../Header/Header";
+import Header from "../../../Header/Header";
 import DatePicker from "react-datepicker";
-import DailySalesChart from "./DailySalesChart/DailySalesChart";
-import { IIsMaxWidth600px } from "../../../App";
-import { labels } from "../../../utils/labels";
-import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
+import SalesChart from "../SalesChart";
+import { IIsMaxWidth600px } from "../../../../App";
+import { labels } from "../../../../utils/labels";
+import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 import {
   StyledBox,
   StyledBoxDailyContainer,
@@ -69,11 +69,11 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
             />
           </Box>
         </StyledBoxDateWrapper>
-
-        <DailySalesChart
-          initialDate={startDate}
-          endDate={endDate}
+        <SalesChart
+          isMonthly={false}
           isMaxWidth600px={isMaxWidth600px}
+          startDate={startDate}
+          endDate={endDate}
         />
       </StyledBoxDailyContainer>
     </StyledBoxContainer>

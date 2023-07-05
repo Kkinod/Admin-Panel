@@ -1,15 +1,15 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { fireEvent, screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { useGetSalesQuery } from "../../../features/api";
-import { mockOverviewData } from "../../../testUtils/mockedData";
-import { renderWithProviders } from "../../../testUtils/renderWithProviders";
 import { MemoryRouter } from "react-router-dom";
-import { labels } from "../../../utils/labels";
+import { QueryClient, QueryClientProvider } from "react-query";
 import DailySales from "./DailySales";
+import { useGetSalesQuery } from "../../../../features/api";
+import { renderWithProviders } from "../../../../testUtils/renderWithProviders";
+import { mockOverviewData } from "../../../../testUtils/mockedData";
+import { labels } from "../../../../utils/labels";
 
-jest.mock("../../../features/api", () => ({
+jest.mock("../../../../features/api", () => ({
   useGetSalesQuery: jest.fn(),
 }));
 
@@ -23,7 +23,7 @@ describe("Overview Component", () => {
   beforeEach(() => {
     const queryClient = new QueryClient();
 
-    const { useGetSalesQuery } = require("../../../features/api");
+    const { useGetSalesQuery } = require("../../../../features/api");
     useGetSalesQuery.mockImplementation(() => ({
       data: mockOverviewData,
       isLoading: false,

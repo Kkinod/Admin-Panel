@@ -4,56 +4,11 @@ import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../features/api";
 import { IIsMaxWidth600px } from "../../../../App";
 import { labels } from "../../../../utils/labels";
+import { ITotalLine, IUseGetSalesQuery } from "../../salesCharts/SalesChart";
 
 interface IOverviewChart extends IIsMaxWidth600px {
   isDashboard?: boolean;
   view: string;
-}
-
-interface ILineData {
-  x: string;
-  y: number;
-}
-
-export interface ITotalLine {
-  id: string;
-  color: string;
-  data: ILineData[];
-}
-
-interface ISalesByCategory {
-  accessories: number;
-  hardwood: number;
-  panels: number;
-  woodenfloor: number;
-}
-
-interface IOverallData {
-  createdAt: string;
-  totalCustomers: number;
-  yearlySalesTotal: number;
-  yearlyTotalSoldUnits: number;
-  year: number;
-  monthlyData: [
-    {
-      month: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  dailyData: [
-    {
-      date: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  salesByCategory: ISalesByCategory;
-}
-
-export interface IUseGetSalesQuery {
-  data: IOverallData;
-  isLoading: boolean;
 }
 
 const OverviewChart = ({
