@@ -1,62 +1,124 @@
 import React, { useMemo } from "react";
-import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
+import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../features/api";
-import {
-  ITotalLine,
-  IUseGetSalesQuery,
-} from "../../Overview/OverviewChart/OverviewChart";
 import { IIsMaxWidth600px } from "../../../../App";
 import { labels } from "../../../../utils/labels";
 
-interface IDailySalesChart extends IIsMaxWidth600px {
-  initialDate: Date;
-  endDate: Date;
+interface ISalesChart extends IIsMaxWidth600px {
+  startDate?: Date;
+  endDate?: Date;
+  isMonthly: boolean;
 }
 
-const DailySalesChart = ({
-  initialDate,
-  endDate,
+interface ISalesByCategory {
+  accessories: number;
+  hardwood: number;
+  panels: number;
+  woodenfloor: number;
+}
+
+interface IOverallData {
+  createdAt: string;
+  totalCustomers: number;
+  yearlySalesTotal: number;
+  yearlyTotalSoldUnits: number;
+  year: number;
+  monthlyData: [
+    {
+      month: string;
+      totalSales: number;
+      totalUnits: number;
+    }
+  ];
+  dailyData: [
+    {
+      date: string;
+      totalSales: number;
+      totalUnits: number;
+    }
+  ];
+  salesByCategory: ISalesByCategory;
+}
+
+interface ILineData {
+  x: string;
+  y: number;
+}
+
+export interface ITotalLine {
+  id: string;
+  color: string;
+  data: ILineData[];
+}
+
+export interface IUseGetSalesQuery {
+  data: IOverallData;
+  isLoading: boolean;
+}
+
+const SalesChart = ({
+  startDate = new Date("01/01/2022"),
+  endDate = new Date("01/25/2022"),
   isMaxWidth600px,
-}: IDailySalesChart) => {
+  isMonthly,
+}: ISalesChart) => {
   const { data, isLoading } = useGetSalesQuery<IUseGetSalesQuery>(null);
   const theme = useTheme();
 
   const [formattedData] = useMemo(() => {
     if (!data) return [[], []];
 
-    const { dailyData } = data;
+    const salesData = isMonthly ? data.monthlyData : data.dailyData;
+
     const totalSalesLine: ITotalLine = {
-      id: "totalSales",
+      id: labels.charts.totalSales,
       color: theme.palette.secondary.main,
       data: [],
     };
     const totalUnitsLine: ITotalLine = {
-      id: "totalUnits",
+      id: labels.charts.totalUnits,
       color: theme.palette.primary.main,
       data: [],
     };
 
-    Object.values(dailyData).forEach(({ date, totalSales, totalUnits }) => {
-      const dateFormatted = new Date(date);
-      if (dateFormatted >= initialDate && dateFormatted <= endDate) {
-        const splitDate = date.substring(date.indexOf("-") + 1);
+    Object.values(salesData).forEach((item) => {
+      let dateOrMonth;
+
+      if (isMonthly) {
+        dateOrMonth = item.month;
 
         totalSalesLine.data = [
           ...totalSalesLine.data,
-          { x: splitDate, y: totalSales },
+          { x: dateOrMonth, y: item.totalSales },
         ];
         totalUnitsLine.data = [
           ...totalUnitsLine.data,
-          { x: splitDate, y: totalUnits },
+          { x: dateOrMonth, y: item.totalUnits },
         ];
+      } else {
+        dateOrMonth = item.date;
+        const dateFormatted = new Date(dateOrMonth);
+
+        if (dateFormatted >= startDate && dateFormatted <= endDate) {
+          const splitDate = dateOrMonth.substring(dateOrMonth.indexOf("-") + 1);
+
+          totalSalesLine.data = [
+            ...totalSalesLine.data,
+            { x: splitDate, y: item.totalSales },
+          ];
+          totalUnitsLine.data = [
+            ...totalUnitsLine.data,
+            { x: splitDate, y: item.totalUnits },
+          ];
+        }
       }
     });
 
     const formattedData = [totalSalesLine, totalUnitsLine];
 
     return [formattedData];
-  }, [data, initialDate, endDate]);
+  }, [data, startDate, endDate]);
 
   if (isLoading) return <div>{labels.default.loading}</div>;
 
@@ -100,12 +162,12 @@ const DailySalesChart = ({
         top: 20,
         right: isMaxWidth600px ? 5 : 100,
         bottom: isMaxWidth600px ? 120 : 100,
-        left: isMaxWidth600px ? 25 : 50,
+        left: isMaxWidth600px ? 25 : 60,
       }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
-        min: "auto",
+        min: 2,
         max: "auto",
         stacked: false,
         reverse: false,
@@ -130,6 +192,7 @@ const DailySalesChart = ({
         legendOffset: isMaxWidth600px ? -20 : -50,
         legendPosition: "middle",
       }}
+      enableArea={true}
       enableGridX={false}
       enableGridY={false}
       pointSize={isMaxWidth600px ? 4 : 10}
@@ -168,4 +231,4 @@ const DailySalesChart = ({
   );
 };
 
-export default DailySalesChart;
+export default SalesChart;

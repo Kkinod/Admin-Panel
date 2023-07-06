@@ -7,6 +7,7 @@ import { useGetUserByIdQuery } from "../../../features/api";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../features/store";
 import { IIsMaxWidth600px } from "../../../App";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface ILayout extends IIsMaxWidth600px {}
 

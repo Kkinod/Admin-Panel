@@ -23,6 +23,7 @@ import {
   TopAppBar,
   TopToolbar,
 } from "./Navbar.styles";
+import { labels } from "../../../utils/labels";
 
 interface INavbar extends IUser {
   isSidebarOpen: boolean;
@@ -43,7 +44,7 @@ const Navbar = ({
     useToggleMenuWithAnchor();
 
   return (
-    <TopAppBar className="asdasdaaaaaaaaaaaaaaaaaaaaaaaaaasdaddddd">
+    <TopAppBar>
       <TopToolbar>
         <LeftContainer>
           <IconButton
@@ -88,7 +89,9 @@ const Navbar = ({
                 onClose={handleClose}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
               >
-                <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  {labels.default.logOut}
+                </MenuItem>
               </Menu>
             </FlexBetween>
           ) : undefined}

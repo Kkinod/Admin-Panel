@@ -4,56 +4,14 @@ import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../features/api";
 import { IIsMaxWidth600px } from "../../../../App";
 import { labels } from "../../../../utils/labels";
+import {
+  ITotalLine,
+  IUseGetSalesQuery,
+} from "../../salesCharts/components/SalesChart";
 
 interface IOverviewChart extends IIsMaxWidth600px {
   isDashboard?: boolean;
   view: string;
-}
-
-interface ILineData {
-  x: string;
-  y: number;
-}
-
-export interface ITotalLine {
-  id: string;
-  color: string;
-  data: ILineData[];
-}
-
-interface ISalesByCategory {
-  accessories: number;
-  hardwood: number;
-  panels: number;
-  woodenfloor: number;
-}
-
-interface IOverallData {
-  createdAt: string;
-  totalCustomers: number;
-  yearlySalesTotal: number;
-  yearlyTotalSoldUnits: number;
-  year: number;
-  monthlyData: [
-    {
-      month: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  dailyData: [
-    {
-      date: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  salesByCategory: ISalesByCategory;
-}
-
-export interface IUseGetSalesQuery {
-  data: IOverallData;
-  isLoading: boolean;
 }
 
 const OverviewChart = ({
@@ -140,10 +98,10 @@ const OverviewChart = ({
         },
       }}
       margin={{
-        top: 20,
+        top: isMaxWidth600px ? 30 : 20,
         right: isMaxWidth600px ? 15 : 100,
         bottom: isMaxWidth600px ? 120 : 100,
-        left: 70,
+        left: isMaxWidth600px ? 25 : 70,
       }}
       xScale={{ type: "point" }}
       yScale={{
@@ -174,11 +132,11 @@ const OverviewChart = ({
         tickValues: 5,
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: 0,
+        tickRotation: isMaxWidth600px ? 90 : 0,
         legend: isDashboard
           ? ""
           : `Total ${view === "sales" ? "Revenue" : "Units"} for Year`,
-        legendOffset: -60,
+        legendOffset: isMaxWidth600px ? -20 : -60,
         legendPosition: "middle",
       }}
       enableGridX={false}

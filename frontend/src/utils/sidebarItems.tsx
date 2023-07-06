@@ -60,7 +60,7 @@ export const sidebarItems = [
     icon: <CalendarMonthOutlined />,
   },
   {
-    text: navItems.Breakdown,
+    text: navItems.Categories,
     icon: <PieChartOutlined />,
   },
   {

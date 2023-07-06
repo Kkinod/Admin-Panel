@@ -1,18 +1,19 @@
 import React, { forwardRef, useState } from "react";
 import { Box } from "@mui/material";
-import Header from "../../Header/Header";
+import Header from "../../../Header/Header";
 import DatePicker from "react-datepicker";
-import DailySalesChart from "./DailySalesChart/DailySalesChart";
-import { IIsMaxWidth600px } from "../../../App";
-import { labels } from "../../../utils/labels";
-import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
+import SalesChart from "../components/SalesChart";
+import { IIsMaxWidth600px } from "../../../../App";
+import { labels } from "../../../../utils/labels";
+import {
+  StyledBoxChartWrapper,
+  StyledBoxContainer,
+} from "../../../../assets/styles/globalComponents.styles";
 import {
   StyledBox,
-  StyledBoxDailyContainer,
   StyledBoxDateWrapper,
   StyledButtonDate,
 } from "./DailySales.styles";
-import "react-datepicker/dist/react-datepicker.css";
 
 interface ExampleCustomInputProps {
   value?: string;
@@ -20,8 +21,12 @@ interface ExampleCustomInputProps {
 }
 
 const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
-  const [initialDate, setInitialDate] = useState(new Date("2022-01-01"));
-  const [endDate, setEndDate] = useState(new Date("2022-02-01"));
+  const [startDate, setStartDate] = useState(
+    new Date(labels.dailySales.initialStartDate)
+  );
+  const [endDate, setEndDate] = useState(
+    new Date(labels.dailySales.initialEndDate)
+  );
 
   const ExampleCustomInput = forwardRef<
     HTMLButtonElement,
@@ -42,14 +47,14 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
         title={labels.dailySales.headerTitle}
         subtitle={labels.dailySales.headerSubtitle}
       />
-      <StyledBoxDailyContainer>
+      <StyledBoxChartWrapper>
         <StyledBoxDateWrapper>
           <StyledBox>
             <DatePicker
-              selected={initialDate}
-              onChange={(date) => date && setInitialDate(date)}
+              selected={startDate}
+              onChange={(date) => date && setStartDate(date)}
               selectsStart
-              startDate={initialDate}
+              startDate={startDate}
               endDate={endDate}
               customInput={<ExampleCustomInput />}
             />
@@ -59,20 +64,20 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
               selected={endDate}
               onChange={(date) => date && setEndDate(date)}
               selectsEnd
-              startDate={initialDate}
+              startDate={startDate}
               endDate={endDate}
-              minDate={initialDate}
+              minDate={startDate}
               customInput={<ExampleCustomInput />}
             />
           </Box>
         </StyledBoxDateWrapper>
-
-        <DailySalesChart
-          initialDate={initialDate}
-          endDate={endDate}
+        <SalesChart
+          isMonthly={false}
           isMaxWidth600px={isMaxWidth600px}
+          startDate={startDate}
+          endDate={endDate}
         />
-      </StyledBoxDailyContainer>
+      </StyledBoxChartWrapper>
     </StyledBoxContainer>
   );
 };

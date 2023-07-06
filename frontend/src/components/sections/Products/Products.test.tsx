@@ -5,6 +5,7 @@ import { screen } from "@testing-library/react";
 import Products from "./Products";
 import { mockedProductData } from "../../../testUtils/mockedData";
 import { renderWithProviders } from "../../../testUtils/renderWithProviders";
+import { labels } from "../../../utils/labels";
 
 jest.mock("../../../features/api", () => ({
   useGetProductsQuery: jest.fn(() => ({
@@ -19,14 +20,14 @@ describe("Products", () => {
 
     renderWithProviders(
       <QueryClientProvider client={queryClient}>
-        <Products isXsDown1025 />
+        <Products isMaxWidth1025 />
       </QueryClientProvider>
     );
   });
 
   it("should renders header", () => {
-    const headerTitle = screen.getByText("PRODUCTS");
-    const headerSubtitle = screen.getByText("See your list of products.");
+    const headerTitle = screen.getByText(labels.products.headerTitle);
+    const headerSubtitle = screen.getByText(labels.products.headerSubtitle);
 
     expect(headerTitle).toBeInTheDocument();
     expect(headerSubtitle).toBeInTheDocument();

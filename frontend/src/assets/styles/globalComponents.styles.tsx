@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Box, Stack } from "@mui/material";
+import { flexCenter } from "./mixins.styles";
 
 export const StyledBoxContainer = styled(Box)({
   margin: "1.2rem",
@@ -31,8 +32,18 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
+export const StyledBoxChartWrapper = styled(Box)({
+  height: "75vh",
+});
+
 export const StyledStack = styled(Stack)({
   height: "100%",
   alignItems: "center",
   justifyContent: "center",
+});
+
+export const StyledBoxNoData = styled(Box)({
+  ...flexCenter,
+  height: "30%",
+  fontWeight: "bold",
 });
