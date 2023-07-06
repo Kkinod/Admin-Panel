@@ -1,10 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button } from "@mui/material";
 
-export const StyledBoxDailyContainer = styled(Box)({
-  height: "75vh",
-});
-
 export const StyledBoxDateWrapper = styled(Box)({
   display: "flex",
   flexDirection: "row",

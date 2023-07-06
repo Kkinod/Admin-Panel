@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
-import { useGetSalesQuery } from "../../../features/api";
-import { IIsMaxWidth600px } from "../../../App";
-import { labels } from "../../../utils/labels";
+import { useGetSalesQuery } from "../../../../features/api";
+import { IIsMaxWidth600px } from "../../../../App";
+import { labels } from "../../../../utils/labels";
 
 interface ISalesChart extends IIsMaxWidth600px {
   startDate?: Date;
@@ -162,7 +162,7 @@ const SalesChart = ({
         top: 20,
         right: isMaxWidth600px ? 5 : 100,
         bottom: isMaxWidth600px ? 120 : 100,
-        left: isMaxWidth600px ? 25 : 50,
+        left: isMaxWidth600px ? 25 : 60,
       }}
       xScale={{ type: "point" }}
       yScale={{

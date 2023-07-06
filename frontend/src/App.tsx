@@ -4,9 +4,12 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { RootState } from "./features/store";
+import CategorySales from "./components/sections/salesCharts/CategorySales/CategorySales";
+import DailySales from "./components/sections/salesCharts/DailySales/DailySales";
 import Dashboard from "./components/mainView/Dashboard/Dashboard";
 import Geography from "./components/sections/Geography/Geography";
 import Layout from "./components/mainView/Layout/Layout";
+import MonthlySales from "./components/sections/salesCharts/MonthlySales/MonthlySales";
 import Overview from "./components/sections/Overview/Overview";
 import Products from "./components/sections/Products/Products";
 import SingleUser from "./components/sections/Users/SingleUser/SingleUser";
@@ -16,8 +19,6 @@ import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns"
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
 import { navItems } from "./utils/navItems";
-import DailySales from "./components/sections/salesCharts/DailySales/DailySales";
-import MonthlySales from "./components/sections/salesCharts/MonthlySales/MonthlySales";
 
 export interface IIsMaxWidth600px {
   isMaxWidth600px: boolean;
@@ -95,6 +96,10 @@ function App() {
               <Route
                 path={`/${navItems.Monthly}`}
                 element={<MonthlySales isMaxWidth600px={isMaxWidth600px} />}
+              />
+              <Route
+                path={`/${navItems.Categories}`}
+                element={<CategorySales isMaxWidth600px={isMaxWidth600px} />}
               />
             </Route>
           </Routes>

@@ -6,6 +6,7 @@ export const labels = {
     id: "id",
     loading: "Loading...",
     searchId: "Search ID",
+    logOut: "Log Out",
   },
 
   actionColumn: {
@@ -14,6 +15,8 @@ export const labels = {
   },
 
   products: {
+    headerTitle: "PRODUCTS",
+    headerSubtitle: "See your list of products.",
     noProducts: "No product found",
     annualSales: "Annual sales this year",
     annualUnitsSold: "Annual units sold this year",
@@ -48,6 +51,8 @@ export const labels = {
   charts: {
     totalSales: "Total sales",
     totalUnits: "Total units",
+    noDataInfo:
+      "Sorry, but no data was found for which a chart could be presented",
   },
 
   dailySales: {
@@ -60,5 +65,10 @@ export const labels = {
   monthlySales: {
     headerTitle: "MONTHLY SALES",
     headerSubtitle: "Chart of monthly sales",
+  },
+
+  categorySales: {
+    headerTitle: "CATEGORIES - SALES",
+    headerSubtitle: "A sales chart from specific categories",
   },
 };

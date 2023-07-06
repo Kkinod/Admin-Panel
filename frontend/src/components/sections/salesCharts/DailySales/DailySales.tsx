@@ -2,13 +2,15 @@ import React, { forwardRef, useState } from "react";
 import { Box } from "@mui/material";
 import Header from "../../../Header/Header";
 import DatePicker from "react-datepicker";
-import SalesChart from "../SalesChart";
+import SalesChart from "../components/SalesChart";
 import { IIsMaxWidth600px } from "../../../../App";
 import { labels } from "../../../../utils/labels";
-import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
+import {
+  StyledBoxChartWrapper,
+  StyledBoxContainer,
+} from "../../../../assets/styles/globalComponents.styles";
 import {
   StyledBox,
-  StyledBoxDailyContainer,
   StyledBoxDateWrapper,
   StyledButtonDate,
 } from "./DailySales.styles";
@@ -45,7 +47,7 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
         title={labels.dailySales.headerTitle}
         subtitle={labels.dailySales.headerSubtitle}
       />
-      <StyledBoxDailyContainer>
+      <StyledBoxChartWrapper>
         <StyledBoxDateWrapper>
           <StyledBox>
             <DatePicker
@@ -75,7 +77,7 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
           startDate={startDate}
           endDate={endDate}
         />
-      </StyledBoxDailyContainer>
+      </StyledBoxChartWrapper>
     </StyledBoxContainer>
   );
 };
