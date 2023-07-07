@@ -34,7 +34,7 @@ const Layout = ({ isMaxWidth600px }: ILayout) => {
     <Container isSidebarOpen={isSidebarOpen} isNonMobile={!isMaxWidth600px}>
       <Sidebar
         isSidebarOpen={isSidebarOpen}
-        isNonMobile={!isMaxWidth600px}
+        isMaxWidth600px={!isMaxWidth600px}
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <BoxWrapperStyled isMaxWidth600px={isMaxWidth600px}>

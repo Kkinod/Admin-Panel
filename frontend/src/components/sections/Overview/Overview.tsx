@@ -3,8 +3,11 @@ import { InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "../../Header/Header";
 import OverviewChart from "./OverviewChart/OverviewChart";
 import { IIsMaxWidth600px } from "../../../App";
-import { StyledBoxContainer } from "../../../assets/styles/globalComponents.styles";
-import { StyledBoxWrapper, StyledFormControl } from "./Overview.styles";
+import {
+  StyledBoxChartWrapper,
+  StyledBoxContainer,
+} from "../../../assets/styles/globalComponents.styles";
+import { StyledFormControl } from "./Overview.styles";
 import { labels } from "../../../utils/labels";
 
 const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
@@ -16,7 +19,7 @@ const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
         title={labels.overview.headerTitle}
         subtitle={labels.overview.headerSubtitle}
       />
-      <StyledBoxWrapper>
+      <StyledBoxChartWrapper>
         <StyledFormControl>
           <InputLabel id="view-select-label">
             {labels.default.buttonView}
@@ -36,7 +39,7 @@ const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
           </Select>
         </StyledFormControl>
         <OverviewChart isMaxWidth600px={isMaxWidth600px} view={view} />
-      </StyledBoxWrapper>
+      </StyledBoxChartWrapper>
     </StyledBoxContainer>
   );
 };

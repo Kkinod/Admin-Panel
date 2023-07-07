@@ -125,7 +125,7 @@ const OverviewChart = ({
         tickPadding: 5,
         tickRotation: isMaxWidth600px ? 90 : 0,
         legend: isDashboard ? "" : "Month",
-        legendOffset: 50,
+        legendOffset: 45,
         legendPosition: "middle",
       }}
       axisLeft={{

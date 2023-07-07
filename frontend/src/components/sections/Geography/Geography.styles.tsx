@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 
 export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
   margin: "2.5rem auto",
-  height: "70vh",
+  height: "65vh",
   marginTop: "2.5rem",
   borderRadius: "0.25rem",
   maxWidth: "800px",

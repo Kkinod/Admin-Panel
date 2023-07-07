@@ -161,7 +161,7 @@ const SalesChart = ({
       margin={{
         top: 20,
         right: isMaxWidth600px ? 5 : 100,
-        bottom: isMaxWidth600px ? 120 : 100,
+        bottom: isMaxWidth600px ? 80 : 100,
         left: isMaxWidth600px ? 25 : 60,
       }}
       xScale={{ type: "point" }}

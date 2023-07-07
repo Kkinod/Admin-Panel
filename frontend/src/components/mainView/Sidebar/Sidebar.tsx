@@ -6,40 +6,37 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import logoTransparent from "../../../assets/images/logo_transparent.png";
 import { sidebarItems } from "../../../utils/sidebarItems";
+import { IIsMaxWidth600px } from "../../../App";
 import {
+  BoxStyled,
   Drawer,
   DrawerHeader,
+  SettingsBox,
+  SettingsContainer,
+  SettingsIcon,
+  SettingsText,
+  SettingsTextWrapper,
+  SidebarContainer,
+  StyledChevronLeftIcon,
   StyledChevronRightOutlined,
   StyledImg,
   StyledListItemButton,
   StyledListItemIcon,
   StyledListItemText,
   StyledTypography,
-  SettingsBox,
-  SettingsTextWrapper,
-  SettingsContainer,
-  SettingsText,
-  SettingsIcon,
-  SidebarContainer,
-  StyledChevronLeftIcon,
-  BoxStyled,
 } from "./Sidebar.styles";
 
 export interface IIsSidebarOpen {
   isSidebarOpen: boolean;
 }
 
-export interface IIsNonMobile {
-  isNonMobile: boolean;
-}
-
-interface ISidebar extends IIsSidebarOpen, IIsNonMobile {
+interface ISidebar extends IIsSidebarOpen, IIsMaxWidth600px {
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Sidebar = ({
   isSidebarOpen,
-  isNonMobile,
+  isMaxWidth600px,
   setIsSidebarOpen,
 }: ISidebar) => {
   return (
@@ -50,7 +47,7 @@ export const Sidebar = ({
             <StyledImg src={logoTransparent} alt="Logo" />
           </BoxStyled>
 
-          {!isNonMobile && isSidebarOpen && (
+          {!isMaxWidth600px && isSidebarOpen && (
             <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
               <StyledChevronLeftIcon />
             </IconButton>
@@ -77,6 +74,7 @@ export const Sidebar = ({
                     <StyledListItemIcon
                       active={isActive}
                       isSidebarOpen={isSidebarOpen}
+                      isMaxWidth600px={isMaxWidth600px}
                     >
                       {icon}
                     </StyledListItemIcon>
