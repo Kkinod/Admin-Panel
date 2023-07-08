@@ -31,7 +31,7 @@ export const labels = {
   },
 
   users: {
-    headerTitle: "USERS",
+    headerTitle: "CUSTOMERS",
     headerSubtitle: "Entire list of customers",
     noUsersInfo: "No users found",
   },
