@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { RootState } from "./features/store";
+import Admin from "./components/sections/Admins/Admins";
 import CategorySales from "./components/sections/salesCharts/CategorySales/CategorySales";
 import DailySales from "./components/sections/salesCharts/DailySales/DailySales";
 import Dashboard from "./components/mainView/Dashboard/Dashboard";
@@ -101,6 +102,7 @@ function App() {
                 path={`/${navItems.Categories}`}
                 element={<CategorySales isMaxWidth600px={isMaxWidth600px} />}
               />
+              <Route path={`/${navItems.Admin}`} element={<Admin />} />
             </Route>
           </Routes>
         </ThemeProvider>
