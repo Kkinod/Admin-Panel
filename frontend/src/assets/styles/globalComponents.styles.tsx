@@ -7,7 +7,7 @@ export const StyledBoxContainer = styled(Box)({
 });
 
 export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
-  height: "75vh",
+  height: "74vh",
   "& .MuiDataGrid-root": {
     border: "none",
   },
@@ -33,7 +33,8 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
 }));
 
 export const StyledBoxChartWrapper = styled(Box)({
-  height: "75vh",
+  width: "95%",
+  height: "70vh",
 });
 
 export const StyledStack = styled(Stack)({

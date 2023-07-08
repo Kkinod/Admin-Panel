@@ -12,15 +12,15 @@ import {
   ChevronRightOutlined,
   SettingsOutlined,
 } from "@mui/icons-material";
-import { IIsSidebarOpen, IIsNonMobile } from "./Sidebar";
+import { IIsSidebarOpen } from "./Sidebar";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
+import { IIsMaxWidth600px } from "../../../App";
 
 const drawerWidth = 240;
 
-interface IActiveAndLcText {
-  active: PathMatch<string> | null;
-  isSidebarOpen: IIsSidebarOpen["isSidebarOpen"];
+interface IActiveAndLcText extends IIsMaxWidth600px, IIsSidebarOpen {
+  active: PathMatch | null;
 }
 
 export const openedMixin = (theme: Theme): CSSObject => ({
@@ -112,11 +112,12 @@ export const StyledChevronRightOutlined = styled(ChevronRightOutlined)({
 
 export const StyledListItemIcon = styled(ListItemIcon, {
   shouldForwardProp: (prop) =>
-    !["active", "isSidebarOpen"].includes(prop.toString()),
-})<IActiveAndLcText>(({ theme, active, isSidebarOpen }) => ({
+    !["active", "isSidebarOpen", "isMaxWidth600px"].includes(prop.toString()),
+})<IActiveAndLcText>(({ theme, active, isSidebarOpen, isMaxWidth600px }) => ({
   justifyContent: "center",
   minWidth: 0,
   marginRight: isSidebarOpen ? "3rem" : "auto",
+  marginLeft: !isMaxWidth600px ? "0.5rem" : undefined,
   color: active ? theme.palette.secondary.main : theme.palette.grey[100],
 }));
 
@@ -150,17 +151,6 @@ export const SettingsText = styled(Typography)(({ theme }) => ({
   fontSize: "0.9rem !important",
   fontWeight: "bold !important",
 }));
-
-export const UserOccupationText = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.main,
-  fontSize: "0.8rem !important",
-}));
-
-export const UserInformationAvatar = styled("img")({
-  width: "2.5rem",
-  height: "2.5rem",
-  borderRadius: "50%",
-});
 
 export const StyledChevronLeftIcon = styled(ChevronLeft)(({ theme }) => ({
   color: theme.palette.secondary.main,

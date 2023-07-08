@@ -21,6 +21,6 @@ export const BoxWrapperStyled = styled(Box, {
   shouldForwardProp: (prop) => prop !== "isMaxWidth600px",
 })<IIsMaxWidth600px>(({ isMaxWidth600px }) => ({
   flexGrow: "1",
-  height: "100vh",
+  height: "100%",
   maxWidth: isMaxWidth600px ? "84%" : "100%",
 }));

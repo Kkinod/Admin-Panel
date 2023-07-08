@@ -18,8 +18,8 @@ export const labels = {
     headerTitle: "PRODUCTS",
     headerSubtitle: "See your list of products.",
     noProducts: "No product found",
-    annualSales: "Annual sales this year",
-    annualUnitsSold: "Annual units sold this year",
+    annualSales: "Sales this year",
+    annualUnitsSold: "Units sold this year",
     supplyLeft: "Supply Left",
     buttonProductsCard: "See more",
   },
@@ -56,19 +56,19 @@ export const labels = {
   },
 
   dailySales: {
-    headerTitle: "DAILY SALES",
+    headerTitle: "DAILY",
     headerSubtitle: "Chart of daily sales",
     initialStartDate: "01/01/2022",
     initialEndDate: "01/25/2022",
   },
 
   monthlySales: {
-    headerTitle: "MONTHLY SALES",
+    headerTitle: "MONTHLY",
     headerSubtitle: "Chart of monthly sales",
   },
 
   categorySales: {
-    headerTitle: "CATEGORIES - SALES",
+    headerTitle: "CATEGORIES",
     headerSubtitle: "A sales chart from specific categories",
   },
 };
