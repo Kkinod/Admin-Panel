@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
-import { sidebarItems } from "../../../utils/sidebarItems";
+import { sidebarItems } from "../../../shared/constants/sidebarItems";
 
 describe("Sidebar", () => {
   it("renders without crashing", () => {

@@ -4,7 +4,7 @@ import { Menu as MenuIcon, Search } from "@mui/icons-material";
 import { IconButton, InputBase, Menu, MenuItem, useTheme } from "@mui/material";
 import profileImage from "../../../assets/images/profile.jpg";
 import { setMode } from "../../../features/globalSlice";
-import useToggleMenuWithAnchor from "../../../hooks/useToggleMenuWithAnchor";
+import useToggleMenuWithAnchor from "../../../shared/hooks/useToggleMenuWithAnchor";
 import { IUser } from "../Layout/Layout";
 import {
   StyledArrowIcon,
@@ -23,7 +23,7 @@ import {
   TopAppBar,
   TopToolbar,
 } from "./Navbar.styles";
-import { labels } from "../../../utils/labels";
+import { labels } from "../../../shared/constants/labels";
 
 interface INavbar extends IUser {
   isSidebarOpen: boolean;

@@ -1,10 +1,10 @@
 import React, { forwardRef, useState } from "react";
 import { Box } from "@mui/material";
-import Header from "../../../Header/Header";
+import Header from "../../../common/Header/Header";
 import DatePicker from "react-datepicker";
-import SalesChart from "../components/SalesChart";
-import { IIsMaxWidth600px } from "../../../../App";
-import { labels } from "../../../../utils/labels";
+import SalesChart from "../../../common/SalesChart/SalesChart";
+import { IIsMaxWidth600px } from "../../../../types/maxWidth";
+import { labels } from "../../../../shared/constants/labels";
 import {
   StyledBoxChartWrapper,
   StyledBoxContainer,

@@ -13,9 +13,9 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import { IIsSidebarOpen } from "./Sidebar";
+import { IIsMaxWidth600px } from "../../../types/maxWidth";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
-import { IIsMaxWidth600px } from "../../../App";
 
 const drawerWidth = 240;
 

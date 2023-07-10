@@ -2,11 +2,11 @@ import * as React from "react";
 import { NavLink, useMatch } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { IconButton } from "@mui/material";
+import logoTransparent from "../../../assets/images/logo_transparent.png";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import logoTransparent from "../../../assets/images/logo_transparent.png";
-import { sidebarItems } from "../../../utils/sidebarItems";
-import { IIsMaxWidth600px } from "../../../App";
+import { IIsMaxWidth600px } from "../../../types/maxWidth";
+import { sidebarItems } from "../../../shared/constants/sidebarItems";
 import {
   BoxStyled,
   Drawer,

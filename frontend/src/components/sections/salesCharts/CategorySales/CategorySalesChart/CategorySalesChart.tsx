@@ -2,9 +2,9 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { Box, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "../../../../../features/api";
-import { IUseGetSalesQuery } from "../../components/SalesChart";
-import { IIsMaxWidth600px } from "../../../../../App";
-import { labels } from "../../../../../utils/labels";
+import { IUseGetSalesQuery } from "../../../../common/SalesChart/SalesChart";
+import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
+import { labels } from "../../../../../shared/constants/labels";
 import {
   StyledBoxTypographyWrapper,
   StyledTypography,
