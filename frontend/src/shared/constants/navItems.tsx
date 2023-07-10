@@ -1,0 +1,17 @@
+export enum navItems {
+  Dashboard = "Dashboard",
+  User = "User",
+  Ecommerce = "Ecommerce",
+  ClientFacing = "Client Facing",
+  Products = "Products",
+  Customers = "Customers",
+  Orders = "Orders",
+  Geography = "Geography",
+  SalesCharts = "Sales Charts",
+  Overview = "Overview",
+  Daily = "Daily",
+  Monthly = "Monthly",
+  Categories = "Category",
+  Management = "Management",
+  Users = "Users",
+}

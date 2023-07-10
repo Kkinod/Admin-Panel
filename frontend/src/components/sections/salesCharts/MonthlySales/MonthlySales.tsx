@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../../../Header/Header";
-import SalesChart from "../components/SalesChart";
+import Header from "../../../common/Header/Header";
+import SalesChart from "../../../common/SalesChart/SalesChart";
 import { IIsMaxWidth600px } from "../../../../App";
-import { labels } from "../../../../utils/labels";
+import { labels } from "../../../../shared/constants/labels";
 import { MonthlySalesChartWrapper } from "./MonthlySales.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 

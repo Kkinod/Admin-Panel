@@ -9,3 +9,13 @@ export const getAdmins = async (req, res) => {
     next(error);
   }
 };
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const admins = await User.find({}).select("-password");
+    res.status(200).json(admins);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+};

@@ -5,9 +5,9 @@ import { MemoryRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import MonthlySales from "./MonthlySales";
 import { useGetSalesQuery } from "../../../../features/api";
-import { renderWithProviders } from "../../../../testUtils/renderWithProviders";
-import { mockOverviewData } from "../../../../testUtils/mockedData";
-import { labels } from "../../../../utils/labels";
+import { renderWithProviders } from "../../../../shared/testUtils/renderWithProviders";
+import { mockOverviewData } from "../../../../shared/testUtils/mockedData";
+import { labels } from "../../../../shared/constants/labels";
 
 jest.mock("../../../../features/api", () => ({
   useGetSalesQuery: jest.fn(),

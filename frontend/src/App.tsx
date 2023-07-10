@@ -4,30 +4,22 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { RootState } from "./features/store";
-import Admin from "./components/sections/Admins/Admins";
 import CategorySales from "./components/sections/salesCharts/CategorySales/CategorySales";
+import Customers from "./components/sections/clientFacing/Customers/Customers";
 import DailySales from "./components/sections/salesCharts/DailySales/DailySales";
-import Dashboard from "./components/mainView/Dashboard/Dashboard";
-import Geography from "./components/sections/Geography/Geography";
+import Ecommerce from "./components/sections/dashboard/Ecommerce/Ecommerce";
+import Geography from "./components/sections/clientFacing/Geography/Geography";
 import Layout from "./components/mainView/Layout/Layout";
 import MonthlySales from "./components/sections/salesCharts/MonthlySales/MonthlySales";
-import Overview from "./components/sections/Overview/Overview";
-import Products from "./components/sections/Products/Products";
-import SingleUser from "./components/sections/Users/SingleUser/SingleUser";
-import Transactions from "./components/sections/Transactions/Transactions";
-import Users from "./components/sections/Users/Users";
-import { generateUsersColumns } from "./utils/columns/usersColumns/usersColumns";
+import Overview from "./components/sections/salesCharts/Overview/Overview";
+import Products from "./components/sections/clientFacing/Products/Products";
+import SingleUser from "./components/sections/management/Users/SingleUser/SingleUser";
+import Transactions from "./components/sections/clientFacing/Transactions/Transactions";
+import Users from "./components/sections/management/Users/Users";
+import { generateUsersColumns } from "./shared/utils/columns/generateUsersColumns/generateUsersColumns";
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
-import { navItems } from "./utils/navItems";
-
-export interface IIsMaxWidth600px {
-  isMaxWidth600px: boolean;
-}
-
-export interface IIsMaxWidth1025 {
-  isMaxWidth1025: boolean;
-}
+import { navItems } from "./shared/constants/navItems";
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -49,7 +41,7 @@ function App() {
                 path="/"
                 element={<Navigate to={`/${navItems.Ecommerce}`} replace />}
               />
-              <Route path={`/${navItems.Ecommerce}`} element={<Dashboard />} />
+              <Route path={`/${navItems.Ecommerce}`} element={<Ecommerce />} />
               <Route
                 path={`/${navItems.Products}`}
                 element={<Products isMaxWidth1025={isMaxWidth1025} />}
@@ -66,7 +58,7 @@ function App() {
               <Route
                 path={`/${navItems.Customers}`}
                 element={
-                  <Users
+                  <Customers
                     isMaxWidth600px={isMaxWidth600px}
                     isMaxWidth1025={isMaxWidth1025}
                   />
@@ -102,7 +94,15 @@ function App() {
                 path={`/${navItems.Categories}`}
                 element={<CategorySales isMaxWidth600px={isMaxWidth600px} />}
               />
-              <Route path={`/${navItems.Admin}`} element={<Admin />} />
+              <Route
+                path={`/${navItems.Users}`}
+                element={
+                  <Users
+                    isMaxWidth1025={isMaxWidth1025}
+                    isMaxWidth600px={isMaxWidth600px}
+                  />
+                }
+              />
             </Route>
           </Routes>
         </ThemeProvider>
