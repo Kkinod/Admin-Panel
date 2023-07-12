@@ -5,6 +5,7 @@ export const labels = {
     buttonView: "View",
     id: "id",
     loading: "Loading...",
+    search: "Search...",
     searchId: "Search User by ID",
     logOut: "Log Out",
   },

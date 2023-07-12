@@ -12,7 +12,7 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
     border: "none",
   },
   "& .MuiDataGrid-columnHeaders": {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary[100],
     color: theme.palette.secondary.main,
     borderBottom: "none",
   },
@@ -23,11 +23,22 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.light,
   },
   "& .MuiDataGrid-footerContainer": {
-    backgroundColor: theme.palette.background.alt,
+    backgroundColor: theme.palette.secondary[100],
     color: theme.palette.secondary.main,
     borderTop: "none",
   },
   "& .MuiIconButton-root": {
+    color: theme.palette.secondary.main,
+  },
+  "& .MuiTablePagination-displayedRows": {
+    color: theme.palette.secondary.main,
+  },
+
+  "& .MuiTablePagination-select": {
+    color: theme.palette.secondary.main,
+  },
+
+  "& .MuiTablePagination-selectLabel": {
     color: theme.palette.secondary.main,
   },
 }));

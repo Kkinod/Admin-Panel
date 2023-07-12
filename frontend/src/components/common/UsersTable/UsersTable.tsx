@@ -6,17 +6,19 @@ import {
   GridColumnVisibilityModel,
   GridPaginationModel,
   GridRowSelectionModel,
-  GridToolbarColumnsButton,
   GridToolbarContainer,
-  GridToolbarDensitySelector,
-  GridToolbarExport,
-  GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import { generateUsersColumns } from "../../../shared/utils/columns/generateUsersColumns/generateUsersColumns";
 import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../types/maxWidth";
 import { actionColumn } from "../actionColumn/actionColumn";
 import { IUsersData } from "../../../types/users";
 import { StyledButton } from "./UsersTable.styles";
+import {
+  StyledGridToolbarColumnsButton,
+  StyledGridToolbarDensitySelector,
+  StyledGridToolbarExport,
+  StyledGridToolbarFilterButton,
+} from "../DataGridCustomToolbar/DataGridCustomToolbar.styles";
 
 export interface IUseGetTransactionsQueryResult {
   data: IUsersData[];
@@ -91,10 +93,10 @@ const UsersTable = ({
         ),
         Toolbar: () => (
           <GridToolbarContainer>
-            <GridToolbarColumnsButton />
-            <GridToolbarFilterButton />
-            <GridToolbarDensitySelector />
-            <GridToolbarExport />
+            <StyledGridToolbarColumnsButton />
+            <StyledGridToolbarFilterButton />
+            <StyledGridToolbarDensitySelector />
+            <StyledGridToolbarExport />
             {selectionModelState.length > 0 && (
               <StyledButton onClick={handleDeleteSelectedRows}>
                 {labels.default.buttonRemove}

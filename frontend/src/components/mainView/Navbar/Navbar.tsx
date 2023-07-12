@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Menu as MenuIcon, Search } from "@mui/icons-material";
-import { IconButton, InputBase, Menu, MenuItem, useTheme } from "@mui/material";
+import { Search } from "@mui/icons-material";
+import { IconButton, Menu, MenuItem, useTheme } from "@mui/material";
 import profileImage from "../../../assets/images/profile.jpg";
 import { setMode } from "../../../features/globalSlice";
 import useToggleMenuWithAnchor from "../../../shared/hooks/useToggleMenuWithAnchor";
 import { IUser } from "../Layout/Layout";
+import { labels } from "../../../shared/constants/labels";
 import {
   StyledArrowIcon,
   DarkModeIcon,
@@ -22,8 +23,10 @@ import {
   StyledTypographyOccupation,
   TopAppBar,
   TopToolbar,
+  StyledMenuIcon,
+  StyledIconButton,
+  StyledInputBase,
 } from "./Navbar.styles";
-import { labels } from "../../../shared/constants/labels";
 
 interface INavbar extends IUser {
   isSidebarOpen: boolean;
@@ -47,30 +50,33 @@ const Navbar = ({
     <TopAppBar>
       <TopToolbar>
         <LeftContainer>
-          <IconButton
+          <StyledIconButton
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             aria-label="open/close sidebar"
           >
-            <MenuIcon />
-          </IconButton>
+            <StyledMenuIcon />
+          </StyledIconButton>
           <LeftSideWrapper>
-            <InputBase placeholder="Search..." />
+            <StyledInputBase placeholder={labels.default.search} />
             <IconButton aria-label="search">
               <Search />
             </IconButton>
           </LeftSideWrapper>
         </LeftContainer>
         <RightContainer>
-          <IconButton onClick={() => dispatch(setMode())} aria-label="theme">
+          <StyledIconButton
+            onClick={() => dispatch(setMode())}
+            aria-label="theme"
+          >
             {theme.palette.mode === "dark" ? (
               <DarkModeIcon />
             ) : (
               <LightModeIcon />
             )}
-          </IconButton>
-          <IconButton aria-label="settings">
+          </StyledIconButton>
+          <StyledIconButton aria-label="settings">
             <SettingsIcon />
-          </IconButton>
+          </StyledIconButton>
           {isNonMobile ? (
             <FlexBetween>
               <StyledButton onClick={handleClick}>

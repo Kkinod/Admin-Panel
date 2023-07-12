@@ -9,6 +9,7 @@ import {
   Traffic,
 } from "@mui/icons-material";
 import { flexBetween } from "../../../../assets/styles/mixins.styles";
+import { IGlobalStyleProps } from "../../../../types/globalStyle";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 
 interface IIsNonMediumScreens {
@@ -32,8 +33,8 @@ export const StyledBoxOverviewChart = styled(Box)(({ theme }) => ({
 
 export const StyledButton = styled(Button)(({ theme }) => ({
   padding: "10px 20px",
-  color: theme.palette.background.alt,
-  backgroundColor: theme.palette.primary.light,
+  color: theme.palette.primary.main,
+  backgroundColor: theme.palette.secondary.main,
   fontSize: "14px",
   fontWeight: "bold",
 }));
@@ -95,13 +96,15 @@ export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const StyledBoxSalesChart = styled(Box)(({ theme }) => ({
-  gridColumn: "span 4",
-  gridRow: "span 3",
-  backgroundColor: theme.palette.primary.main,
-  padding: "1.5rem",
-  borderRadius: "0.55rem",
-}));
+export const StyledBoxSalesChart = styled(Box)<IGlobalStyleProps>(
+  ({ theme }) => ({
+    gridColumn: "span 4",
+    gridRow: "span 3",
+    backgroundColor: theme.palette.secondary[100],
+    padding: "1.5rem",
+    borderRadius: "0.55rem",
+  })
+);
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,

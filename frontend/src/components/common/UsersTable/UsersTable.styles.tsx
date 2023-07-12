@@ -4,5 +4,6 @@ import { Button } from "@mui/material";
 export const StyledButton = styled(Button)(({ theme }) => ({
   marginBottom: "1px",
   padding: "2px",
-  border: `1px solid ${theme.palette.primary.main}`,
+  border: `1px solid ${theme.palette.secondary.main}`,
+  color: theme.palette.secondary.main,
 }));

@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../../common/Header/Header";
 import CategorySalesChart from "./CategorySalesChart/CategorySalesChart";
+import Header from "../../../common/Header/Header";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 import { labels } from "../../../../shared/constants/labels";
 import {

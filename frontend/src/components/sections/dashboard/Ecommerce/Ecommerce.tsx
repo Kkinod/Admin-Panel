@@ -1,13 +1,14 @@
 import React from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import { DataGrid, GridColumnVisibilityModel } from "@mui/x-data-grid";
+import { useGetDashboardQuery } from "../../../../features/api";
+import CategorySalesChart from "../../salesCharts/CategorySales/CategorySalesChart/CategorySalesChart";
 import Header from "../../../common/Header/Header";
 import OverviewChart from "../../salesCharts/Overview/OverviewChart/OverviewChart";
 import StatBox from "../../../common/StatBox/StatBox";
-
-import { useGetDashboardQuery } from "../../../../features/api";
+import { transactionsColumns } from "../../../../shared/constants/transactionsColumns";
+import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../../types/maxWidth";
 import { labels } from "../../../../shared/constants/labels";
-import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 import {
   StyledBoxDataGrid,
   StyledBoxHeader,
@@ -22,9 +23,7 @@ import {
   StyledTrafficIcon,
   StyledTypography,
 } from "./Ecommerce.styles";
-import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../../types/maxWidth";
-import CategorySalesChart from "../../salesCharts/CategorySales/CategorySalesChart/CategorySalesChart";
-import { transactionsColumns } from "../../../../shared/constants/transactionsColumns";
+import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 
 interface IEcommerce extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
@@ -51,7 +50,6 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
           </StyledButton>
         </Box>
       </StyledBoxHeader>
-
       <StyledBoxWrapper isNonMediumScreens={isNonMediumScreens}>
         <StatBox
           title={labels.ecommerce.totalCustomers}

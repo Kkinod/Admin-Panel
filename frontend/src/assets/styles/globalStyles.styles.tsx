@@ -1,9 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { MyTheme } from "./theme";
-
-export interface IGlobalStyleProps {
-  theme: MyTheme;
-}
+import { IGlobalStyleProps } from "../../types/globalStyle";
 
 export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   *,
@@ -16,16 +12,12 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
 
   ::-webkit-scrollbar {
     width: 0.5rem;
-    background-color: ${({ theme }) => theme.palette.secondary.light};
+    background-color: ${({ theme }) => theme.palette.secondary.main};
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) => theme.palette.secondary[100]};
   }
-
-  /* ::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-  } */
 
   html {
     box-sizing: border-box;

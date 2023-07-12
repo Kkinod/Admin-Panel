@@ -100,7 +100,14 @@ const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
                 {labels.transactions.noTransactionsInfo}
               </StyledStack>
             ),
-            Toolbar: DataGridCustomToolbar,
+            Toolbar: () => (
+              <DataGridCustomToolbar
+                isMaxWidth600px={isMaxWidth600px}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                setSearch={setSearch}
+              />
+            ),
           }}
           componentsProps={{
             toolbar: {
