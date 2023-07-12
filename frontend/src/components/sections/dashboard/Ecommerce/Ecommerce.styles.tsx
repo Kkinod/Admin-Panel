@@ -1,11 +1,15 @@
+import { ComponentType } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import {
-  flexBetween,
-  flexCenter,
-} from "../../../../assets/styles/mixins.styles";
+  DownloadOutlined,
+  Email,
+  PersonAdd,
+  PointOfSale,
+  Traffic,
+} from "@mui/icons-material";
+import { flexBetween } from "../../../../assets/styles/mixins.styles";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
-import { DownloadOutlined } from "@mui/icons-material";
 
 interface IIsNonMediumScreens {
   isNonMediumScreens: boolean;
@@ -18,9 +22,13 @@ export const StyledBoxHeader = styled(Box, {
   flexDirection: isMaxWidth600px ? "column" : undefined,
 }));
 
-export const StyledBoxOverviewChart = styled(Box)({
-  ...flexCenter,
-});
+export const StyledBoxOverviewChart = styled(Box)(({ theme }) => ({
+  gridColumn: "span 8",
+  gridRow: "span 2",
+  padding: "1rem",
+  borderRadius: "0.55rem",
+  backgroundColor: theme.palette.secondary.main,
+}));
 
 export const StyledButton = styled(Button)(({ theme }) => ({
   padding: "10px 20px",
@@ -43,4 +51,58 @@ export const StyledBoxWrapper = styled(Box, {
   gridAutoRows: "10rem",
   gap: "1.25rem",
   "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 12" },
+}));
+
+const createStyledIcon = (Icon: ComponentType) =>
+  styled(Icon)(({ theme }) => ({
+    color: theme.palette.secondary.main,
+    fontSize: "1.6rem",
+  }));
+
+export const StyledEmailIcon = createStyledIcon(Email);
+
+export const StyledPointOfSaleIcon = createStyledIcon(PointOfSale);
+
+export const StyledPersonAddIcon = createStyledIcon(PersonAdd);
+
+export const StyledTrafficIcon = createStyledIcon(Traffic);
+
+export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
+  gridColumn: "span 8",
+  gridRow: "span 3",
+  "& .MuiDataGrid-root": {
+    border: "none",
+    borderRadius: "0.55rem",
+  },
+  "& .MuiDataGrid-cell": {
+    borderBottom: "none",
+  },
+  "& .MuiDataGrid-columnHeaders": {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
+    borderBottom: "none",
+  },
+  "& .MuiDataGrid-virtualScroller": {
+    backgroundColor: theme.palette.background.alt,
+  },
+  "& .MuiDataGrid-footerContainer": {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
+    borderTop: "none",
+  },
+  "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+    color: `${theme.palette.secondary.main} !important`,
+  },
+}));
+
+export const StyledBoxSalesChart = styled(Box)(({ theme }) => ({
+  gridColumn: "span 4",
+  gridRow: "span 3",
+  backgroundColor: theme.palette.primary.main,
+  padding: "1.5rem",
+  borderRadius: "0.55rem",
+}));
+
+export const StyledTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
 }));
