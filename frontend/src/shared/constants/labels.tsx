@@ -77,4 +77,10 @@ export const labels = {
     headerSubtitle: "Entire list of users",
     noUsersInfo: "No users found",
   },
+
+  ecommerce: {
+    headerTitle: "ECOMMERCE",
+    headerSubtitle: "Ecommerce stats",
+    downloadReportsBtn: "Download Reports",
+  },
 };

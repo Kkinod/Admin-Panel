@@ -1,9 +1,20 @@
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
+import { IIsDashboard } from "./CategorySalesChart";
+import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
 
 interface IIsMaxWidth600pxOrIsDashboard {
   isMaxWidth600pxOrIsDashboard: boolean;
 }
+
+export const StyledBoxContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isMaxWidth600px",
+})<IIsMaxWidth600px>(({ isMaxWidth600px }) => ({
+  position: "relative",
+  height: isMaxWidth600px ? "25rem" : "100%",
+  minHeight: isMaxWidth600px ? "19rem" : undefined,
+  minWidth: isMaxWidth600px ? "16.5rem" : undefined,
+}));
 
 export const StyledBoxTypographyWrapper = styled(Box, {
   shouldForwardProp: (prop) => prop !== "isMaxWidth600pxOrIsDashboard",
@@ -21,6 +32,10 @@ export const StyledBoxTypographyWrapper = styled(Box, {
   })
 );
 
-export const StyledTypography = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.main,
+export const StyledTypography = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== "isDashboard",
+})<IIsDashboard>(({ isDashboard, theme }) => ({
+  color: isDashboard
+    ? theme.palette.secondary.main
+    : theme.palette.primary.main,
 }));

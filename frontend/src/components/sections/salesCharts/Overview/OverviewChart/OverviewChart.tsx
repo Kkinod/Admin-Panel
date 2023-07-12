@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../../features/api";
-import { IIsMaxWidth600px } from "../../../../../App";
+import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
 import { labels } from "../../../../../shared/constants/labels";
 import {
   ITotalLine,
@@ -99,8 +99,14 @@ const OverviewChart = ({
       }}
       margin={{
         top: isMaxWidth600px ? 30 : 20,
-        right: isMaxWidth600px ? 15 : 100,
-        bottom: isMaxWidth600px ? 120 : 100,
+        right: isMaxWidth600px ? 15 : isDashboard ? 40 : 100,
+        bottom: isMaxWidth600px
+          ? isDashboard
+            ? 40
+            : 120
+          : isDashboard
+          ? 40
+          : 100,
         left: isMaxWidth600px ? 25 : 70,
       }}
       xScale={{ type: "point" }}
@@ -129,7 +135,7 @@ const OverviewChart = ({
         legendPosition: "middle",
       }}
       axisLeft={{
-        tickValues: 5,
+        tickValues: isMaxWidth600px && isDashboard ? 4 : 5,
         tickSize: 5,
         tickPadding: 5,
         tickRotation: isMaxWidth600px ? 90 : 0,

@@ -1,11 +1,12 @@
 import React from "react";
 import { ResponsivePie } from "@nivo/pie";
-import { Box, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useGetSalesQuery } from "../../../../../features/api";
 import { IUseGetSalesQuery } from "../../../../common/SalesChart/SalesChart";
 import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
 import { labels } from "../../../../../shared/constants/labels";
 import {
+  StyledBoxContainer,
   StyledBoxTypographyWrapper,
   StyledTypography,
 } from "./CategorySalesChart.styles";
@@ -36,13 +37,7 @@ const CategorySalesChart = ({
     : [];
 
   return data ? (
-    <Box
-      height={!isMaxWidth600pxOrIsDashboard ? "25rem" : "100%"}
-      width={undefined}
-      minHeight={!isMaxWidth600pxOrIsDashboard ? "19rem" : undefined}
-      minWidth={!isMaxWidth600pxOrIsDashboard ? "17.5rem" : undefined}
-      position="relative"
-    >
+    <StyledBoxContainer isMaxWidth600px={isMaxWidth600px}>
       <ResponsivePie
         data={formattedData}
         theme={{
@@ -80,7 +75,7 @@ const CategorySalesChart = ({
         }}
         margin={
           !isMaxWidth600pxOrIsDashboard
-            ? { top: 40, right: 80, bottom: 100, left: 50 }
+            ? { top: 40, right: 70, bottom: 100, left: 50 }
             : { top: 40, right: 80, bottom: 80, left: 80 }
         }
         sortByValue={true}
@@ -103,10 +98,10 @@ const CategorySalesChart = ({
         legends={[
           {
             anchor: "bottom",
-            direction: !isMaxWidth600pxOrIsDashboard ? "column" : "row",
+            direction: isMaxWidth600px ? "column" : "row",
             justify: false,
             translateX: !isMaxWidth600pxOrIsDashboard ? 20 : 0,
-            translateY: !isMaxWidth600pxOrIsDashboard ? 80 : 56,
+            translateY: isMaxWidth600px ? 80 : isDashboard ? 30 : 80,
             itemsSpacing: 0,
             itemWidth: 85,
             itemHeight: 18,
@@ -129,11 +124,11 @@ const CategorySalesChart = ({
       <StyledBoxTypographyWrapper
         isMaxWidth600pxOrIsDashboard={isMaxWidth600pxOrIsDashboard}
       >
-        <StyledTypography variant="h6">
+        <StyledTypography variant="h6" isDashboard={isDashboard}>
           {isMaxWidth600pxOrIsDashboard && "Total:"} ${data.yearlySalesTotal}
         </StyledTypography>
       </StyledBoxTypographyWrapper>
-    </Box>
+    </StyledBoxContainer>
   ) : (
     <StyledBoxNoData>{labels.charts.noDataInfo}</StyledBoxNoData>
   );
