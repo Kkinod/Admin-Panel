@@ -41,7 +41,15 @@ function App() {
                 path="/"
                 element={<Navigate to={`/${navItems.Ecommerce}`} replace />}
               />
-              <Route path={`/${navItems.Ecommerce}`} element={<Ecommerce />} />
+              <Route
+                path={`/${navItems.Ecommerce}`}
+                element={
+                  <Ecommerce
+                    isMaxWidth600px={isMaxWidth600px}
+                    isMaxWidth1025={isMaxWidth1025}
+                  />
+                }
+              />
               <Route
                 path={`/${navItems.Products}`}
                 element={<Products isMaxWidth1025={isMaxWidth1025} />}

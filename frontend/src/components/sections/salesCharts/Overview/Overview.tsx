@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "../../../common/Header/Header";
 import OverviewChart from "./OverviewChart/OverviewChart";
-import { IIsMaxWidth600px } from "../../../../App";
+import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 import {
   StyledBoxChartWrapper,
   StyledBoxContainer,
