@@ -7,5 +7,5 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
   marginTop: "2.5rem",
   borderRadius: "0.25rem",
   maxWidth: "800px",
-  border: `1px solid ${theme.palette.secondary.main}`,
+  border: `1px solid ${theme.palette.brown.main}`,
 }));

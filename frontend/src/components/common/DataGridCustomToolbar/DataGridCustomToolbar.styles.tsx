@@ -8,6 +8,7 @@ import {
 import { styled } from "@mui/material/styles";
 import { flexBetween } from "../../../assets/styles/mixins.styles";
 import { ComponentType } from "react";
+import { IGlobalStyleProps } from "../../../types/globalStyle";
 
 interface IIsMaxWidth600px {
   isMaxWidth600px: boolean;
@@ -24,30 +25,34 @@ export const StyledBoxWrapper = styled(StyledBox, {
   flexDirection: isMaxWidth600px ? "column" : "row",
 }));
 
-export const StyledTextField = styled(TextField)(({ theme }) => ({
-  marginBottom: "0.5rem",
-  width: "15rem",
+export const StyledTextField = styled(TextField)<IGlobalStyleProps>(
+  ({ theme }) => ({
+    marginBottom: "0.5rem",
+    width: "15rem",
 
-  "& label": {
+    "& label": {
+      color: theme.palette.brown.main,
+    },
+
+    "& .css-t2okzi-MuiInputBase-root-MuiInput-root:before": {
+      borderBottom: `1px solid ${theme.palette.brown.main}`,
+    },
+
+    "& .MuiInputBase-input": {
+      color: theme.palette.brown.main,
+    },
+  })
+);
+
+export const StyledIconButton = styled(IconButton)<IGlobalStyleProps>(
+  ({ theme }) => ({
     color: theme.palette.secondary.main,
-  },
-
-  "& .css-t2okzi-MuiInputBase-root-MuiInput-root:before": {
-    borderBottom: `1px solid ${theme.palette.secondary.main}`,
-  },
-
-  "& .MuiInputBase-input": {
-    color: theme.palette.secondary.main,
-  },
-}));
-
-export const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  color: theme.palette.secondary.main,
-}));
+  })
+);
 
 const createStyledGridToolbar = (GridToolbar: ComponentType) =>
-  styled(GridToolbar)(({ theme }) => ({
-    color: theme.palette.secondary.main,
+  styled(GridToolbar)<IGlobalStyleProps>(({ theme }) => ({
+    color: theme.palette.brown.main,
   }));
 
 export const StyledGridToolbarColumnsButton = createStyledGridToolbar(

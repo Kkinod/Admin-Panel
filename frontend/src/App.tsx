@@ -23,6 +23,7 @@ import { navItems } from "./shared/constants/navItems";
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
+  // @ts-ignore
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isMaxWidth600px = useMediaQuery("(max-width: 600px)");
   const isMaxWidth1025 = useMediaQuery("(max-width: 1025px)");
