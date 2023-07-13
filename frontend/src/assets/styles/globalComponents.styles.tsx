@@ -1,18 +1,19 @@
 import { styled } from "@mui/material/styles";
 import { Box, Stack } from "@mui/material";
+import { IGlobalStyleProps } from "../../types/globalStyle";
 import { flexCenter } from "./mixins.styles";
 
 export const StyledBoxContainer = styled(Box)({
   margin: "1.2rem",
 });
 
-export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
+export const StyledBoxWrapper = styled(Box)<IGlobalStyleProps>(({ theme }) => ({
   height: "74vh",
   "& .MuiDataGrid-root": {
     border: "none",
   },
   "& .MuiDataGrid-columnHeaders": {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary[100],
     color: theme.palette.secondary.main,
     borderBottom: "none",
   },
@@ -23,11 +24,22 @@ export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.light,
   },
   "& .MuiDataGrid-footerContainer": {
-    backgroundColor: theme.palette.background.alt,
+    backgroundColor: theme.palette.secondary[100],
     color: theme.palette.secondary.main,
     borderTop: "none",
   },
   "& .MuiIconButton-root": {
+    color: theme.palette.secondary.main,
+  },
+  "& .MuiTablePagination-displayedRows": {
+    color: theme.palette.secondary.main,
+  },
+
+  "& .MuiTablePagination-select": {
+    color: theme.palette.secondary.main,
+  },
+
+  "& .MuiTablePagination-selectLabel": {
     color: theme.palette.secondary.main,
   },
 }));

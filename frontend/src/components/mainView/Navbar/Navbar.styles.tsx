@@ -1,8 +1,17 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  InputBase,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import {
   ArrowDropDownOutlined,
   DarkModeOutlined,
   LightModeOutlined,
+  Menu as MenuIcon,
   SettingsOutlined,
 } from "@mui/icons-material";
 import { styled } from "@mui/system";
@@ -16,6 +25,7 @@ export const TopAppBar = styled(AppBar)({
 
 export const TopToolbar = styled(Toolbar)({
   justifyContent: "space-between",
+  padding: "0 14px",
 });
 
 export const LeftContainer = styled(Box)({
@@ -25,9 +35,24 @@ export const LeftContainer = styled(Box)({
 export const LeftSideWrapper = styled(Box)(({ theme }) => ({
   ...flexBetween,
   borderRadius: "20px",
-  padding: "0.1rem 1.5rem",
-  gap: "3rem",
-  backgroundColor: theme.palette.secondary[200],
+  padding: "0.1rem 1rem",
+  backgroundColor: theme.palette.secondary[100],
+}));
+
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+}));
+
+export const StyledIconButtonSearch = styled(IconButton)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+}));
+
+export const StyledIconButton = styled(IconButton)(({ theme }) => ({
+  backgroundColor: theme.palette.secondary[100],
+}));
+
+export const StyledMenuIcon = styled(MenuIcon)(({ theme }) => ({
+  color: theme.palette.secondary.main,
 }));
 
 export const RightContainer = styled(Box)({
@@ -37,17 +62,17 @@ export const RightContainer = styled(Box)({
 
 export const DarkModeIcon = styled(DarkModeOutlined)(({ theme }) => ({
   fontSize: "25px",
-  color: theme.palette.primary[100],
+  color: theme.palette.primary[200],
 }));
 
 export const LightModeIcon = styled(LightModeOutlined)(({ theme }) => ({
   fontSize: "25px",
-  color: theme.palette.primary[100],
+  color: theme.palette.primary[200],
 }));
 
 export const SettingsIcon = styled(SettingsOutlined)(({ theme }) => ({
   fontSize: "25px",
-  color: theme.palette.primary[100],
+  color: theme.palette.primary[200],
 }));
 
 export const FlexBetween = styled(Box)({
@@ -85,6 +110,6 @@ export const StyledTypographyOccupation = styled(Typography)(({ theme }) => ({
 }));
 
 export const StyledArrowIcon = styled(ArrowDropDownOutlined)(({ theme }) => ({
-  color: theme.palette.primary.main,
+  color: theme.palette.primary[200],
   fontSize: "2rem",
 }));

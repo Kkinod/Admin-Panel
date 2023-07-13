@@ -4,25 +4,13 @@ import { ResponsiveChoropleth } from "@nivo/geo";
 import { geoData } from "../../../../shared/constants/geoData";
 import Header from "../../../common/Header/Header";
 import { useGetGeographyQuery } from "../../../../features/api";
+import { IIsMaxWidth600px } from "../../../../types/maxWidth";
+import { IUseGetGeographyQuery } from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
 import { StyledBoxWrapper } from "./Geography.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 
-interface IGeography {
-  isMaxWidth600px: boolean;
-}
-
-interface IGeographyData {
-  id: string;
-  value: number;
-}
-
-export interface IUseGetGeographyQuery {
-  data: IGeographyData[];
-  isLoading: boolean;
-}
-
-const Geography = ({ isMaxWidth600px }: IGeography) => {
+const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
   const theme = useTheme();
   const { data, isLoading } = useGetGeographyQuery<IUseGetGeographyQuery>(null);
 
@@ -79,7 +67,7 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
             projectionTranslation={[0.45, 0.6]}
             projectionRotation={[0, 0, 0]}
             borderWidth={1.3}
-            borderColor={theme.palette.primary.main}
+            borderColor={theme.palette.secondary.main}
             legends={[
               {
                 anchor: isMaxWidth600px ? "top-right" : "bottom-left",
@@ -91,7 +79,7 @@ const Geography = ({ isMaxWidth600px }: IGeography) => {
                 itemWidth: 94,
                 itemHeight: 18,
                 itemDirection: "left-to-right",
-                itemTextColor: theme.palette.primary.main,
+                itemTextColor: theme.palette.secondary.main,
                 itemOpacity: 0.85,
                 symbolSize: 18,
                 effects: [

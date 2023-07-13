@@ -1,19 +1,23 @@
 export type MyTheme = ReturnType<typeof themeSettings>;
 
+export interface ITheme {
+  theme?: ReturnType<typeof themeSettings>;
+}
+
 export const tokensDark = {
   green: {
-    100: '#b7fe2b',
+    100: "#b7fe2b",
   },
   grey: {
-    100: '#808080',
+    100: "#808080",
   },
   primary: {
-    100: '#f3f4fD',
-    200: '#14121e',
+    100: "#f3f4fD",
+    200: "#14121e",
   },
   secondary: {
-    100: '#ffffff',
-    200: '#000000',
+    100: "#ffffff",
+    200: "#000000",
   },
 };
 
@@ -38,11 +42,11 @@ export function reverseTokens(tokensDark: {
 }
 export const tokensLight = reverseTokens(tokensDark);
 
-export const themeSettings = (mode: 'dark' | 'light') => {
+export const themeSettings = (mode: "dark" | "light") => {
   return {
     palette: {
       mode: mode,
-      ...(mode === 'dark'
+      ...(mode === "dark"
         ? {
             // palette values for light mode
             primary: {
@@ -50,7 +54,8 @@ export const themeSettings = (mode: 'dark' | 'light') => {
               main: tokensDark.primary[100],
             },
             secondary: {
-              ...tokensDark.secondary,
+              // ...tokensDark.secondary,
+              100: tokensDark.secondary[100],
               main: tokensDark.secondary[200],
             },
             green: {
@@ -91,30 +96,30 @@ export const themeSettings = (mode: 'dark' | 'light') => {
           }),
     },
     typography: {
-      fontFamily: ['Inter', 'sans-serif'].join(','),
+      fontFamily: ["Inter", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 40,
       },
       h2: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 24,
       },
       h4: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 20,
       },
       h5: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 16,
       },
       h6: {
-        fontFamily: ['Inter', 'sans-serif'].join(','),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 14,
       },
     },

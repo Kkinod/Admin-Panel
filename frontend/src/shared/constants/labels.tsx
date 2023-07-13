@@ -5,6 +5,7 @@ export const labels = {
     buttonView: "View",
     id: "id",
     loading: "Loading...",
+    search: "Search...",
     searchId: "Search User by ID",
     logOut: "Log Out",
   },
@@ -70,6 +71,7 @@ export const labels = {
   categorySales: {
     headerTitle: "CATEGORIES",
     headerSubtitle: "A sales chart from specific categories",
+    total: "Total:",
   },
 
   users: {
@@ -82,5 +84,11 @@ export const labels = {
     headerTitle: "ECOMMERCE",
     headerSubtitle: "Ecommerce stats",
     downloadReportsBtn: "Download Reports",
+    totalCustomers: "Total Customers",
+    salesToday: "Sales Today",
+    monthlySales: "Monthly Sales",
+    yearlySales: "Yearly Sales",
+    salesByCategory: "Sales By Category",
+    sinceLastMonth: "Since last month",
   },
 };

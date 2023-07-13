@@ -12,7 +12,7 @@ export const StyledButtonDate = styled(Button)(({ theme }) => ({
   border: "1px solid black",
   marginLeft: "5px",
   backgroundColor: "#216BA5",
-  color: theme.palette.secondary.main,
+  color: theme.palette.primary.main,
 }));
 
 export const StyledBox = styled(Box)({});

@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 import logoTransparent from "../../../assets/images/logo_transparent.png";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import { IIsMaxWidth600px } from "../../../types/maxWidth";
+import { ISidebar } from "../../../types/sidebar";
 import { sidebarItems } from "../../../shared/constants/sidebarItems";
 import {
   BoxStyled,
@@ -25,14 +25,6 @@ import {
   StyledListItemText,
   StyledTypography,
 } from "./Sidebar.styles";
-
-export interface IIsSidebarOpen {
-  isSidebarOpen: boolean;
-}
-
-interface ISidebar extends IIsSidebarOpen, IIsMaxWidth600px {
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 export const Sidebar = ({
   isSidebarOpen,

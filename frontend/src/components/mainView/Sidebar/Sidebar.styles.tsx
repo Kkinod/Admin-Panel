@@ -12,8 +12,9 @@ import {
   ChevronRightOutlined,
   SettingsOutlined,
 } from "@mui/icons-material";
-import { IIsSidebarOpen } from "./Sidebar";
+import { IGlobalStyleProps } from "../../../types/globalStyle";
 import { IIsMaxWidth600px } from "../../../types/maxWidth";
+import { IIsSidebarOpen } from "../../../types/sidebar";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
 
@@ -50,7 +51,7 @@ export const SidebarContainer = styled(Box)({
 
 export const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
+})<IGlobalStyleProps>(({ theme, open }) => ({
   boxSizing: "border-box",
   width: drawerWidth,
   flexShrink: 0,
@@ -59,14 +60,14 @@ export const Drawer = styled(MuiDrawer, {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": {
       ...openedMixin(theme),
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary[100],
     },
   }),
   ...(!open && {
     ...closedMixin(theme),
     "& .MuiDrawer-paper": {
       ...closedMixin(theme),
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary[100],
     },
   }),
 }));

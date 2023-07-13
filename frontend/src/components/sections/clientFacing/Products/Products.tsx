@@ -2,43 +2,11 @@ import React from "react";
 import Header from "../../../common/Header/Header";
 import { useGetProductsQuery } from "../../../../features/api";
 import ProductCard from "./ProductCard/ProductCard";
-import { IIsMaxWidth1025 } from "../../../../App";
+import { IIsMaxWidth1025 } from "../../../../types/maxWidth";
+import { IUseGetProductsQueryResult } from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
 import { BoxStyled, TypographyStyled } from "./Products.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
-
-interface IStatItem {
-  month: string;
-  totalSales: number;
-  _id: string;
-}
-
-interface IStatData {
-  createdAt: string;
-  monthlyData: IStatItem[];
-  productId: string;
-  updatedAt: string;
-  yearlySalesTotal: number;
-  yearlyTotalSoldUnits: number;
-  __v: number;
-  _id: string;
-}
-
-export interface IProduct {
-  category: string;
-  description: string;
-  name: string;
-  price: number;
-  rating: number;
-  stat: IStatData[];
-  supply: number;
-  _id: string;
-}
-
-interface IUseGetProductsQueryResult {
-  data: IProduct[] | undefined;
-  isLoading: boolean;
-}
 
 const Products = ({ isMaxWidth1025 }: IIsMaxWidth1025) => {
   const { data, isLoading } =

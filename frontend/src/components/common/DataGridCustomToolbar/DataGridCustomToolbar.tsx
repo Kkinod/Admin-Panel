@@ -1,15 +1,14 @@
 import React from "react";
 import { Search } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
-import {
-  GridToolbarColumnsButton,
-  GridToolbarContainer,
-  GridToolbarDensitySelector,
-  GridToolbarExport,
-} from "@mui/x-data-grid";
+import { GridToolbarContainer } from "@mui/x-data-grid";
+import { IDataGridCustomToolbar } from "../../../types/commonComponents";
 import {
   StyledBox,
   StyledBoxWrapper,
+  StyledGridToolbarColumnsButton,
+  StyledGridToolbarDensitySelector,
+  StyledGridToolbarExport,
   StyledIconButton,
   StyledTextField,
 } from "./DataGridCustomToolbar.styles";
@@ -20,14 +19,14 @@ const DataGridCustomToolbar = ({
   setSearchInput,
   setSearch,
   isMaxWidth600px,
-}: any) => {
+}: IDataGridCustomToolbar) => {
   return (
     <GridToolbarContainer>
       <StyledBoxWrapper isMaxWidth600px={isMaxWidth600px}>
         <StyledBox>
-          <GridToolbarColumnsButton />
-          <GridToolbarDensitySelector />
-          <GridToolbarExport />
+          <StyledGridToolbarColumnsButton />
+          <StyledGridToolbarDensitySelector />
+          <StyledGridToolbarExport />
         </StyledBox>
         <StyledTextField
           label={labels.default.searchId}

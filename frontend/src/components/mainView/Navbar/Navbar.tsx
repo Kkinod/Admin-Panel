@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Menu as MenuIcon, Search } from "@mui/icons-material";
-import { IconButton, InputBase, Menu, MenuItem, useTheme } from "@mui/material";
+import { Search } from "@mui/icons-material";
+import { Menu, MenuItem, useTheme } from "@mui/material";
 import profileImage from "../../../assets/images/profile.jpg";
 import { setMode } from "../../../features/globalSlice";
 import useToggleMenuWithAnchor from "../../../shared/hooks/useToggleMenuWithAnchor";
-import { IUser } from "../Layout/Layout";
+import { INavbar } from "../../../types/mainView";
+import { labels } from "../../../shared/constants/labels";
 import {
-  StyledArrowIcon,
   DarkModeIcon,
   FlexBetween,
   LeftContainer,
@@ -15,21 +15,19 @@ import {
   LightModeIcon,
   RightContainer,
   SettingsIcon,
+  StyledArrowIcon,
   StyledButton,
+  StyledIconButton,
+  StyledIconButtonSearch,
   StyledImg,
+  StyledInputBase,
+  StyledMenuIcon,
   StyledTypographyContainer,
   StyledTypographyName,
   StyledTypographyOccupation,
   TopAppBar,
   TopToolbar,
 } from "./Navbar.styles";
-import { labels } from "../../../shared/constants/labels";
-
-interface INavbar extends IUser {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isNonMobile: boolean;
-}
 
 const Navbar = ({
   isSidebarOpen,
@@ -47,30 +45,33 @@ const Navbar = ({
     <TopAppBar>
       <TopToolbar>
         <LeftContainer>
-          <IconButton
+          <StyledIconButton
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             aria-label="open/close sidebar"
           >
-            <MenuIcon />
-          </IconButton>
+            <StyledMenuIcon />
+          </StyledIconButton>
           <LeftSideWrapper>
-            <InputBase placeholder="Search..." />
-            <IconButton aria-label="search">
+            <StyledInputBase placeholder={labels.default.search} />
+            <StyledIconButtonSearch aria-label="search">
               <Search />
-            </IconButton>
+            </StyledIconButtonSearch>
           </LeftSideWrapper>
         </LeftContainer>
         <RightContainer>
-          <IconButton onClick={() => dispatch(setMode())} aria-label="theme">
+          <StyledIconButton
+            onClick={() => dispatch(setMode())}
+            aria-label="theme"
+          >
             {theme.palette.mode === "dark" ? (
               <DarkModeIcon />
             ) : (
               <LightModeIcon />
             )}
-          </IconButton>
-          <IconButton aria-label="settings">
+          </StyledIconButton>
+          <StyledIconButton aria-label="settings">
             <SettingsIcon />
-          </IconButton>
+          </StyledIconButton>
           {isNonMobile ? (
             <FlexBetween>
               <StyledButton onClick={handleClick}>

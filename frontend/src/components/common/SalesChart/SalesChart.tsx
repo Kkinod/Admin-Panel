@@ -2,60 +2,12 @@ import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../features/api";
-import { IIsMaxWidth600px } from "../../../types/maxWidth";
 import { labels } from "../../../shared/constants/labels";
-
-interface ISalesChart extends IIsMaxWidth600px {
-  startDate?: Date;
-  endDate?: Date;
-  isMonthly: boolean;
-}
-
-interface ISalesByCategory {
-  accessories: number;
-  hardwood: number;
-  panels: number;
-  woodenfloor: number;
-}
-
-interface IOverallData {
-  createdAt: string;
-  totalCustomers: number;
-  yearlySalesTotal: number;
-  yearlyTotalSoldUnits: number;
-  year: number;
-  monthlyData: [
-    {
-      month: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  dailyData: [
-    {
-      date: string;
-      totalSales: number;
-      totalUnits: number;
-    }
-  ];
-  salesByCategory: ISalesByCategory;
-}
-
-interface ILineData {
-  x: string;
-  y: number;
-}
-
-export interface ITotalLine {
-  id: string;
-  color: string;
-  data: ILineData[];
-}
-
-export interface IUseGetSalesQuery {
-  data: IOverallData;
-  isLoading: boolean;
-}
+import {
+  ISalesChart,
+  ITotalLine,
+  IUseGetSalesQuery,
+} from "../../../types/commonComponents";
 
 const SalesChart = ({
   startDate = new Date("01/01/2022"),
@@ -129,27 +81,27 @@ const SalesChart = ({
         axis: {
           domain: {
             line: {
-              stroke: theme.palette.primary.main,
+              stroke: theme.palette.secondary.main,
             },
           },
           legend: {
             text: {
-              fill: theme.palette.primary.main,
+              fill: theme.palette.secondary.main,
             },
           },
           ticks: {
             line: {
-              stroke: theme.palette.primary.main,
+              stroke: theme.palette.secondary.main,
               strokeWidth: 1,
             },
             text: {
-              fill: theme.palette.primary.main,
+              fill: theme.palette.secondary.main,
             },
           },
         },
         legends: {
           text: {
-            fill: theme.palette.primary.main,
+            fill: theme.palette.secondary.main,
           },
         },
         tooltip: {
@@ -179,7 +131,7 @@ const SalesChart = ({
       axisBottom={{
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: 90,
+        tickRotation: isMaxWidth600px ? 90 : 0,
         legend: "Month",
         legendOffset: 60,
         legendPosition: "middle",

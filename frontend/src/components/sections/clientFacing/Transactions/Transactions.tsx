@@ -8,33 +8,16 @@ import { useGetTransactionsQuery } from "../../../../features/api";
 import Header from "../../../common/Header/Header";
 import DataGridCustomToolbar from "../../../common/DataGridCustomToolbar/DataGridCustomToolbar";
 import { transactionsColumns } from "../../../../shared/constants/transactionsColumns";
-import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../../types/maxWidth";
+import {
+  ITransactions,
+  IUseGetTransactionsQueryResult,
+} from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
 import {
   StyledBoxContainer,
   StyledBoxWrapper,
   StyledStack,
 } from "../../../../assets/styles/globalComponents.styles";
-
-export interface ITransactionData {
-  _id: string;
-  userId: string;
-  cost: number;
-  products: string[];
-  createdAt: string;
-}
-
-interface IData {
-  total: number;
-  transactions: ITransactionData[];
-}
-
-interface IUseGetTransactionsQueryResult {
-  data: IData;
-  isLoading: boolean;
-}
-
-interface ITransactions extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
 const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
@@ -100,7 +83,14 @@ const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
                 {labels.transactions.noTransactionsInfo}
               </StyledStack>
             ),
-            Toolbar: DataGridCustomToolbar,
+            Toolbar: () => (
+              <DataGridCustomToolbar
+                isMaxWidth600px={isMaxWidth600px}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                setSearch={setSearch}
+              />
+            ),
           }}
           componentsProps={{
             toolbar: {
