@@ -1,4 +1,4 @@
-import { PathMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MuiDrawer from "@mui/material/Drawer";
 import {
   Box,
@@ -13,16 +13,16 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import { IGlobalStyleProps } from "../../../types/globalStyle";
-import { IIsMaxWidth600px } from "../../../types/maxWidth";
-import { IIsSidebarOpen } from "../../../types/sidebar";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
+import {
+  IActiveAndLcText,
+  IIsSidebarOpen,
+  IStyledNavLink,
+  IStyledTypography,
+} from "../../../types/sidebar";
+import { CSSObject, styled, Theme } from "@mui/material/styles";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
 
 const drawerWidth = 240;
-
-interface IActiveAndLcText extends IIsMaxWidth600px, IIsSidebarOpen {
-  active: PathMatch | null;
-}
 
 export const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -86,10 +86,11 @@ export const StyledImg = styled("img")({
 
 export const StyledTypography = styled(Typography, {
   shouldForwardProp: (prop) => prop !== "isSidebarOpen",
-})<IIsSidebarOpen>(({ theme, isSidebarOpen }) => ({
-  margin: "2.25rem 0 1rem 3rem",
+})<IStyledTypography>(({ theme, isSidebarOpen }) => ({
   display: isSidebarOpen ? "block" : "none",
-  color: theme.palette.secondary.main,
+  margin: "2.25rem 0 1rem 3rem",
+  color: theme.palette.brown.second,
+  fontWeight: "bold",
 }));
 
 export const StyledListItemText = styled(ListItemText, {
@@ -160,3 +161,33 @@ export const StyledChevronLeftIcon = styled(ChevronLeft)(({ theme }) => ({
 export const BoxStyled = styled(Box)({
   ...flexCenter,
 });
+
+export const StyledNavLink = styled(NavLink, {
+  shouldForwardProp: (prop) => prop !== "isActive",
+})<IStyledNavLink>(({ isActive, theme }) => ({
+  display: "inline-block",
+  width: "100%",
+  color: isActive ? theme.palette.secondary.main : theme.palette.grey.main,
+  background: isActive
+    ? `linear-gradient(90deg, ${theme.palette.brown.main}, transparent 100%)`
+    : "transparent",
+  textDecoration: "none",
+
+  "&::before": isActive
+    ? {
+        content: '""',
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "4px",
+        height: "100%",
+        backgroundColor: theme.palette.brown.main,
+      }
+    : { content: "none" },
+
+  "&:hover": {
+    background: isActive
+      ? "transparent"
+      : `linear-gradient(90deg, ${theme.palette.brown.main} -150%, transparent 100%)`,
+  },
+}));

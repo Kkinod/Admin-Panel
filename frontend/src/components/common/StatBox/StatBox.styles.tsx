@@ -3,10 +3,14 @@ import { Box, Typography } from "@mui/material";
 import { IGlobalStyleProps } from "../../../types/globalStyle";
 import { flexBetween } from "../../../assets/styles/mixins.styles";
 
-export const StyledBox = styled(Box)({
+export const StyledBox = styled(Box)<IGlobalStyleProps>(({ theme }) => ({
   ...flexBetween,
   gap: "1rem",
-});
+
+  "& .MuiSvgIcon-root": {
+    color: theme.palette.brown.second,
+  },
+}));
 
 export const StyledBoxContainer = styled(Box)<IGlobalStyleProps>(
   ({ theme }) => ({
@@ -22,19 +26,25 @@ export const StyledBoxContainer = styled(Box)<IGlobalStyleProps>(
   })
 );
 
-export const StyledTypographyIcon = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.main,
-}));
+export const StyledTypographyTitle = styled(Typography)<IGlobalStyleProps>(
+  ({ theme }) => ({
+    color: theme.palette.secondary.light,
+  })
+);
 
-export const StyledTypographyValue = styled(Typography)(({ theme }) => ({
-  fontWeight: "600",
-  color: theme.palette.secondary.main,
-}));
+export const StyledTypographyValue = styled(Typography)<IGlobalStyleProps>(
+  ({ theme }) => ({
+    fontWeight: "600",
+    color: theme.palette.brown.second,
+  })
+);
 
-export const StyledTypographyIncrease = styled(Typography)(({ theme }) => ({
-  fontStyle: "italic",
-  color: theme.palette.secondary.light,
-}));
+export const StyledTypographyIncrease = styled(Typography)<IGlobalStyleProps>(
+  ({ theme }) => ({
+    fontStyle: "italic",
+    color: theme.palette.brown.main,
+  })
+);
 
 export const StyledTypographyDescription = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.light,

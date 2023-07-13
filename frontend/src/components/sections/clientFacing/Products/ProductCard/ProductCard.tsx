@@ -6,15 +6,16 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import { IProduct } from "../Products";
+import { labels } from "../../../../../shared/constants/labels";
+import { IProduct } from "../../../../../types/clientFacing";
 import {
   CardContentStyled,
   CardStyled,
   CollapseStyled,
-  TypographyCategoryStyled,
-  TypographyPriceStyled,
+  StyledTypographyCategory,
+  StyledTypographyDescription,
+  StyledTypographyPrice,
 } from "./ProductCard.styles";
-import { labels } from "../../../../../shared/constants/labels";
 
 const ProductCard = ({
   _id,
@@ -31,15 +32,17 @@ const ProductCard = ({
   return (
     <CardStyled>
       <CardContentStyled>
-        <TypographyCategoryStyled gutterBottom>
+        <StyledTypographyCategory gutterBottom>
           {category}
-        </TypographyCategoryStyled>
+        </StyledTypographyCategory>
         <Typography variant="h5">{name}</Typography>
-        <TypographyPriceStyled>
+        <StyledTypographyPrice>
           ${Number(price).toFixed(2)}
-        </TypographyPriceStyled>
+        </StyledTypographyPrice>
         <Rating value={rating} readOnly />
-        <Typography variant="body2">{description}</Typography>
+        <StyledTypographyDescription variant="body2">
+          {description}
+        </StyledTypographyDescription>
       </CardContentStyled>
       <CardActions>
         <Button

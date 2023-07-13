@@ -3,7 +3,7 @@ import {
   StyledBox,
   StyledBoxContainer,
   StyledTypographyDescription,
-  StyledTypographyIcon,
+  StyledTypographyTitle,
   StyledTypographyIncrease,
   StyledTypographyValue,
 } from "./StatBox.styles";
@@ -12,7 +12,7 @@ const StatBox = ({ title, value, increase, icon, description }: any) => {
   return (
     <StyledBoxContainer>
       <StyledBox>
-        <StyledTypographyIcon variant="h6">{title}</StyledTypographyIcon>
+        <StyledTypographyTitle variant="h6">{title}</StyledTypographyTitle>
         {icon}
       </StyledBox>
       <StyledTypographyValue variant="h3">{value}</StyledTypographyValue>

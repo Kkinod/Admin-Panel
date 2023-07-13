@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StyledStack } from "../../../assets/styles/globalComponents.styles";
 import { labels } from "../../../shared/constants/labels";
 import {
-  DataGrid,
   GridColumnVisibilityModel,
   GridPaginationModel,
   GridRowSelectionModel,
@@ -11,7 +10,7 @@ import {
 import { generateUsersColumns } from "../../../shared/utils/columns/generateUsersColumns/generateUsersColumns";
 import { actionColumn } from "../actionColumn/actionColumn";
 import { IUsersTable } from "../../../types/commonComponents";
-import { StyledButton } from "./UsersTable.styles";
+import { StyledButton, StyledDataGrid } from "./UsersTable.styles";
 import {
   StyledGridToolbarColumnsButton,
   StyledGridToolbarDensitySelector,
@@ -52,7 +51,7 @@ const UsersTable = ({
   };
 
   return (
-    <DataGrid
+    <StyledDataGrid
       checkboxSelection={includeCheckboxSelection}
       columnBuffer={7}
       columns={includeActionColumn ? columns.concat(actionColumn) : columns}

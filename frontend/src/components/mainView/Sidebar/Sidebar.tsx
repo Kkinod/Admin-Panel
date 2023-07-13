@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink, useMatch } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import { IconButton } from "@mui/material";
 import logoTransparent from "../../../assets/images/logo_transparent.png";
@@ -23,6 +23,7 @@ import {
   StyledListItemButton,
   StyledListItemIcon,
   StyledListItemText,
+  StyledNavLink,
   StyledTypography,
 } from "./Sidebar.styles";
 
@@ -57,11 +58,10 @@ export const Sidebar = ({
             }
             const lowerCaseText = text.toLowerCase();
             const isActive = useMatch(`/${lowerCaseText}`);
-            const activeClassName = isActive ? "active" : "inactive";
 
             return (
               <ListItem key={text} disablePadding>
-                <NavLink to={`/${lowerCaseText}`} className={activeClassName}>
+                <StyledNavLink to={`/${lowerCaseText}`} isActive={isActive}>
                   <StyledListItemButton isSidebarOpen={isSidebarOpen}>
                     <StyledListItemIcon
                       active={isActive}
@@ -76,7 +76,7 @@ export const Sidebar = ({
                     />
                     {isActive && <StyledChevronRightOutlined />}
                   </StyledListItemButton>
-                </NavLink>
+                </StyledNavLink>
               </ListItem>
             );
           })}

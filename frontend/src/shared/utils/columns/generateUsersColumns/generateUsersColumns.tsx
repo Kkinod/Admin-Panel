@@ -63,7 +63,7 @@ export const generateUsersColumns = ({
       width: 140,
       renderCell: ({ row: { role } }) => {
         return (
-          <StyledBox>
+          <StyledBox role={role}>
             {role === "superadmin" && <StyledSuperAdminIcon />}
             {role === "admin" && <StyledAdminIcon />}
             {role === "user" && <StyledUserIcon />}
