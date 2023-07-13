@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import SalesChart from "../../../common/SalesChart/SalesChart";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 import { labels } from "../../../../shared/constants/labels";
+import { IExampleCustomInputProps } from "../../../../types/salesCharts";
 import {
   StyledBoxChartWrapper,
   StyledBoxContainer,
@@ -14,11 +15,6 @@ import {
   StyledBoxDateWrapper,
   StyledButtonDate,
 } from "./DailySales.styles";
-
-interface ExampleCustomInputProps {
-  value?: string;
-  onClick?: () => void;
-}
 
 const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
   const [startDate, setStartDate] = useState(
@@ -30,7 +26,7 @@ const DailySales = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
 
   const ExampleCustomInput = forwardRef<
     HTMLButtonElement,
-    ExampleCustomInputProps
+    IExampleCustomInputProps
   >(({ value, onClick }, ref) => (
     <StyledButtonDate
       className="example-custom-input"

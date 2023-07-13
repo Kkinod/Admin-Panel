@@ -1,14 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Search } from "@mui/icons-material";
-import { IconButton, Menu, MenuItem, useTheme } from "@mui/material";
+import { Menu, MenuItem, useTheme } from "@mui/material";
 import profileImage from "../../../assets/images/profile.jpg";
 import { setMode } from "../../../features/globalSlice";
 import useToggleMenuWithAnchor from "../../../shared/hooks/useToggleMenuWithAnchor";
-import { IUser } from "../Layout/Layout";
+import { INavbar } from "../../../types/mainView";
 import { labels } from "../../../shared/constants/labels";
 import {
-  StyledArrowIcon,
   DarkModeIcon,
   FlexBetween,
   LeftContainer,
@@ -16,23 +15,19 @@ import {
   LightModeIcon,
   RightContainer,
   SettingsIcon,
+  StyledArrowIcon,
   StyledButton,
+  StyledIconButton,
+  StyledIconButtonSearch,
   StyledImg,
+  StyledInputBase,
+  StyledMenuIcon,
   StyledTypographyContainer,
   StyledTypographyName,
   StyledTypographyOccupation,
   TopAppBar,
   TopToolbar,
-  StyledMenuIcon,
-  StyledIconButton,
-  StyledInputBase,
 } from "./Navbar.styles";
-
-interface INavbar extends IUser {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isNonMobile: boolean;
-}
 
 const Navbar = ({
   isSidebarOpen,
@@ -58,9 +53,9 @@ const Navbar = ({
           </StyledIconButton>
           <LeftSideWrapper>
             <StyledInputBase placeholder={labels.default.search} />
-            <IconButton aria-label="search">
+            <StyledIconButtonSearch aria-label="search">
               <Search />
-            </IconButton>
+            </StyledIconButtonSearch>
           </LeftSideWrapper>
         </LeftContainer>
         <RightContainer>

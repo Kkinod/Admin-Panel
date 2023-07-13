@@ -2,17 +2,12 @@ import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../../features/api";
-import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
+import { IOverviewChart } from "../../../../../types/salesCharts";
 import { labels } from "../../../../../shared/constants/labels";
 import {
   ITotalLine,
   IUseGetSalesQuery,
-} from "../../../../common/SalesChart/SalesChart";
-
-interface IOverviewChart extends IIsMaxWidth600px {
-  isDashboard?: boolean;
-  view: string;
-}
+} from "../../../../../types/commonComponents";
 
 const OverviewChart = ({
   isMaxWidth600px,
@@ -68,27 +63,33 @@ const OverviewChart = ({
         axis: {
           domain: {
             line: {
-              stroke: theme.palette.primary.main,
+              stroke: isDashboard
+                ? theme.palette.primary.main
+                : theme.palette.secondary.main,
             },
           },
           legend: {
             text: {
-              fill: theme.palette.primary.main,
+              fill: theme.palette.secondary.main,
             },
           },
           ticks: {
             line: {
-              stroke: theme.palette.primary.main,
+              stroke: isDashboard
+                ? theme.palette.primary.main
+                : theme.palette.secondary.main,
               strokeWidth: 1,
             },
             text: {
-              fill: theme.palette.primary.main,
+              fill: isDashboard
+                ? theme.palette.primary.main
+                : theme.palette.secondary.main,
             },
           },
         },
         legends: {
           text: {
-            fill: theme.palette.primary.main,
+            fill: theme.palette.secondary.main,
           },
         },
         tooltip: {

@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
-import { IIsDashboard } from "./CategorySalesChart";
 import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
 
 interface IIsMaxWidth600pxOrIsDashboard {
@@ -32,10 +31,6 @@ export const StyledBoxTypographyWrapper = styled(Box, {
   })
 );
 
-export const StyledTypography = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== "isDashboard",
-})<IIsDashboard>(({ isDashboard, theme }) => ({
-  color: isDashboard
-    ? theme.palette.secondary.main
-    : theme.palette.primary.main,
+export const StyledTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
 }));

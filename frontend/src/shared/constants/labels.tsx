@@ -71,6 +71,7 @@ export const labels = {
   categorySales: {
     headerTitle: "CATEGORIES",
     headerSubtitle: "A sales chart from specific categories",
+    total: "Total:",
   },
 
   users: {

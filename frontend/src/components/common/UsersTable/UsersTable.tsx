@@ -9,9 +9,8 @@ import {
   GridToolbarContainer,
 } from "@mui/x-data-grid";
 import { generateUsersColumns } from "../../../shared/utils/columns/generateUsersColumns/generateUsersColumns";
-import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../types/maxWidth";
 import { actionColumn } from "../actionColumn/actionColumn";
-import { IUsersData } from "../../../types/users";
+import { IUsersTable } from "../../../types/commonComponents";
 import { StyledButton } from "./UsersTable.styles";
 import {
   StyledGridToolbarColumnsButton,
@@ -19,20 +18,6 @@ import {
   StyledGridToolbarExport,
   StyledGridToolbarFilterButton,
 } from "../DataGridCustomToolbar/DataGridCustomToolbar.styles";
-
-export interface IUseGetTransactionsQueryResult {
-  data: IUsersData[];
-  isLoading: boolean;
-}
-
-interface IUsersTable
-  extends IIsMaxWidth600px,
-    IIsMaxWidth1025,
-    IUseGetTransactionsQueryResult {
-  includeRoleColumn?: boolean;
-  includeCheckboxSelection?: boolean;
-  includeActionColumn?: boolean;
-}
 
 const UsersTable = ({
   isMaxWidth600px,

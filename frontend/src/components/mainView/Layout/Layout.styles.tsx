@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
-import { IIsMaxWidth600px } from "../../../types/maxWidth";
 
 interface ContainerProps {
   isSidebarOpen: boolean;
@@ -17,13 +16,9 @@ export const Container = styled(Box, {
   overflowY: "hidden",
 }));
 
-export const BoxWrapperStyled = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "isMaxWidth600px",
-})<IIsMaxWidth600px>(({ isMaxWidth600px, theme }) => ({
+export const BoxWrapperStyled = styled(Box)(({ theme }) => ({
   flexGrow: "1",
-  minHeight: "100vh",
-  // maxWidth: isMaxWidth600px ? "84%" : "100%",
   maxWidth: "100%",
-
+  minHeight: "100vh",
   backgroundColor: theme.palette.primary.main,
 }));

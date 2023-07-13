@@ -1,12 +1,13 @@
 import { styled } from "@mui/material/styles";
 import { Box, Stack } from "@mui/material";
+import { IGlobalStyleProps } from "../../types/globalStyle";
 import { flexCenter } from "./mixins.styles";
 
 export const StyledBoxContainer = styled(Box)({
   margin: "1.2rem",
 });
 
-export const StyledBoxWrapper = styled(Box)(({ theme }) => ({
+export const StyledBoxWrapper = styled(Box)<IGlobalStyleProps>(({ theme }) => ({
   height: "74vh",
   "& .MuiDataGrid-root": {
     border: "none",

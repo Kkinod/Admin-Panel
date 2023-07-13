@@ -14,6 +14,7 @@ import {
   StyledBoxHeader,
   StyledBoxOverviewChart,
   StyledBoxSalesChart,
+  StyledBoxTypo,
   StyledBoxWrapper,
   StyledButton,
   StyledEmailIcon,
@@ -100,9 +101,12 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
           />
         </StyledBoxDataGrid>
         <StyledBoxSalesChart>
-          <StyledTypography variant="h6">
-            {labels.ecommerce.salesByCategory}
-          </StyledTypography>
+          <StyledBoxTypo>
+            <StyledTypography variant="h6">
+              {labels.ecommerce.salesByCategory}
+            </StyledTypography>
+          </StyledBoxTypo>
+
           <CategorySalesChart
             isDashboard={true}
             isMaxWidth600px={isMaxWidth600px}

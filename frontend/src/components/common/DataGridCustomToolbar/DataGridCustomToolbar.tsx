@@ -2,7 +2,7 @@ import React from "react";
 import { Search } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
 import { GridToolbarContainer } from "@mui/x-data-grid";
-import { IDataGridCustomToolbar } from "../../../types/dataGridCustomToolbar";
+import { IDataGridCustomToolbar } from "../../../types/commonComponents";
 import {
   StyledBox,
   StyledBoxWrapper,

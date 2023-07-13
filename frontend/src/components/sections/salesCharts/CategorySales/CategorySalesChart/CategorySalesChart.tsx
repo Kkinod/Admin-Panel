@@ -2,8 +2,8 @@ import React from "react";
 import { ResponsivePie } from "@nivo/pie";
 import { useTheme } from "@mui/material";
 import { useGetSalesQuery } from "../../../../../features/api";
-import { IUseGetSalesQuery } from "../../../../common/SalesChart/SalesChart";
 import { IIsMaxWidth600px } from "../../../../../types/maxWidth";
+import { IUseGetSalesQuery } from "../../../../../types/commonComponents";
 import { labels } from "../../../../../shared/constants/labels";
 import {
   StyledBoxContainer,
@@ -87,7 +87,7 @@ const CategorySalesChart = ({
           modifiers: [["darker", 0.2]],
         }}
         enableArcLinkLabels={isMaxWidth600pxOrIsDashboard}
-        arcLinkLabelsTextColor={theme.palette.primary.main}
+        arcLinkLabelsTextColor={theme.palette.secondary.main}
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color" }}
         arcLabelsSkipAngle={10}
@@ -124,8 +124,9 @@ const CategorySalesChart = ({
       <StyledBoxTypographyWrapper
         isMaxWidth600pxOrIsDashboard={isMaxWidth600pxOrIsDashboard}
       >
-        <StyledTypography variant="h6" isDashboard={isDashboard}>
-          {isMaxWidth600pxOrIsDashboard && "Total:"} ${data.yearlySalesTotal}
+        <StyledTypography variant="h6">
+          {isMaxWidth600pxOrIsDashboard && labels.categorySales.total} $
+          {data.yearlySalesTotal}
         </StyledTypography>
       </StyledBoxTypographyWrapper>
     </StyledBoxContainer>

@@ -8,7 +8,10 @@ import {
   PointOfSale,
   Traffic,
 } from "@mui/icons-material";
-import { flexBetween } from "../../../../assets/styles/mixins.styles";
+import {
+  flexBetween,
+  flexCenter,
+} from "../../../../assets/styles/mixins.styles";
 import { IGlobalStyleProps } from "../../../../types/globalStyle";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 
@@ -101,7 +104,7 @@ export const StyledBoxSalesChart = styled(Box)<IGlobalStyleProps>(
     gridColumn: "span 4",
     gridRow: "span 3",
     backgroundColor: theme.palette.secondary[100],
-    padding: "1.5rem",
+    padding: "1.5rem 1.5rem 1.5rem 0",
     borderRadius: "0.55rem",
   })
 );
@@ -109,3 +112,7 @@ export const StyledBoxSalesChart = styled(Box)<IGlobalStyleProps>(
 export const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,
 }));
+
+export const StyledBoxTypo = styled(Box)({
+  ...flexCenter,
+});

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { IIsMaxWidth1025 } from "../../../../App";
+import { IIsMaxWidth1025 } from "../../../../types/maxWidth";
 import { flexCenter } from "../../../../assets/styles/mixins.styles";
 import { styled } from "@mui/material/styles";
 

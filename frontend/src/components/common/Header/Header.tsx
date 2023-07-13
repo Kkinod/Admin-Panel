@@ -1,14 +1,10 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React from "react";
+import { Box } from "@mui/material";
+import { IHeader } from "../../../types/commonComponents";
 import {
   TypographyTitleStyled,
   TypographySubtitleStyled,
-} from './Header.styles';
-
-interface IHeader {
-  title: string;
-  subtitle?: string;
-}
+} from "./Header.styles";
 
 const Header = ({ title, subtitle }: IHeader) => {
   return (

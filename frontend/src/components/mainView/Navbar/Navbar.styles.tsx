@@ -25,6 +25,7 @@ export const TopAppBar = styled(AppBar)({
 
 export const TopToolbar = styled(Toolbar)({
   justifyContent: "space-between",
+  padding: "0 14px",
 });
 
 export const LeftContainer = styled(Box)({
@@ -34,12 +35,15 @@ export const LeftContainer = styled(Box)({
 export const LeftSideWrapper = styled(Box)(({ theme }) => ({
   ...flexBetween,
   borderRadius: "20px",
-  padding: "0.1rem 1.5rem",
-  gap: "3rem",
+  padding: "0.1rem 1rem",
   backgroundColor: theme.palette.secondary[100],
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+}));
+
+export const StyledIconButtonSearch = styled(IconButton)(({ theme }) => ({
   color: theme.palette.secondary.main,
 }));
 
