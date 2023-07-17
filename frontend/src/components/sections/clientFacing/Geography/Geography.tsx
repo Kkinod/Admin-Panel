@@ -70,14 +70,14 @@ const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
             borderColor={theme.palette.secondary.main}
             legends={[
               {
-                anchor: isMaxWidth600px ? "top-right" : "bottom-left",
+                anchor: isMaxWidth600px ? "bottom-right" : "bottom-left",
                 direction: "column",
                 justify: true,
                 translateX: isMaxWidth600px ? -10 : 10,
-                translateY: isMaxWidth600px ? -5 : -25,
+                translateY: isMaxWidth600px ? -40 : -25,
                 itemsSpacing: 0,
-                itemWidth: 94,
-                itemHeight: 18,
+                itemWidth: isMaxWidth600px ? 60 : 94,
+                itemHeight: isMaxWidth600px ? 12 : 18,
                 itemDirection: "left-to-right",
                 itemTextColor: theme.palette.secondary.main,
                 itemOpacity: 0.85,

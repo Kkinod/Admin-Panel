@@ -14,7 +14,7 @@ import {
 } from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
 import {
-  StyledBoxContainer,
+  StyledBoxContainerCharts,
   StyledBoxWrapper,
   StyledStack,
 } from "../../../../assets/styles/globalComponents.styles";
@@ -53,7 +53,7 @@ const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
   }, [data && data.total, setRowCountState]);
 
   return (
-    <StyledBoxContainer>
+    <StyledBoxContainerCharts isMaxWidth600px={isMaxWidth600px}>
       <Header
         title={labels.transactions.headerTitle}
         subtitle={labels.transactions.headerSubtitle}
@@ -95,7 +95,7 @@ const Transactions = ({ isMaxWidth600px, isMaxWidth1025 }: ITransactions) => {
           }}
         />
       </StyledBoxWrapper>
-    </StyledBoxContainer>
+    </StyledBoxContainerCharts>
   );
 };
 

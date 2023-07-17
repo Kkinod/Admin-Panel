@@ -1,13 +1,9 @@
 import { ComponentType } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Typography } from "@mui/material";
-import {
-  DownloadOutlined,
-  Email,
-  PersonAdd,
-  PointOfSale,
-  Traffic,
-} from "@mui/icons-material";
+import { DownloadOutlined, PersonAdd, PointOfSale } from "@mui/icons-material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import {
   flexBetween,
   flexCenter,
@@ -63,13 +59,15 @@ const createStyledIcon = (Icon: ComponentType) =>
     fontSize: "1.6rem",
   }));
 
-export const StyledEmailIcon = createStyledIcon(Email);
+export const StyledAddShoppingCartIcon = createStyledIcon(AddShoppingCartIcon);
 
 export const StyledPointOfSaleIcon = createStyledIcon(PointOfSale);
 
 export const StyledPersonAddIcon = createStyledIcon(PersonAdd);
 
-export const StyledTrafficIcon = createStyledIcon(Traffic);
+export const StyledAccountBalanceWalletIcon = createStyledIcon(
+  AccountBalanceWalletIcon
+);
 
 export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
   gridColumn: "span 8",
@@ -99,12 +97,12 @@ export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const StyledBoxSalesChart = styled(Box)<IGlobalStyleProps>(
+export const StyledBoxChoropleth = styled(Box)<IGlobalStyleProps>(
   ({ theme }) => ({
     gridColumn: "span 4",
     gridRow: "span 3",
     backgroundColor: theme.palette.secondary[100],
-    padding: "1.5rem 1.5rem 1.5rem 0",
+    padding: "1.5rem",
     borderRadius: "0.55rem",
   })
 );

@@ -1,34 +1,34 @@
 import React from "react";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { DataGrid, GridColumnVisibilityModel } from "@mui/x-data-grid";
+import { ResponsiveChoropleth } from "@nivo/geo";
 import { useGetDashboardQuery } from "../../../../features/api";
-import CategorySalesChart from "../../salesCharts/CategorySales/CategorySalesChart/CategorySalesChart";
 import Header from "../../../common/Header/Header";
 import OverviewChart from "../../salesCharts/Overview/OverviewChart/OverviewChart";
 import StatBox from "../../../common/StatBox/StatBox";
 import { transactionsColumns } from "../../../../shared/constants/transactionsColumns";
 import { IIsMaxWidth1025, IIsMaxWidth600px } from "../../../../types/maxWidth";
+import { geoData } from "../../../../shared/constants/geoData";
 import { labels } from "../../../../shared/constants/labels";
 import {
+  StyledAccountBalanceWalletIcon,
+  StyledAddShoppingCartIcon,
+  StyledBoxChoropleth,
   StyledBoxDataGrid,
   StyledBoxHeader,
   StyledBoxOverviewChart,
-  StyledBoxSalesChart,
-  StyledBoxTypo,
   StyledBoxWrapper,
   StyledButton,
-  StyledEmailIcon,
   StyledIcon,
   StyledPersonAddIcon,
   StyledPointOfSaleIcon,
-  StyledTrafficIcon,
-  StyledTypography,
 } from "./Ecommerce.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 
 interface IEcommerce extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
 const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
+  const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery(null);
   const [columnVisibility, setColumnVisibility] =
@@ -52,20 +52,6 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
         </Box>
       </StyledBoxHeader>
       <StyledBoxWrapper isNonMediumScreens={isNonMediumScreens}>
-        <StatBox
-          title={labels.ecommerce.totalCustomers}
-          value={data && data.totalCustomers}
-          increase="+14%"
-          description={labels.ecommerce.sinceLastMonth}
-          icon={<StyledEmailIcon />}
-        />
-        <StatBox
-          title={labels.ecommerce.salesToday}
-          value={data && data.todayStats.totalSales}
-          increase="+21%"
-          description={labels.ecommerce.sinceLastMonth}
-          icon={<StyledPointOfSaleIcon />}
-        />
         <StyledBoxOverviewChart>
           <OverviewChart
             view="sales"
@@ -74,20 +60,45 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
           />
         </StyledBoxOverviewChart>
         <StatBox
-          title={labels.ecommerce.monthlySales}
-          value={data && data.thisMonthStats.totalSales}
-          increase="+5%"
+          title={labels.ecommerce.totalCustomers}
+          value={data && data.totalCustomers}
+          increase="+8%"
           description={labels.ecommerce.sinceLastMonth}
           icon={<StyledPersonAddIcon />}
         />
         <StatBox
+          title={labels.ecommerce.salesToday}
+          value={data && data.todayStats.totalSales}
+          increase="+21%"
+          description={labels.ecommerce.sinceLastDay}
+          icon={<StyledPointOfSaleIcon />}
+        />
+        <StatBox
+          title={labels.ecommerce.monthlySales}
+          value={data && data.thisMonthStats.totalSales}
+          increase="+9%"
+          description={labels.ecommerce.sinceLastMonth}
+          icon={<StyledAddShoppingCartIcon />}
+        />
+        <StatBox
           title={labels.ecommerce.yearlySales}
           value={data && data.yearlySalesTotal}
-          increase="+43%"
-          description={labels.ecommerce.sinceLastMonth}
-          icon={<StyledTrafficIcon />}
+          increase="+83%"
+          description={labels.ecommerce.sinceLastYear}
+          icon={<StyledAccountBalanceWalletIcon />}
         />
 
+        <StyledBoxChoropleth>
+          <ResponsiveChoropleth
+            data={(data && data.formattedLocations) || []}
+            features={geoData.features}
+            domain={[0, 25]}
+            projectionScale={80}
+            projectionTranslation={[0.45, 0.6]}
+            borderWidth={0.7}
+            borderColor={theme.palette.secondary.main}
+          />
+        </StyledBoxChoropleth>
         <StyledBoxDataGrid>
           <DataGrid
             loading={isLoading || !data}
@@ -100,18 +111,6 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
             }}
           />
         </StyledBoxDataGrid>
-        <StyledBoxSalesChart>
-          <StyledBoxTypo>
-            <StyledTypography variant="h6">
-              {labels.ecommerce.salesByCategory}
-            </StyledTypography>
-          </StyledBoxTypo>
-
-          <CategorySalesChart
-            isDashboard={true}
-            isMaxWidth600px={isMaxWidth600px}
-          />
-        </StyledBoxSalesChart>
       </StyledBoxWrapper>
     </StyledBoxContainer>
   );

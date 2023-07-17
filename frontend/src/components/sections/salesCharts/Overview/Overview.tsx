@@ -38,7 +38,10 @@ const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
             </MenuItem>
           </Select>
         </StyledFormControl>
-        <OverviewChart isMaxWidth600px={isMaxWidth600px} view={view} />
+        <OverviewChart
+          isMaxWidth600px={isMaxWidth600px}
+          view={view as "units" | "sales"}
+        />
       </StyledBoxChartWrapper>
     </StyledBoxContainer>
   );
