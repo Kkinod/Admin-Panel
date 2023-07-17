@@ -1,14 +1,26 @@
 import { styled } from "@mui/material/styles";
 import { Box, Stack } from "@mui/material";
 import { IGlobalStyleProps } from "../../types/globalStyle";
+import { IIsMaxWidth600px } from "../../types/maxWidth";
 import { flexCenter } from "./mixins.styles";
 
 export const StyledBoxContainer = styled(Box)({
   margin: "1.2rem",
 });
 
+export const StyledBoxContainerCharts = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isMaxWidth600px",
+})<IIsMaxWidth600px>(({ isMaxWidth600px }) => ({
+  maxWidth: isMaxWidth600px ? "87%" : "95%",
+  margin: "1.2rem",
+}));
+
 export const StyledBoxWrapper = styled(Box)<IGlobalStyleProps>(({ theme }) => ({
   height: "74vh",
+
+  maxWidth: "1250px",
+  margin: "0 auto",
+
   "& .MuiDataGrid-root": {
     border: "none",
   },

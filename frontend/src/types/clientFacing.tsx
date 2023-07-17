@@ -2,7 +2,7 @@ import { IIsMaxWidth1025, IIsMaxWidth600px } from "./maxWidth";
 
 export interface ICustomers extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
-interface IGeographyData {
+export interface IGeographyData {
   id: string;
   value: number;
 }

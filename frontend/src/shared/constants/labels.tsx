@@ -90,5 +90,7 @@ export const labels = {
     yearlySales: "Yearly Sales",
     salesByCategory: "Sales By Category",
     sinceLastMonth: "Since last month",
+    sinceLastDay: "Since last day",
+    sinceLastYear: "Since last year",
   },
 };

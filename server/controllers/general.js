@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import OverallStat from "../models/OverallStat.js";
 import Transaction from "../models/Transaction.js";
+import getCountryIso3 from "country-iso-2-to-3";
 
 export const getUser = async (req, res) => {
   try {
@@ -41,6 +42,23 @@ export const getDashboardStats = async (req, res) => {
       return date === currentDay;
     });
 
+    const users = await User.find();
+
+    const mappedLocations = users.reduce((acc, { country }) => {
+      const countryISO3 = getCountryIso3(country);
+      if (!acc[countryISO3]) {
+        acc[countryISO3] = 0;
+      }
+      acc[countryISO3]++;
+      return acc;
+    }, {});
+
+    const formattedLocations = Object.entries(mappedLocations).map(
+      ([country, count]) => {
+        return { id: country, value: count };
+      }
+    );
+
     res.status(200).json({
       totalCustomers,
       yearlyTotalSoldUnits,
@@ -50,6 +68,7 @@ export const getDashboardStats = async (req, res) => {
       thisMonthStats,
       todayStats,
       transactions,
+      formattedLocations,
     });
   } catch (error) {
     console.error(error);

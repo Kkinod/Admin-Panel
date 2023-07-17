@@ -12,13 +12,13 @@ import {
   ChevronRightOutlined,
   SettingsOutlined,
 } from "@mui/icons-material";
-import { IGlobalStyleProps } from "../../../types/globalStyle";
 import {
   IActiveAndLcText,
   IIsSidebarOpen,
   IStyledNavLink,
   IStyledTypography,
 } from "../../../types/sidebar";
+import { IGlobalStyleProps } from "../../../types/globalStyle";
 import { CSSObject, styled, Theme } from "@mui/material/styles";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
 
