@@ -32,7 +32,7 @@ describe("Overview Component", () => {
     renderWithProviders(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <Overview isMaxWidth600px={false} />
+          <Overview isMaxWidth600px={false} isMaxWidth1025={false} />
         </QueryClientProvider>
       </MemoryRouter>
     );
