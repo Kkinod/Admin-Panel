@@ -87,7 +87,7 @@ const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
                   {
                     on: "hover",
                     style: {
-                      itemTextColor: theme.palette.background.alt,
+                      itemTextColor: theme.palette.secondary.main,
                       itemOpacity: 1,
                     },
                   },
