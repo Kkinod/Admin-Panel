@@ -3,14 +3,17 @@ import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../../../features/api";
 import { IOverviewChart } from "../../../../../types/salesCharts";
-import { labels } from "../../../../../shared/constants/labels";
 import {
   ITotalLine,
   IUseGetSalesQuery,
 } from "../../../../../types/commonComponents";
+import { labels } from "../../../../../shared/constants/labels";
+import { constColors } from "../../../../../assets/styles/theme";
+import { StyledTypographyLoading } from "../../../../../assets/styles/globalComponents.styles";
 
 const OverviewChart = ({
   isMaxWidth600px,
+  isMaxWidth1025,
   isDashboard = false,
   view,
 }: IOverviewChart) => {
@@ -54,7 +57,12 @@ const OverviewChart = ({
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]);
 
-  if (isLoading) return <div>{labels.default.loading}</div>;
+  if (isLoading)
+    return (
+      <StyledTypographyLoading>
+        {labels.default.loading}
+      </StyledTypographyLoading>
+    );
 
   return (
     <ResponsiveLine
@@ -94,7 +102,7 @@ const OverviewChart = ({
         },
         tooltip: {
           container: {
-            color: theme.palette.primary.dark,
+            color: constColors.brown["200"],
           },
         },
       }}
@@ -125,12 +133,12 @@ const OverviewChart = ({
       axisRight={null}
       axisBottom={{
         format: (v) => {
-          if (isDashboard) return v.slice(0, 3);
+          if (isMaxWidth1025) return v.slice(0, 3);
           return v;
         },
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: isMaxWidth600px ? 90 : 0,
+        tickRotation: isMaxWidth600px ? 40 : 0,
         legend: isDashboard ? "" : "Month",
         legendOffset: 45,
         legendPosition: "middle",
@@ -139,7 +147,7 @@ const OverviewChart = ({
         tickValues: isMaxWidth600px && isDashboard ? 4 : 5,
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: isMaxWidth600px ? 90 : 0,
+        tickRotation: isMaxWidth600px ? -90 : 0,
         legend: isDashboard
           ? ""
           : `Total ${view === "sales" ? "Revenue" : "Units"} for Year`,

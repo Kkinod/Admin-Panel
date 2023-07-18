@@ -58,6 +58,7 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
             view="sales"
             isDashboard={true}
             isMaxWidth600px={isMaxWidth600px}
+            isMaxWidth1025={isMaxWidth1025}
           />
         </StyledBoxOverviewChart>
         <StatBox

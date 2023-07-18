@@ -1,6 +1,8 @@
-import { IIsMaxWidth600px } from "./maxWidth";
+import { IIsMaxWidth1025, IIsMaxWidth600px } from "./maxWidth";
 
-export interface IOverviewChart extends IIsMaxWidth600px {
+export interface IOverview extends IIsMaxWidth600px, IIsMaxWidth1025 {}
+
+export interface IOverviewChart extends IIsMaxWidth600px, IIsMaxWidth1025 {
   isDashboard?: boolean;
   view: "units" | "sales";
 }

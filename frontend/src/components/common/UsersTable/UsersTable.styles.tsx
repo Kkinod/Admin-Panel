@@ -3,13 +3,12 @@ import { Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { constColors } from "../../../assets/styles/theme";
 
-export const StyledButton = styled(Button)(({ theme }) => ({
+export const StyledButton = styled(Button)({
   marginBottom: "1px",
   padding: "2px",
-  border: `1px solid ${theme.palette.secondary.main}`,
-  color: theme.palette.secondary.main,
+  color: constColors.black[100],
   backgroundColor: constColors.brownDarkLight[200],
-}));
+});
 
 export const StyledDataGrid = styled(DataGrid)({
   "& .MuiCheckbox-colorPrimary.Mui-checked": {

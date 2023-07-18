@@ -10,7 +10,11 @@ import {
   StyledBoxTypographyWrapper,
   StyledTypography,
 } from "./CategorySalesChart.styles";
-import { StyledBoxNoData } from "../../../../../assets/styles/globalComponents.styles";
+import {
+  StyledBoxNoData,
+  StyledTypographyLoading,
+} from "../../../../../assets/styles/globalComponents.styles";
+import { constColors } from "../../../../../assets/styles/theme";
 
 export interface IIsDashboard {
   isDashboard?: boolean;
@@ -26,7 +30,12 @@ const CategorySalesChart = ({
   const theme = useTheme();
   const isMaxWidth600pxOrIsDashboard = !isMaxWidth600px && !isDashboard;
 
-  if (isLoading) return <div>{labels.default.loading}</div>;
+  if (isLoading)
+    return (
+      <StyledTypographyLoading>
+        {labels.default.loading}
+      </StyledTypographyLoading>
+    );
 
   const formattedData = data
     ? Object.entries(data.salesByCategory).map(([category, sales]) => ({
@@ -69,7 +78,7 @@ const CategorySalesChart = ({
           },
           tooltip: {
             container: {
-              color: theme.palette.primary.dark,
+              color: constColors.brown["200"],
             },
           },
         }}
