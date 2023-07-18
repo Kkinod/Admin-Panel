@@ -63,6 +63,7 @@ export const themeSettings = (mode: "dark" | "light") => {
             primary: {
               ...tokensDark.primary,
               main: tokensDark.primary[100],
+              dark: tokensDark.primary[200],
             },
             secondary: {
               ...tokensDark.secondary,
@@ -87,6 +88,7 @@ export const themeSettings = (mode: "dark" | "light") => {
             primary: {
               ...tokensLight.primary,
               main: tokensDark.primary[200],
+              dark: tokensDark.primary[100],
             },
             secondary: {
               ...tokensLight.secondary,

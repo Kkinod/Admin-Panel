@@ -24,6 +24,7 @@ import {
   StyledPointOfSaleIcon,
 } from "./Ecommerce.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
+import { constColors } from "../../../../assets/styles/theme";
 
 interface IEcommerce extends IIsMaxWidth600px, IIsMaxWidth1025 {}
 
@@ -97,6 +98,13 @@ const Ecommerce = ({ isMaxWidth600px, isMaxWidth1025 }: IEcommerce) => {
             projectionTranslation={[0.45, 0.6]}
             borderWidth={0.7}
             borderColor={theme.palette.secondary.main}
+            theme={{
+              tooltip: {
+                container: {
+                  color: constColors.brown["200"],
+                },
+              },
+            }}
           />
         </StyledBoxChoropleth>
         <StyledBoxDataGrid>
