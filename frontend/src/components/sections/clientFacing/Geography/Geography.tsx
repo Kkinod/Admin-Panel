@@ -9,7 +9,10 @@ import { IUseGetGeographyQuery } from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
 import { constColors } from "../../../../assets/styles/theme";
 import { StyledBoxWrapper } from "./Geography.styles";
-import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
+import {
+  StyledBoxContainer,
+  StyledTypographyLoading,
+} from "../../../../assets/styles/globalComponents.styles";
 
 const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
   const theme = useTheme();
@@ -96,7 +99,9 @@ const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
             ]}
           />
         ) : (
-          <>{labels.default.loading}</>
+          <StyledTypographyLoading>
+            {labels.default.loading}
+          </StyledTypographyLoading>
         )}
       </StyledBoxWrapper>
     </StyledBoxContainer>
