@@ -13,6 +13,9 @@ export const constColors = {
     100: "#997d3d",
     200: "#ffe3a3",
   },
+  black: {
+    100: "#000000",
+  },
 };
 
 export const tokensDark = {

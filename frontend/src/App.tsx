@@ -87,7 +87,12 @@ function App() {
               />
               <Route
                 path={`/${navItems.Overview}`}
-                element={<Overview isMaxWidth600px={isMaxWidth600px} />}
+                element={
+                  <Overview
+                    isMaxWidth600px={isMaxWidth600px}
+                    isMaxWidth1025={isMaxWidth1025}
+                  />
+                }
               />
               <Route
                 path={`/${navItems.Daily}`}

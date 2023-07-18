@@ -1,7 +1,8 @@
 import { styled } from "@mui/material/styles";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { IIsMaxWidth600px } from "../../types/maxWidth";
 import { flexCenter } from "./mixins.styles";
+import { constColors } from "./theme";
 
 export const StyledBoxContainer = styled(Box)({
   margin: "1.2rem",
@@ -70,4 +71,9 @@ export const StyledBoxNoData = styled(Box)({
   ...flexCenter,
   height: "30%",
   fontWeight: "bold",
+});
+
+export const StyledTypographyLoading = styled(Typography)({
+  marginTop: "2rem",
+  color: constColors.brown[100],
 });

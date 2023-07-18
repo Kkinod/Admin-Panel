@@ -2,12 +2,14 @@ import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../features/api";
-import { labels } from "../../../shared/constants/labels";
 import {
   ISalesChart,
   ITotalLine,
   IUseGetSalesQuery,
 } from "../../../types/commonComponents";
+import { labels } from "../../../shared/constants/labels";
+import { constColors } from "../../../assets/styles/theme";
+import { StyledTypographyLoading } from "../../../assets/styles/globalComponents.styles";
 
 const SalesChart = ({
   startDate = new Date("01/01/2022"),
@@ -72,7 +74,12 @@ const SalesChart = ({
     return [formattedData];
   }, [data, startDate, endDate]);
 
-  if (isLoading) return <div>{labels.default.loading}</div>;
+  if (isLoading)
+    return (
+      <StyledTypographyLoading>
+        {labels.default.loading}
+      </StyledTypographyLoading>
+    );
 
   return (
     <ResponsiveLine
@@ -106,7 +113,7 @@ const SalesChart = ({
         },
         tooltip: {
           container: {
-            color: theme.palette.primary.dark,
+            color: constColors.brown["200"],
           },
         },
       }}
@@ -139,7 +146,7 @@ const SalesChart = ({
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: isMaxWidth600px ? 90 : 0,
+        tickRotation: isMaxWidth600px ? -90 : 0,
         legend: "Total",
         legendOffset: isMaxWidth600px ? -20 : -50,
         legendPosition: "middle",

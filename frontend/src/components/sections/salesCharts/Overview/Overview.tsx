@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "../../../common/Header/Header";
 import OverviewChart from "./OverviewChart/OverviewChart";
-import { IIsMaxWidth600px } from "../../../../types/maxWidth";
+import { IOverview } from "../../../../types/salesCharts";
+import { labels } from "../../../../shared/constants/labels";
 import {
   StyledBoxChartWrapper,
   StyledBoxContainer,
 } from "../../../../assets/styles/globalComponents.styles";
 import { StyledFormControl } from "./Overview.styles";
-import { labels } from "../../../../shared/constants/labels";
 
-const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
+const Overview = ({ isMaxWidth600px, isMaxWidth1025 }: IOverview) => {
   const [view, setView] = useState("units");
 
   return (
@@ -40,6 +40,7 @@ const Overview = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
         </StyledFormControl>
         <OverviewChart
           isMaxWidth600px={isMaxWidth600px}
+          isMaxWidth1025={isMaxWidth1025}
           view={view as "units" | "sales"}
         />
       </StyledBoxChartWrapper>
