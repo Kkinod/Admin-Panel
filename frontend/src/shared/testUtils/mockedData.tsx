@@ -1,6 +1,5 @@
-import { IProduct } from "../../components/sections/clientFacing/Products/Products";
-import { ITransactionData } from "../../components/sections/clientFacing/Transactions/Transactions";
-import { IUsersData } from "../../components/sections/clientFacing/Customers/Customers";
+import { IProduct, ITransactionData } from "../../types/clientFacing";
+import { IUsersData } from "../../types/users";
 
 export const mockedProductData: IProduct = {
   _id: "123",
