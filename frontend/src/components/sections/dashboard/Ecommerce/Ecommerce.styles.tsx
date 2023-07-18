@@ -4,12 +4,11 @@ import { Box, Button, Typography } from "@mui/material";
 import { DownloadOutlined, PersonAdd, PointOfSale } from "@mui/icons-material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 import {
   flexBetween,
   flexCenter,
 } from "../../../../assets/styles/mixins.styles";
-import { IGlobalStyleProps } from "../../../../types/globalStyle";
-import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 
 interface IIsNonMediumScreens {
   isNonMediumScreens: boolean;
@@ -97,15 +96,13 @@ export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const StyledBoxChoropleth = styled(Box)<IGlobalStyleProps>(
-  ({ theme }) => ({
-    gridColumn: "span 4",
-    gridRow: "span 3",
-    backgroundColor: theme.palette.secondary[100],
-    padding: "1.5rem",
-    borderRadius: "0.55rem",
-  })
-);
+export const StyledBoxChoropleth = styled(Box)(({ theme }) => ({
+  gridColumn: "span 4",
+  gridRow: "span 3",
+  backgroundColor: theme.palette.secondary.dark,
+  padding: "1.5rem",
+  borderRadius: "0.55rem",
+}));
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,

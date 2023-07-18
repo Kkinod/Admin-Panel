@@ -4,14 +4,7 @@ export interface ITheme {
   theme?: ReturnType<typeof themeSettings>;
 }
 
-export const colors = {
-  secondary: "#b58b5b",
-  primary: "#c5a47e",
-  new: "#ffe3a3",
-  new2: "#cca752",
-};
-
-export const tokensDark = {
+export const constColors = {
   brown: {
     100: "#cca752",
     200: "#c5a47e",
@@ -20,6 +13,9 @@ export const tokensDark = {
     100: "#997d3d",
     200: "#ffe3a3",
   },
+};
+
+export const tokensDark = {
   green: {
     100: "#b7fe2b",
   },
@@ -69,19 +65,9 @@ export const themeSettings = (mode: "dark" | "light") => {
               main: tokensDark.primary[100],
             },
             secondary: {
-              // ...tokensDark.secondary,
-              100: tokensDark.secondary[100],
+              ...tokensDark.secondary,
               main: tokensDark.secondary[200],
-            },
-            brown: {
-              ...tokensDark.brown,
-              main: tokensDark.brown[100],
-              second: tokensLight.brown[200],
-            },
-            brownDarkLight: {
-              ...tokensLight.brownDarkLight,
-              main: tokensLight.brownDarkLight[100],
-              second: tokensLight.brownDarkLight[200],
+              dark: tokensDark.secondary[100],
             },
             green: {
               ...tokensDark.green,
@@ -105,16 +91,7 @@ export const themeSettings = (mode: "dark" | "light") => {
             secondary: {
               ...tokensLight.secondary,
               main: tokensDark.secondary[100],
-            },
-            brown: {
-              ...tokensLight.brown,
-              main: tokensLight.brown[200],
-              second: tokensLight.brown[100],
-            },
-            brownDarkLight: {
-              ...tokensLight.brownDarkLight,
-              main: tokensLight.brownDarkLight[200],
-              second: tokensLight.brownDarkLight[100],
+              dark: tokensDark.secondary[200],
             },
             green: {
               ...tokensLight.green,

@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle<IGlobalStyleProps>`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.palette.secondary[100]};
+    background-color: ${({ theme }) => theme.palette.secondary.dark};
   }
 
   html {

@@ -12,14 +12,13 @@ import {
   ChevronRightOutlined,
   SettingsOutlined,
 } from "@mui/icons-material";
+import { CSSObject, styled, Theme } from "@mui/material/styles";
 import {
   IActiveAndLcText,
   IIsSidebarOpen,
   IStyledNavLink,
-  IStyledTypography,
 } from "../../../types/sidebar";
-import { IGlobalStyleProps } from "../../../types/globalStyle";
-import { CSSObject, styled, Theme } from "@mui/material/styles";
+import { constColors } from "../../../assets/styles/theme";
 import { flexCenter } from "../../../assets/styles/mixins.styles";
 
 const drawerWidth = 240;
@@ -51,7 +50,7 @@ export const SidebarContainer = styled(Box)({
 
 export const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
-})<IGlobalStyleProps>(({ theme, open }) => ({
+})(({ theme, open }) => ({
   boxSizing: "border-box",
   width: drawerWidth,
   flexShrink: 0,
@@ -60,14 +59,14 @@ export const Drawer = styled(MuiDrawer, {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": {
       ...openedMixin(theme),
-      backgroundColor: theme.palette.secondary[100],
+      backgroundColor: theme.palette.secondary.dark,
     },
   }),
   ...(!open && {
     ...closedMixin(theme),
     "& .MuiDrawer-paper": {
       ...closedMixin(theme),
-      backgroundColor: theme.palette.secondary[100],
+      backgroundColor: theme.palette.secondary.dark,
     },
   }),
 }));
@@ -86,10 +85,10 @@ export const StyledImg = styled("img")({
 
 export const StyledTypography = styled(Typography, {
   shouldForwardProp: (prop) => prop !== "isSidebarOpen",
-})<IStyledTypography>(({ theme, isSidebarOpen }) => ({
+})<IIsSidebarOpen>(({ isSidebarOpen }) => ({
   display: isSidebarOpen ? "block" : "none",
   margin: "2.25rem 0 1rem 3rem",
-  color: theme.palette.brown.second,
+  color: constColors.brown[200],
   fontWeight: "bold",
 }));
 
@@ -169,7 +168,7 @@ export const StyledNavLink = styled(NavLink, {
   width: "100%",
   color: isActive ? theme.palette.secondary.main : theme.palette.grey.main,
   background: isActive
-    ? `linear-gradient(90deg, ${theme.palette.brown.main}, transparent 100%)`
+    ? `linear-gradient(90deg, ${constColors.brown[200]}, transparent 100%)`
     : "transparent",
   textDecoration: "none",
 
@@ -181,13 +180,13 @@ export const StyledNavLink = styled(NavLink, {
         left: "0",
         width: "4px",
         height: "100%",
-        backgroundColor: theme.palette.brown.main,
+        backgroundColor: constColors.brown[200],
       }
     : { content: "none" },
 
   "&:hover": {
     background: isActive
       ? "transparent"
-      : `linear-gradient(90deg, ${theme.palette.brown.main} -150%, transparent 100%)`,
+      : `linear-gradient(90deg, ${constColors.brown[200]} -150%, transparent 100%)`,
   },
 }));

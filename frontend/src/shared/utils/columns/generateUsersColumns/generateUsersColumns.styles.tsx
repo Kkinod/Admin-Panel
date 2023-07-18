@@ -5,11 +5,11 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import { IGenerateUsersColumnsBox } from "../../../../types/utils";
-import { IGlobalStyleProps } from "../../../../types/globalStyle";
+import { constColors } from "../../../../assets/styles/theme";
 
 export const StyledBox = styled(Box, {
   shouldForwardProp: (prop) => prop !== "role",
-})<IGenerateUsersColumnsBox>(({ role, theme }) => ({
+})<IGenerateUsersColumnsBox>(({ role }) => ({
   display: "flex",
   justifyContent: "center",
   width: "100%",
@@ -17,24 +17,19 @@ export const StyledBox = styled(Box, {
   margin: "0 auto",
   borderRadius: "4px",
   backgroundColor:
-    role === "superadmin"
-      ? theme.palette.brownDarkLight.main
-      : theme.palette.brownDarkLight.second,
+    role === "superadmin" ? constColors.brown[200] : constColors.brown[100],
 }));
 
-export const StyledTypography = styled(Typography)<IGlobalStyleProps>(
-  ({ theme }) => ({
-    marginLeft: "5px",
-    color: theme.palette.brown.main,
-  })
-);
+export const StyledTypography = styled(Typography)({
+  marginLeft: "5px",
+});
 
-export const StyledLink = styled(Link)<IGlobalStyleProps>(({ theme }) => ({
+export const StyledLink = styled(Link)({
   textDecoration: "none",
-  color: theme.palette.brownDarkLight.main,
+  color: constColors.brown[100],
   fontWeight: "bold",
   cursor: "pointer",
-}));
+});
 
 export const StyledAdminIcon = styled(AdminPanelSettingsOutlinedIcon)(
   ({ theme }) => ({

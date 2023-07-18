@@ -1,5 +1,3 @@
-import { IGlobalStyleProps } from "./globalStyle";
-
-export interface IGenerateUsersColumnsBox extends IGlobalStyleProps {
+export interface IGenerateUsersColumnsBox {
   role: "superadmin" | "admin" | "user";
 }

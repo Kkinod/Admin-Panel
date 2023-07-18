@@ -1,3 +1,4 @@
+import { ComponentType } from "react";
 import { Box, IconButton, TextField } from "@mui/material";
 import {
   GridToolbarColumnsButton,
@@ -5,10 +6,10 @@ import {
   GridToolbarExport,
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
+import { constColors } from "../../../assets/styles/theme";
+import { IGlobalStyleProps } from "../../../types/globalStyle";
 import { styled } from "@mui/material/styles";
 import { flexBetween } from "../../../assets/styles/mixins.styles";
-import { ComponentType } from "react";
-import { IGlobalStyleProps } from "../../../types/globalStyle";
 
 interface IIsMaxWidth600px {
   isMaxWidth600px: boolean;
@@ -25,24 +26,22 @@ export const StyledBoxWrapper = styled(StyledBox, {
   flexDirection: isMaxWidth600px ? "column" : "row",
 }));
 
-export const StyledTextField = styled(TextField)<IGlobalStyleProps>(
-  ({ theme }) => ({
-    marginBottom: "0.5rem",
-    width: "15rem",
+export const StyledTextField = styled(TextField)({
+  marginBottom: "0.5rem",
+  width: "15rem",
 
-    "& label": {
-      color: theme.palette.brown.main,
-    },
+  "& label": {
+    color: constColors.brown[200],
+  },
 
-    "& .css-t2okzi-MuiInputBase-root-MuiInput-root:before": {
-      borderBottom: `1px solid ${theme.palette.brown.main}`,
-    },
+  "& .css-t2okzi-MuiInputBase-root-MuiInput-root:before": {
+    borderBottom: `1px solid ${constColors.brown[200]}`,
+  },
 
-    "& .MuiInputBase-input": {
-      color: theme.palette.brown.main,
-    },
-  })
-);
+  "& .MuiInputBase-input": {
+    color: constColors.brown[200],
+  },
+});
 
 export const StyledIconButton = styled(IconButton)<IGlobalStyleProps>(
   ({ theme }) => ({
@@ -51,9 +50,9 @@ export const StyledIconButton = styled(IconButton)<IGlobalStyleProps>(
 );
 
 const createStyledGridToolbar = (GridToolbar: ComponentType) =>
-  styled(GridToolbar)<IGlobalStyleProps>(({ theme }) => ({
-    color: theme.palette.brown.main,
-  }));
+  styled(GridToolbar)({
+    color: constColors.brown[200],
+  });
 
 export const StyledGridToolbarColumnsButton = createStyledGridToolbar(
   GridToolbarColumnsButton

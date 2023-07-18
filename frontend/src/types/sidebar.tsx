@@ -18,5 +18,3 @@ export interface IStyledNavLink extends IGlobalStyleProps {
 export interface IActiveAndLcText extends IIsMaxWidth600px, IIsSidebarOpen {
   active: PathMatch | null;
 }
-
-export interface IStyledTypography extends IGlobalStyleProps, IIsSidebarOpen {}
