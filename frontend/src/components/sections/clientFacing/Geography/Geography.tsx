@@ -7,6 +7,7 @@ import { useGetGeographyQuery } from "../../../../features/api";
 import { IIsMaxWidth600px } from "../../../../types/maxWidth";
 import { IUseGetGeographyQuery } from "../../../../types/clientFacing";
 import { labels } from "../../../../shared/constants/labels";
+import { constColors } from "../../../../assets/styles/theme";
 import { StyledBoxWrapper } from "./Geography.styles";
 import { StyledBoxContainer } from "../../../../assets/styles/globalComponents.styles";
 
@@ -53,7 +54,7 @@ const Geography = ({ isMaxWidth600px }: IIsMaxWidth600px) => {
               },
               tooltip: {
                 container: {
-                  color: theme.palette.primary.dark,
+                  color: constColors.brown["200"],
                 },
               },
             }}

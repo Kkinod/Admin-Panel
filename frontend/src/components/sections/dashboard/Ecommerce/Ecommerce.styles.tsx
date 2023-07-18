@@ -84,7 +84,7 @@ export const StyledBoxDataGrid = styled(Box)(({ theme }) => ({
     borderBottom: "none",
   },
   "& .MuiDataGrid-virtualScroller": {
-    backgroundColor: theme.palette.background.alt,
+    backgroundColor: theme.palette.primary.dark,
   },
   "& .MuiDataGrid-footerContainer": {
     backgroundColor: theme.palette.secondary.main,
