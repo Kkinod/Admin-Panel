@@ -1,6 +1,6 @@
 ------------------ Work in progress ------------------
 
-# AdminPanel
+# Admin Panel
 
 Start by Vite
 
