@@ -2,7 +2,7 @@
 
 # Admin Panel
 
-<a href="[https://kkinod.github.io/Mr-WoodenFloor__WebPage-React/](https://adminpanelfrontend.onrender.com)">LIVE version</a>
+<a href="https://adminpanelfrontend.onrender.com">LIVE version</a>
 
 Start by Vite
 
