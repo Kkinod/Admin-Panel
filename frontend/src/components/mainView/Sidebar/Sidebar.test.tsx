@@ -36,7 +36,7 @@ describe("Sidebar", () => {
     expect(logo).toBeInTheDocument();
   });
 
-  it("renders navigation items correctly when sidebar is open", () => {
+  it("renders navigations items correctly when sidebar is open", () => {
     renderWithProviders(
       <MemoryRouter>
         <Sidebar
@@ -53,7 +53,7 @@ describe("Sidebar", () => {
     });
   });
 
-  it("navigation items link to correct path", () => {
+  it("navigations items link to correct path", () => {
     renderWithProviders(
       <MemoryRouter>
         <Sidebar
@@ -91,7 +91,7 @@ describe("Sidebar", () => {
       });
   });
 
-  it("navigation item icons should be visible when sidebar is closed", () => {
+  it("navigations item icons should be visible when sidebar is closed", () => {
     renderWithProviders(
       <MemoryRouter>
         <Sidebar

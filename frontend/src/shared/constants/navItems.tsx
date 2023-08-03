@@ -1,4 +1,5 @@
 export enum navItems {
+  Home = "Home",
   Dashboard = "Dashboard",
   User = "User",
   Ecommerce = "Ecommerce",
