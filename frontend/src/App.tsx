@@ -17,9 +17,9 @@ import SingleUser from "./components/sections/management/Users/SingleUser/Single
 import Transactions from "./components/sections/clientFacing/Transactions/Transactions";
 import Users from "./components/sections/management/Users/Users";
 import { generateUsersColumns } from "./shared/utils/columns/generateUsersColumns/generateUsersColumns";
+import { navigations } from "./shared/constants/navigations";
 import { themeSettings } from "./assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/globalStyles.styles";
-import { navItems } from "./shared/constants/navItems";
 
 function App() {
   const mode = useSelector((state: RootState) => state.global.darkLightMode);
@@ -37,11 +37,11 @@ function App() {
           <Routes>
             <Route element={<Layout isMaxWidth600px={isMaxWidth600px} />}>
               <Route
-                path="/"
-                element={<Navigate to={`/${navItems.Ecommerce}`} replace />}
+                path={navigations.home.path}
+                element={<Navigate to={navigations.ecommerce.path} replace />}
               />
               <Route
-                path={`/${navItems.Ecommerce}`}
+                path={navigations.ecommerce.path}
                 element={
                   <Ecommerce
                     isMaxWidth600px={isMaxWidth600px}
@@ -50,11 +50,11 @@ function App() {
                 }
               />
               <Route
-                path={`/${navItems.Products}`}
+                path={navigations.products.path}
                 element={<Products isMaxWidth1025={isMaxWidth1025} />}
               />
               <Route
-                path={`/${navItems.Orders}`}
+                path={navigations.orders.path}
                 element={
                   <Transactions
                     isMaxWidth600px={isMaxWidth600px}
@@ -63,7 +63,7 @@ function App() {
                 }
               />
               <Route
-                path={`/${navItems.Customers}`}
+                path={navigations.customers.path}
                 element={
                   <Customers
                     isMaxWidth600px={isMaxWidth600px}
@@ -72,7 +72,7 @@ function App() {
                 }
               />
               <Route
-                path={`/${navItems.User}/:id`}
+                path={navigations.singleUser.path}
                 element={
                   <SingleUser
                     columns={generateUsersColumns({
@@ -82,11 +82,11 @@ function App() {
                 }
               />
               <Route
-                path={`/${navItems.Geography}`}
+                path={navigations.geography.path}
                 element={<Geography isMaxWidth600px={isMaxWidth600px} />}
               />
               <Route
-                path={`/${navItems.Overview}`}
+                path={navigations.overview.path}
                 element={
                   <Overview
                     isMaxWidth600px={isMaxWidth600px}
@@ -95,19 +95,19 @@ function App() {
                 }
               />
               <Route
-                path={`/${navItems.Daily}`}
+                path={navigations.daily.path}
                 element={<DailySales isMaxWidth600px={isMaxWidth600px} />}
               />
               <Route
-                path={`/${navItems.Monthly}`}
+                path={navigations.monthly.path}
                 element={<MonthlySales isMaxWidth600px={isMaxWidth600px} />}
               />
               <Route
-                path={`/${navItems.Categories}`}
+                path={navigations.category.path}
                 element={<CategorySales isMaxWidth600px={isMaxWidth600px} />}
               />
               <Route
-                path={`/${navItems.Users}`}
+                path={navigations.usersList.path}
                 element={
                   <Users
                     isMaxWidth1025={isMaxWidth1025}

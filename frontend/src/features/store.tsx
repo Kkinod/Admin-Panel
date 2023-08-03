@@ -1,7 +1,7 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import globalReducer from '../features/globalSlice';
-import { api } from './api';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import globalReducer from "../features/globalSlice";
+import { api } from "./api";
 
 const rootReducer = combineReducers({
   global: globalReducer,
