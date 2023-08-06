@@ -4,10 +4,10 @@ import {
   CalendarMonthOutlined,
   Groups2Outlined,
   HomeOutlined,
+  InsertChartOutlined,
   PieChartOutlined,
-  PointOfSaleOutlined,
+  ProductionQuantityLimitsOutlined,
   PublicOutlined,
-  ReceiptLongOutlined,
   ShoppingCartOutlined,
   TodayOutlined,
 } from "@mui/icons-material";
@@ -36,7 +36,7 @@ export const sidebarItems = [
   },
   {
     text: navItems.Orders,
-    icon: <ReceiptLongOutlined />,
+    icon: <ProductionQuantityLimitsOutlined />,
   },
   {
     text: navItems.Geography,
@@ -48,7 +48,7 @@ export const sidebarItems = [
   },
   {
     text: navItems.Overview,
-    icon: <PointOfSaleOutlined />,
+    icon: <InsertChartOutlined />,
   },
   {
     text: navItems.Daily,
