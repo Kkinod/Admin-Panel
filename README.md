@@ -16,7 +16,7 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
 ## Table Of Content
 - [Installation](#installation)
   * [Repository cloning](#repository-cloning)
-  * [dependency installation](#dependency-installation)
+  * [Installation dependency](#installation-dependency)
 - [Project launch](#project-launch)
   * [Frontend launch](#frontend-launch)
   * [On the right](#on-the-right)
@@ -28,13 +28,22 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
 git clone https://github.com/Kkinod/Admin-Panel.git
 ```
 
-### Dependency installation
+### Installation dependency 
 After cloning the repository, run the command that will install all dependencies
 ```
 npm install
 ```
 
-## Project launch
+## Frontend launch
+Go to frontend folder
+```
+cd frontend
+```
+
+
+
+
+
 
 MERN stack: MongoDB, Express.js, React, Node.js
 
