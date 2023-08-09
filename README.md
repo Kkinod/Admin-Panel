@@ -22,7 +22,7 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
   * [On the right](#on-the-right)
 
 ## Installation
-Start by Vite
+git clone https://github.com/Kkinod/Admin-Panel.git
 
 MERN stack: MongoDB, Express.js, React, Node.js
 
