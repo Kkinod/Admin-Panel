@@ -1,6 +1,6 @@
 ------------------ Work in progress ------------------
 
-# Admin Panel
+# Ecommerce Admin Panel
 
 <a href="https://adminpanelfrontend.onrender.com">LIVE version</a>
 
