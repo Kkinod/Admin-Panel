@@ -16,9 +16,9 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
 ## Table Of Content
 - [Installation](#installation)
   * [Repository cloning](#repository-cloning)
-  * [On the right](#on-the-right)
-- [Paste Your Document In Here](#paste-your-document-in-here)
-  * [And a table of contents](#and-a-table-of-contents)
+  * [dependency installation](#dependency-installation)
+- [Project launch](#project-launch)
+  * [Frontend launch](#frontend-launch)
   * [On the right](#on-the-right)
 
 ## Installation
@@ -27,6 +27,15 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
 ```
 git clone https://github.com/Kkinod/Admin-Panel.git
 ```
+
+### Dependency installation
+After cloning the repository, run the command that will install all dependencies
+```
+npm install
+```
+
+## Project launch
+
 MERN stack: MongoDB, Express.js, React, Node.js
 
 
