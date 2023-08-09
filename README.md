@@ -15,7 +15,8 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
 
 ## Table Of Content
 - [Installation](#installation)
-
+  * [Repository cloning](#repository-cloning)
+  * [On the right](#on-the-right)
 - [Paste Your Document In Here](#paste-your-document-in-here)
   * [And a table of contents](#and-a-table-of-contents)
   * [On the right](#on-the-right)
