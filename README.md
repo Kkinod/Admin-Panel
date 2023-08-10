@@ -19,7 +19,6 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
   * [Installation dependency](#installation-dependency)
 - [Project launch](#project-launch)
   * [Frontend launch](#frontend-launch)
-  * [On the right](#on-the-right)
 
 ## Installation
 
@@ -67,7 +66,3 @@ In any case, in the console you should get information on which local address it
 
 MERN stack: MongoDB, Express.js, React, Node.js
 
-
-How to start?
-- clone this repository
-- run the command: npm install
