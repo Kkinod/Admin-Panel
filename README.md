@@ -60,9 +60,3 @@ In any case, in the console you should get information on which local address it
 
 
 
-
-
-
-
-MERN stack: MongoDB, Express.js, React, Node.js
-
