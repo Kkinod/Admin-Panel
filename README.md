@@ -18,6 +18,7 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
   * [Installation dependency](#installation-dependency)
 - [Project launch](#project-launch)
   * [Frontend launch](#frontend-launch)
+  * [Backend launch](#backend-launch)
  
  - [To do](#toDo)
 
@@ -59,6 +60,7 @@ http://127.0.0.1:5174/
 In any case, in the console you should get information on which local address it was started.
 
 ### Backend launch
+information regarding the launch of the backend - soon
 
 ## Todo:
 - add edit user data
