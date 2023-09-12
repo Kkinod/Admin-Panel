@@ -6,7 +6,7 @@
 Live version: <a href="https://adminpanelfrontend.onrender.com">ADMIN PANEL</a>
 <br>
 Because the Admin Panel is set up on a free account, when you first enter the website, downloading data may take up to several dozen seconds.
-
+<br><br>
 What application does?
 
 <a href="https://adminpanelfrontend.onrender.com">ADMIN PANEL</a> was created to easily manage products on the website and have quick access to statistics, e.g. website traffic, products sold, product availability on the website, user lists, user permissions management, etc.
