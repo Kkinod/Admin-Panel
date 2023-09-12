@@ -18,6 +18,8 @@ The goal of this Admin Panel is to be quick and easy interaction with data and c
   * [Installation dependency](#installation-dependency)
 - [Project launch](#project-launch)
   * [Frontend launch](#frontend-launch)
+ 
+ - [To do](#toDo)
 
 ## Installation
 
@@ -58,5 +60,5 @@ In any case, in the console you should get information on which local address it
 
 ### Backend launch
 
-
+### To do:
 
