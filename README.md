@@ -69,4 +69,4 @@ information regarding the launch of the backend - soon
 
 ## Todo:
 - add edit user data
-- login and authentication
+- login, registration and authentication
