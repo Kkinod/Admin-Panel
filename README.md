@@ -70,3 +70,4 @@ information regarding the launch of the backend - soon
 ## Todo:
 - add edit user data
 - login, registration and authentication
+- more custom hook for separate logic
