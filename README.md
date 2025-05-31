@@ -61,6 +61,7 @@ http://127.0.0.1:5174/
 
 In any case, in the console you should get information on which local address it was started.
 
+
 ### Backend launch
 Go to server folder (move from root folder):
 ```
@@ -72,6 +73,11 @@ Create a .env file inside the server/ directory with the following content:
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 ```
+Start the backend server:
+```
+npm start
+```
+
 
 ## Todo:
 - add edit user data
